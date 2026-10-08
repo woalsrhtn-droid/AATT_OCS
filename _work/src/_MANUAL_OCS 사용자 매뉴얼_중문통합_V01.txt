@@ -1,0 +1,4292 @@
+
+
+OCS USER MANUAL
+                     
+
+
+
+
+개요(概要)
+OCS(OHS Control System)는 OHS를 운영하는 시스템으로 반송 작업을 관리하고, 효율적으로 Vehicle을 운영하여 최고의 반송 효율을 실현하는 것을 목적으로 한다. 본 문서는 OCS사용자 매뉴얼로서 OCS 운영 담당자는 효율적인 시스템 운영을 위해 OCS사용 전 본 MANUAL을 반드시 숙지하여야 한다.
+OCS(OHS Control System)是运营管理OHS搬送作业的系统，起目的在于以最好的效率运营Vehicle完成搬送任务 本文档作为OCS 用户手册，为了OCS担当能够熟练运营OCS系统，在使用OCS前必须熟知本文档 
+
+   
+
+
+
+
+
+OCS시스템 H/W 구성 및 통신장비(OCS系统 H/W构成及通信设备)
+
+
+
+
+
+
+
+
+
+시스템 S/W 구성(系统S/W构成)
+
+화면구성(기본구성요소)(画面构成<基本构成要素>)
+전체 UI 구성화면(UI全部构成画面)
+기본 UI 구성요소(UI基本构成要素)
+
+
+로그인 ID 등록(注册用户ID)
+
+View
+
+System
+Home 
+Cluster
+Unuse
+Vehicle
+
+
+Order Group
+
+
+Comm Group
+StationWeightGroup
+
+ErrorTag
+
+
+
+
+
+
+
+
+
+
+
+PLC Tag
+
+
+ Vehicle IO Tag
+Parameter
+
+Color
+
+Status
+
+
+SystemInfo
+
+
+Object
+Point
+
+
+Segment
+Vehicle
+
+Station
+
+Safety
+
+CPS
+MTL
+Ping
+PLC
+
+
+Graphic
+
+
+Memo
+PLC Tag Group
+Transfer
+Transfer Command
+
+
+CycleMove Command
+
+
+Report
+TransferHisory
+ErrorHistory
+
+
+InOutHistory
+
+
+InformHistory
+
+
+RunningHistory
+
+
+NackHistory
+
+
+BlockingHistory
+HandOverHistory
+
+
+CommHistory
+CommErrHistory
+
+
+CassetteHistory
+
+
+PingHistory
+
+
+UIHistory
+
+UserHistory
+
+
+CpuRamHistory
+
+
+HSMSHistory
+
+
+Statistics
+Vehicle
+
+
+
+
+
+
+
+
+
+
+Transfer
+
+
+
+
+
+
+
+
+
+
+Error
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ErrorProfiler
+
+
+
+
+Window
+OrderList
+
+
+
+AlarmList
+
+
+CycleList
+
+PingList
+
+
+
+
+
+
+
+
+CommEvent
+
+DockSetting
+
+
+Layout
+Run
+
+Setting
+
+
+PlayBack
+Run
+
+Export
+
+
+Help
+Version
+
+Define
+
+항목
+项目 | 2. OCS 시스템 H/W구성 및 통신장비
+2. OCS系统 H/W构成及通信设备
+내용
+内容 | MCS -> OCS -> OHS의 H/W구성 및 통신장비, 소프트웨어팀
+掌握MCS -> OCS -> OHS的H/W构成及通信设备，软体部分
+구성도
+构成图 | * 시스템 구성은 사이트 별로 다를 수 있음(系统构成可能因现场而异)
+
+TM19 OCS 네트워크 
+ 1) TM19 OCS 网络
+
+2. AP설치방향
+2. AP 安装方向
+
+3) TM19 OHS 장비 배치도( HUB 케이블 포설)
+3) TM19 OHS 设备分布图(HUB 连线分布)
+
+항목
+项目 | 3. 시스템 S/W구성
+3. 系统S/W构成
+내용
+内容 | OCS Program 구성과 Program별 기능 파악
+시스템 요구사항 및 필수 설치 파일 파악
+掌握OCS Program构成和Program功能
+系统要求事项及掌握需要安装的软件
+구성도
+构成图 | 1) 시스템 요구사항 및 설치 파일(系统要求事项及安装包)
+ - Windows계열(XP이상)
+ - Windows系列(XP以上)
+
+ - DataBase(MS SQL2016)
+ - DataBase(MS SQL2016)
+
+ - .NetFrameWork 4.7.2이상 필요
+ - .NetFrameWork 4.7.2 以上
+
+- AccessDatabaseEngine필요
+- AccessDatabaseEngine
+
+ - XcomPro 필요
+ - XcomPro
+
+
+항목
+项目 | 4. 화면 구성 -> 4.1 전체 UI구성 화면
+4. 画面构成 -> 4.1 UI全部构成画面 
+내용
+内容 | 전체 UI항목 별 기능 확인 및 사용법 파악
+掌握UI上的所有项目功能及使用方法 
+사용 방법
+使用方法 | 
+ ① 사용자 정보 및 로그인
+① 用户信息及用户注册 
+
+② 메뉴 탭 : View, System, Object, Transfer, Report, Statistics, Window, Layout, PlayBack, Help으로 구성되어 있다.
+② 菜单栏：由View, System, Object, Transfer, Report, Statistics, Window, Layout, PlayBack, Help组成 
+
+③ OrderList : Vehicle 차량의 명령 상태 확인
+③ OrderList:可以确认Vehicle小车的接收命令状态 
+
+④ 화면의 확대, 축소 조작 (마우스의 wheel scroll시 화면의 확대, 축소도 가능)
+④ 画面的放大，缩小(也可以用鼠标箭头的wheel scroll进行放大，缩小) 
+
+⑤ 화면 layout : Point와 Segment, 차량 움직임 등을 알 수 있다.
+⑤ 画面layout:显示Point和Segment,车辆移动的轨迹 
+
+⑥ Point, Segment, Vehicle, Station, CassetteID 찾기 : ex) Point번호나 segment 번호 입력 후 Enter, 해당 숫자의 위치가 크게 표시되며, 찾아가는 기능
+⑥ 可以检索Point,Segment,Vehicle,Station,CassetteID :ex)输入Point编号和Segment编号后，按Enter，可以使对应的编号进行放大显示，也可以进行定位 
+
+
+⑦ ErrorList : OCS에서 발생하는 실시간 Error
+⑦ ErrorList: 显示OCS上实时发生的Error 
+
+⑧ 현재 OCS서버의 CPU, Memory, HDD 사용률 표시
+⑧ 显示现在 OCS服务器的CPU,Memory,HDD使用情况 
+
+항목
+项目 | 4. 화면 구성 -> 4.2 기본 UI구성요소
+4. 画面构成 -> 4.2 UI基本构成要素 
+내용
+内容 | 기본 UI 구성요소 및 기능 파악
+Object의 색상 의미 파악(p113 참조)
+UI基本构成要素及掌握功能 
+掌握Object的颜色含义(参考p113) 
+사용 방법
+使用方法 | 
+① Normal Point : OHS가 정 위치 및 이동 가능한 위치
+①Normal Point：OHS可以正位置及可以移动的位置 
+
+② OHS: Over Head SHUTTLE
+② OHS：Over Head SHUTTLE 
+
+③ STB : OHS가 이/적재 하는 Buffer
+③ STB：OHS移/装载的Buffer 
+
+④ EQP Station : OHT가 이/적재 하는 EQP
+④ EQP Station：OHT 移/装载的EQP 
+
+⑤ STB Point : STB이/적재 Point
+⑤ STB Point: STB移/装载 Point 
+
+⑥ EQP Point : EQP 이/적재 Point
+⑥ EQP Point: EQP 移/装载 Point 
+
+⑦ Home Point : OHS가 이/적재 후 대기하는 Point
+⑦ Home Point：OHS 移/装载后的待机Point 
+항목
+项目 | 5. 로그인 ID 등록
+5. 注册用户ID
+내용
+内容 | 작업자 권한에 따른 ID등록, 권한 부여 및 Guest계정의 System조작방지
+根据用户权限注册ID、赋予权限及防止Guest账号的系统操作 
+사용 방법
+使用方法 | 1) Guest < User < Operator < Engineer < Manager 순으로 권한이 주어짐
+ - 권한에 따라 선택할 수 있는 메뉴가 제한되어 있음
+1)用户权限从小到大为Guest < User < Operator < Engineer < Manager 
+ - 根据权限可用的功能有限 
+
+2) 로그인 후 아무런 작업을 하지 않으면 LogoutTimeOver(시스템설정/TM메뉴) 시간 뒤에는 권한이 해제(자동 로그아웃) 된다 
+2) 注册后若长时间没有动作，则会根据LogoutTimeOver(系统设置/TM菜单)设置的时间进行权限解除(自动登出) 
+
+
+
+
+
+① 화면 우측 상단 로그인 클릭
+① 点击画面右上侧的注册 
+
+② 지금 등록 클릭
+② 点击现在注册 
+
+③ 정보 입력
+③ 输入信息 
+
+④ Confirm
+④ Confirm
+
+항목
+项目 | 6. View
+내용
+内容 | 사용자의 필요한 Object만 표시
+根据用户的需求，只显示想观察的Object 
+사용 방법
+使用方法 | 1) 화면 Layout에 표시하는 항목이다.
+1) 在Layout画面上显示的项目 
+
+ 
+2) 개별적으로 SegArrow, SegmentNumber 등을 보고 싶다면 ①의 영역에서 해당 항목을 체크하면 된다.
+2) 如果只想观察SegArrow,SegmentNumber等等的话，只需要在①里选择相应的项目 
+
+3) Layout, Object, Safety, Default, None, Total별로 화면에 표시하고 싶다면 해당 항목을 클릭하면 된다
+3) 如果想根据Layout, Object, Safety, Default, None, Total在画面上显示的话，只需要点击对应项目 
+
+
+
+
+항목
+项目 | 7. System – 7.1 Home -> 7.1.1 Home Point 추가 
+7. System – 7.1 Home -> 7.1.1 增加Home Point 
+내용
+内容 | OHS가 이/적재 후 대기하는 Home Point를 추가 및 삭제
+Home Point 추가 후 Order Group에 추가해야 한다.(p25 참조)
+增加或删除在OHS移/装载后的待机Home Point
+增加Home Point后，还需要在Order Group进行增加 (参考p25 )
+使用方法
+사용 방법 | 
+ 
+
+
+
+
+① System –> Home 클릭
+① 点击System –> Home 
+
+
+
+②  버튼 누르면 Delete, Clear, Insert 할 수 있는 조작화면이 나타남.
+② 点击后，会出现可以进行Delect,Clear,Insert的操作画面 
+
+③ OHS Home Point의 List 값을 추가 (예: Point 173을 추가)
+③ 增加OHS Home Point의 (例子：增加Point 173)
+
+④ 예(Y) 클릭
+④ 点击예(Y)
+
+⑤ Layout 상에서 Point 173이 갈색으로 변경되었다면 Home Point로 설정 된 것을 알 수 있다
+⑤ 在Layout上Point 173颜色变为棕色的话，可以判断为已经设置成了Home Point 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+항목
+项目 | 7. System – 7.1 Home -> Home Point Unuse 및 삭제
+7. System – 7.1 Home -> Home Point Unuse 及删除
+내용
+内容 | OHT가 이/적재 후 대기하는 Home Point를 삭제/수정
+在OHT移/装载后的待机Home Point的删除/修正
+사용 방법
+使用方法 | 1) 생성한 Home point를 사용하지 않을 때 미 사용 Home point로 설정할 수 있다.
+1) 在不使用生成的Home point的时候可以设置成禁止使用的Home point 	
+
+
+
+
+
+① Unuse 할 포인트를 선택한다
+① 点击想进行Unuse的Point 
+② Unuse 체크 박스를 클릭
+② 点击Unuse的方框 
+③ Save 클릭
+③ 点击SAVE 
+④ 예(Y) 클릭
+④ 点击예(Y) 
+⑤ Layout상에서 Home point로 설정된 20번 Point가 갈색으로 되었다면 Unuse가 설정이 된 것을 알 수 있다.
+⑤ 如果在Layout上，已经被设置成Home point的20号Point变为图示的空心棕色三角形，则可以判断为已经设置成Unuse 
+
+
+2) 이전에 추가한 Home point 173을 삭제 하고 싶다면 아래와 같은 절차를 따른다.
+2) 如果想把刚刚设置好的Home point 173 删除掉的话，可以按以下步骤进行删除 
+
+
+
+
+
+
+① 삭제하고자 하는 포인트를 선택한다.
+① 选择想要进行删除的点位 
+② Delete 클릭
+② 点击Delete 
+③ 예(Y) 클릭
+③ 点击예(Y) 
+④ 확인 클릭
+④ 点击확인
+⑤ Layout 상에서 Point 173이 회색으로 변경되었다면 Home Point가 해제된 것을 알 수 있다
+⑤ 在Layout上Point 173已经变为灰色，则可以判断成功将其删除
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+항목
+项目 | 7. System – 7.2 Cluster 
+내용
+内容 | Dead Lock, 차량 특정구간 몰림 방지를 위한 기능
+Cluster 추가 전 사전에 충분한 Simulation후 설정
+Dead Lock，防止车辆堵塞在特定区域的功能 
+在增加Cluster前，请进行充分的观察后再进行  
+사용 방법
+使用方法 | 1) 사용자가 지정한 Point의 집합 속에 몇 대의 차량을 유지하는 것, 해당 집합에 대하여 Blocking 및 기타 설정 등이 가능하다. 기본적으로 한 Cluster 내에는 한 대의 Vehicle 이 지정되게 끔 되어 있으나 여러 대 지정도 가능하다. 
+1) 用户指定的Point的集合中选择可以存在几台小车，对于相应的集合区域可以设置Blocking及其他等等的设置 最基本的Cluster内可以设置成存在1台或多台车辆 
+
+
+
+
+
+
+ 
+ ①  버튼을 누르면 Delete, Clear, Insert 할 수 있는 조작화면이 나타남
+①  点击后会显示可以进行Delete,Clear,Insert的操作画面 
+
+② 클러스터 Number입력 후 Insert클릭
+② 输入Cluster Number后，点击Insert
+
+③ 예(Y) 클릭
+③ 点击예(Y) 
+
+
+④ Icon 설명
+④ Icon说明 
+
+ ⑤ Ctrl + Point Number 선택 후 
+⑤ 图示为用Ctrl + Point的方法，选择Number后，点击 
+ ⑥ Shift + Point Number 드래그 후 
+⑥图示为用Shift + Point的方法，选择 Number后，点击
+※ Cluster Point & Dest Point
+
+ - Point: Cluster 영역에 포함되는 포인트를 의미
+ - Point: 表示在Cluster区域内的点位 
+ - Dest Point : 목적지가 Dest Point에 있을 시 Cluster 영향을 받음
+ - Dest Point : 目的地为Dest Point时，才会收到Cluster的影响 
+
+ ⑦ 클릭 후 Point 영역 드래그
+ ⑦ 点击后，可以直接选择Point区域 
+
+
+ ⑧  클릭하면 해당 Cluster의 영역이 표시된다.
+
+     클릭 시 추가된 영역 표시가 해제된다.
+ ⑧ 点击后，会显示相应的Cluster区域 
+    点击时，已经显示的区域会被删除 
+
+
+
+
+
+
+
+4) Cluster Info
+
+ - Cluster ID : Cluster Number
+
+ - Name : Cluster Name
+
+- MaxVehicleConut : Cluster 내로 들어올 수 있는 총 Vehicle 대수
+- MaxVehicleConut : 可以处在Cluster区域内的Vehicle总台数 
+
+- MaxVehicleReleaseCount : 특정 Cluster 투입 제한을 해제하는 Vehicle Count 수
+- Unuse : Cluster의 기능을 Use/Unuse 시킨다
+- MaxVehicleReleaseCount : 取消特定 Cluster 投入限制的 Vehicle Count 数量
+- Unuse : 可以对Cluster进行 Use/Unuse的功能
+
+- DestOtherCluster : 특정 Cluster내에 있는 Vehicle이 밀어내기로 이동될 Cluster ID를 직접 입력(‘0’으로 설정하면 자동 검색)
+
+
+- DestOtherPoint : 直接输入 Cluster ID( 设置成" 0" 以自动搜索) 在特定 Cluster 中的 Vehicle 将被推走( 设置成" 0 ")
+
+
+
+- ShouldFindOtherClusterHome : 특정 Cluster 내에 있는 Vehicle이 밀어내기로 인해 대기 장소를 찾을 때, 현재 OHS가 속한 Cluster 이외에 다른 Cluster의 Home Point를 검색
+- ShouldFindOtherClusterHome : 因在特定 Cluster 内的Vehicle被推走后，重新生成移动命令时，搜索在OHS内的其他Cluster的Home Point 
+
+
+- ShouldFindOtherClusterOrde : 특정 Cluster 내에 Order가 발생하는 경우, 해당 Cluster내에 있는 Vehicle이 Order 할당 우선순위가 된다.
+- ShouldFindOtherClusterOrde : 在生成特定Cluster内的Order时，对应Cluster内的Vehicle将优先进行搬送 
+
+
+- MaxVehicleLowCount : CLUSTER 차량 배출시작 기준(차량 수>MaxVehicleLowCount)
+- MaxVehicleHighCount : CLUSTER 내부 Order 할당 금지 기준(차량 수 > MaxVehicleHighCount)
+- MaxVehicleLowCount : CLUSTER 车辆投出标准(车数量>MaxVehicleLowCount)
+- MaxVehicleHighCount : CLUSTER 内部 Order 禁止分配标准(车辆数 > MaxVehicleHighCount)
+
+
+- Use Member Vehicle : Control Vehicle Count에 대해서 특정 호기에만 적용 시키기 
+위하여 사용
+- Use Member Vehicle : 对于Control Vehicle Count，适用于特定号机的功能 
+
+- ListPoint : 해당 Cluster에 등록된 Point List
+- ListPoint : 在对应Cluster注册的Point List
+
+- Etc. 기타 : Spare
+ - Etc. 其他 : Spare
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+항목
+项目 | 7. System -> 7.3 Unuse
+
+내용
+内容 | Vehicle의 구간 진입 금지를 위한 Point/Segment Unuse 설정
+반송지연이 발생할 수 있기 때문에 우회경로를 먼저 확인 후 설정
+设置禁止进入Vehicle区间的Point/Segment Unuse
+可能会发生搬送延迟，所以先确认迂回路径后再设定 
+
+
+
+사용 방법
+使用方法 | 
+
+
+
+
+① All(전체 차량) / 특정호기를 선택
+① ALL(全部车辆) / 选择特定号机
+② Unuse point, segment를 선택한 후 SAVE클릭
+② 选择Unuse point, segment后，点击SAVE
+③ 예(Y)클릭
+③ 点击예(Y)
+④ 그림과 같이 Point 335회색에서 황색으로 변했으며 Unuse된 것을 확인할 수 있다
+④ 如图示中，Point 335从灰色变成黄色，则可以判断设置Unuse成功 
+항목
+项目 | 7. System -> 7.4 Vehicle
+내용
+内容 | 신규 Vehicle추가 및 Number, Type, Comm Group등 설정 
+CommGroup을 먼저 추가 후 Vehicle 추가(p23참조)
+增加新的Vehicle及Number,Type,Comm Group等时
+先增加CommGroup后，增加Vehicle(参考p23)
+사용 방법
+使用方法 | 1) 차량번호, 슬롯, 타입, COMMGROUPNUMBER 설정
+2) Vehicle Number는 실제 Vehicle Number와 동일하게 등록 
+1) 设置车辆编号，Slot,类型，COMMGROUPNUMBER
+2) Vehicle Number需要与实际Vehicle Number相同 
+
+
+
+
+
+
+①  버튼 누르면 Delete, Clear, Insert 할 수 있는 조작화면이 나타남
+① 点击后，会显示可以进行Delect,Clear,Insert的操作窗口 
+
+② Insert Vehicle Define
+
+- VehicleNumber : Vehicle Number지정
+- VehicleNumber : 指定Vehicle Number
+- SlotCount : 이/적재 가능한 Slot 개수 지정
+- SlotCount : 可以设置可以进行移/装载的Slot数量
+- VehicleType : Vehicle Type ex) OHT, OHS, AGV, MCT 등 지정
+- VehicleType : 指定Vehicle Type ex) OHT, OHS, AGV, MCT 等
+
+- CommGroup : CommGroup Number 지정 ex) System - CommGroup설정
+- CommGroup : CommGroup Number 指定 ex) System - CommGroup设定
+
+③ Insert버튼 클릭
+③ 点击Insert
+④ Vehicle 추가확인
+④ 确认增加Vehicle
+
+항목
+项目 | 7. System -> 7.5 OrderGroup
+내용
+内容 | Order에 대해 할당 받을 수 있는 Vehicle의 Group설정
+Vehicle Type별 이/적재 가능한 Station파악 후 설정
+对于Order，设置可以接受命令的Vehicle的Group
+根据Vehicle Type，设置可以接受命令的Station
+사용 방법
+使用方法 | 1) 오더 할당 : 모든 Vehicle은 자신이 속한 Group의 Station 물량만을 처리한다.  단, From, To Station 모두 Group에 속해 있어야 한다.
+1) 分配小车：所有Vehicle只能处理被分配好的Group内的Station From,To Station必须都包含在Group内 
+
+2) Home Point : 모든 Vehicle는 오더 완료 후 자기가 속한 Group의 Home Point 중 Home Point를 선택한다 (가까운 Home Point 우선 선택)
+2) Home Point : 所有Vehicle在搬送完成后，只能移动到小车包含在内的Group中的Home Point(优先选择距离最近的Home Point)
+
+
+
+
+
+
+
+
+①  버튼 누르면 Delete, Clear, Insert 할 수 있는 조작화면이 나타남
+
+① 点击 后会显示可以进行 Delete, Clear, Insert的操作窗口 
+
+② Group Number 입력 후 Insert 클릭
+② 输入Group Number后，点击Insert
+
+③ Group 선택 
+③ 选择Grou
+④ Vehicle, Station, Home 추가 후 SAVE클릭
+
+   버튼 클릭 시 From, To Station동시에 추가됨
+④ 增加Vehicle, Station, Home后，点击SAVE 
+
+   点击时，将同时增加From, To Station 
+
+항목
+项目 | 7. System -> 7.6 Comm Group
+내용
+内容 | Vehicle의 통신 IP, Port, LimitTime, ProtocolType 등 설정
+设置Vehicle的通信IP, Port, LimitTime, ProtocolType等 
+
+사용 방법
+使用方法 | 1) CommGroup와 Vehicle Number는 구분하기 쉽게 동일하게 설정
+1) 为了更好的分辨，将CommGroup和Vehicle Number设置成相同的值 
+2) Protocol Type은 Vehicle Type에 맞게 설정
+2) Protocol Type根据Vehicle Type进行设置 
+
+
+
+① 버튼 누르면 Delete, Clear, Insert 할 수 있는 조작화면이 나타남
+① 点击后会显示可以进行Delete, Clear, Insert的操作画面 
+
+② CommGroupNumber : Vehicle Number와 일치
+② CommGroupNumber : 与Vehicle Number统一
+
+- LimitTime : Vehicle 통신 LimitTime
+- LimitTime : Vehicle 通信 LimitTime
+
+- IpAddress : Vehicle 통신 IP
+- IpAddress : Vehicle 通信 IP
+
+- PortNumber : Vehicle 통신 Port
+- PortNumber : Vehicle 通信 Port
+
+- ProtocolType : Protocol Type
+
+
+③ Insert 클릭
+③ 点击Insert
+
+④ 설정 확인 후 SAVE클릭
+④ 确实后，点击SAVE
+
+항목
+项目 | 7. System -> 7.7 StationWeightGroup
+내용
+内容 | 해당 Station에 반송 명령이 생성되면 Segment 가중치를 부여하여 해당 반송이 우회경로로 반송할 수 있도록 경로 설정
+在相应Station上生成搬送命令后，赋予Segment权重，设定路径，使相应搬送经由迂回路径进行搬送 
+
+사용 방법
+使用方法 | 
+
+
+
+①  버튼 누르면 Delete, Clear, Insert 할 수 있는 조작화면이 나타남
+① 点击后会显示可以进行Delete, Clear, Insert的操作界面 
+
+② StationWeightGroup Number를 Insert
+② 将StationWeightGroup Number 进行 Insert
+
+③ 생성된 StationWeightGroup에 From, To Station 추가
+③ 在生成的 StationWeightGroup上，增加 From, To Station
+
+④ Segment 추가 후 Weight 값 할당
+④ 增加Segment 后，生成Weight值
+
+⑤ ‘Save’ 클릭
+⑤ 点击‘Save’ 
+항목
+项目 | 7. System -> 7.8 ErrorTag
+내용
+内容 | OCS에서 발생하는 모든 Error 추가
+Error History 관리를 위한 Error 추가
+增加在OCS上发生的所有Error
+为了管理Error History而增加Error
+사용 방법
+使用方法 | 1) OCS UI에 발생하는 모든 Error를 ErrorTag에 추가한다. ErrorTag에 등록되지 않은 Error 가 발생할 시 Not Defined Error가 발생한다.
+1) 在OCS UI上发生的所有Error都会添加到ErrorTag里 当发生没有在ErrorTag上注册的Error时，会显示为Not Defined Error 
+
+
+
+
+
+① [ERROR TAG] 탭 클릭
+① 点击[ERROR TAG]
+
+② Control를 클릭하면 ErrorTag를 편집할 수 있는 창이 열린다.
+② 点击Control的话，会显示可以编辑ErrorTag的窗口 
+
+③  버튼 누르면 [기타]부분, [SAVE]클릭할 수 있는 창이 나타난다. 
+③ 点击后，[其他]部分，生成可以点击[SAVE]的窗口  
+④ ErrCode, ErrType, ErrEvent, ErrLevel, ShowDelayTime, ErrText, ErrActionText를 입력 후
+[Insert] 클릭
+④ 输入ErrCode, ErrType, ErrEvent, ErrLevel, ShowDelayTime, ErrText, ErrActionText后，
+点击[Insert]
+
+
+⑤여기까지는 한 줄 씩 넣는 방식이며, 엑셀로 편집하여 한꺼번에 Insert하는 방법이 있다. [DOWNLOAD TAG]클릭
+⑤到这里为止为一行一行添加的方式, 存在用Excle进行编辑后，直接一次性载入的方法  点击[DOWNLOAD TAG]
+
+
+
+⑥ Error Tag Excel File 다른 이름으로 저장
+⑥ Error Tag Excel File 另存为 
+
+
+⑦ Excel File 편집 후 저장
+⑦ Excel File编辑后保存 
+
+
+
+⑧ ERROR TAG - OPEN TAG 선택 
+⑧ 选择ERROR TAG - OPEN TAG 
+
+⑨ OPEN TAG FILE 클릭 저장한 TAG FILE 불러오기
+⑨ 点击OPEN TAG FILE 选择制作好的文件 TAG FILE 
+
+CHECK TAG 클릭 후 이상유무 확인
+点击CHECK TAG后可以检查是否存在异常 
+
+OVERWRITE 클릭 후 적용 확인
+点击OVERWRITE后，确认适用 
+
+
+항목
+项目 | 7. System -> 7.9 PLC Tag
+내용
+内容 | PLC Driver에서 사용하는 Tag리스트를 추가/삭제 및 조회할 수 있다.
+PLC와 통신하여 읽어오는 항목들을 등록한다.
+可以增加/删除及搜索在PLC Driver上使用的 Tag列表 
+与PLC通信后，注册PLC项目 
+
+사용 방법
+使用方法 | 
+
+
+
+① PLC Tag 개별로 한 개씩 추가 시 항목 입력 후 Insert 클릭
+① PLC Tag 개별로 한 개씩 추가 시 항목 입력 후 Insert 클릭
+
+② 추가된 Tag의 속성을 수정 필요시 수정 후 SAVE
+② 需要修改增加的 Tag属性时，修改后点击SAVE 
+
+③ 추가된 PLC TAG항목
+③ 增加的 PLC TAG项目
+
+④ OPEN TAG는 ErrorTag의 OPEN TAG와 사용법이 같으므로 생략
+④ OPEN TAG与 ErrorTag的 OPEN TAG的使用方法相同，因而省略 
+
+항목
+项目 | 7. System -> 7.10 Vehicle IO Tag
+내용
+内容 | Vehicle IO 항목에 I/O Index 번호에 명칭을 부여할 수 있다.
+Vehicle Type 별로 설정 가능하며 IO의 Group화가 가능하다.
+IO 값은 차량의 상태 Message에 포함되어 나오니 Vehicle Protocol Manual 참조
+Vehicle IO项目可以给I/O Index编号赋予名称 
+可以按Vehicle Type设定,也可以实现IO的集团化 
+IO值包含在车辆状态Message中，请参考Vehicle Protocol Manual 
+사용 방법
+使用方法 | 1) IO Tag增加方法
+
+
+
+① Vehicle Type 별로 같은 번호를 사용하여 선택
+① 根据Vehicle Type 选择对应的编号
+
+② GroupName에 만들고 싶은 Group명칭 작성 같은 명칭으로 적힌 것끼리 그룹화
+② 在 GroupName 中以类似名称的 Group 名称分组
+
+③ IOName는 IO Index 값에 넣고 싶은 명칭 작성
+③ IOName 可以创建您想要放入 IO Index 值的名称
+
+④ IO index 차량에서 받아오는 상태 값에 포함되어 있는 24바이트(192개 사용가능) 신호를 순서대로 나열하여 사용한다.
+④ 按顺序排列使用从IOindex车辆接收的状态值中包含的24字节(192个可用)信号 
+
+
+
+
+
+
+
+
+
+2)Object - Vehicle 설정방법
+3)Object - Vehicle 设置方法
+
+① 상단 메뉴 중Object > Vehicle 선택 후 Set 탭 선택
+① 在顶部菜单中选择 Object > Vehicle 后选择 Set 标签 
+
+② 하단 TemporaryParam 메뉴의 IoGroupNumber의 값을 IO Tag VehicleNumber 값 입력
+② 将下端TemporaryParam菜单中IoGroupNumber的值输入到IOTag VehicleNumber
+
+
+③ ‘SAVE’클릭
+③ 点击‘SAVE’
+
+④ IO탭에 클릭 후 IO Name이 변경된 것을 확인할 수 있다, IO BIT가 활성화되면 초록색으로 표시됨
+④ 点击IO标签后可确认IO Name已变更，IO BIT激活后显示为绿色 
+
+⑤ OPEN TAG사용법은 Error Tag의 OPEN TAG와 동일하므로 생략
+⑤ OPEN TAG使用方法与Error Tag的OPEN TAG相同，因此省略 
+
+
+
+
+
+
+
+
+
+
+항목
+项目 | 7. System -> 7.11 Parameter
+내용
+内容 | OCS 중요한 설정 내용 파악 및 셋팅
+Parameter 변경은 충분한 사전 Simulation 후 설정
+OCS 重要的配置 内容 识别和设置 
+Parameter变更需在充分的事前Simulation后设定 
+사용 방법
+使用方法 | 
+
+
+
+①  유형별 분류되어 있는 Parameter 项目 중 설정 변경을 원하는 항목 선택
+①  选择按类型分类的 Parameter 项目 中想要更改设置的项目
+
+② 각 항목별 세분화되어 있는 Parameter 중 설정 변경 원하는 항목NAME확인
+② 确认各项目细分的 Parameter 中想要变更设置的项目 NAME
+
+③ Value 항목에서 PARAMETER 사용 유무 TRUE/FALSE 변경 및 해당 값 변경 
+③ Value项目中PARAMETER使用与否TRUE/FALSE变更及相应值变更 
+
+④ 설정 변경 후 SAVE클릭
+④ 更改设置后点击SAVE 
+
+항목
+项目 | 7. System -> 7.12.Color
+내용
+内容 | OCS의 모든 Object별 구분을 위해 색상 변경
+更改颜色以区分 OCS 中的所有 Object
+사용 방법
+使用方法 | 
+
+
+
+① 색상 변경 원하는 Object의 Name확인 및 선택
+① 确认和选择想要更改颜色的 Object 的 Name
+
+② 색상의 채도 마우스 커서 클릭 후  변경가능 
+② 点击鼠标光标后可更改色彩饱和度 
+
+③ 색상의 채도 수치입력으로 변경가능
+③ 可通过输入颜色的饱和度数值进行变更 
+
+④ 색상 변경 후 SAVE 클릭
+④ 更改颜色后点击SAVE
+항목
+项目 | 7. System -> 7.13.Status
+내용
+内容 | 해당PC의 DataBase의 여유공간, 설치위치, 현재상태 확인
+确认相应PC的DataBase的空闲空间、安装位置、当前状态
+사용 방법
+使用方法 | 
+
+
+
+① Check 버튼 클릭 후 정보 조회
+① 点击Check按钮后查询信息 
+
+② DataBaseName, 여유공간, 설치위치, 현재상태 확인
+② 检查 DataBaseName、 空闲空间、 安装位置和当前状态 
+항목
+项目 | 7. System ->7.14.SystemInfo
+내용
+内容 | Active-Active System의 가동되고 있는 프로그램 상태를 표시
+显示Active-Active System的运行程序状态
+사용 방법
+使用方法 | 
+
+
+
+
+항목
+项目 | 8. Object -> 8.1. Point 
+내용
+内容 | Point Type 설비에 맞게 변경
+UserBlock, DisableBlock설정을 통해 차량진입 및 진입금지 설정
+Point Type根据设备变更
+通过User Block, Disable Block设定车辆进入及禁止进入
+사용 방법
+使用方法 | 1) Point 종류는 (Normal, Pass, Stop, Equipment, SideBuffer, MTL Maint, MT LLifter)로 구성되어 있다
+1) Point种类由(Normal, Pass, Stop, Equipment, SideBuffer, MTL Maint, MTLLifter)构成 
+
+- Normal Point : 기본 주행 Point
+- Normal Point : 基本走形 Point
+
+- Pass Point : Vehicle정차없이 지나치는 포인트로RCP는Pass Point 명령불가 
+- Pass Point : 使Vehicle无停车而直接经过的点位，RCP无法下达Pass Point命令 
+
+- Stop Point : Vehicle 일단 정지하는 Point
+- Stop Point : Vehicle 缓停 Point
+
+- Equipment Point : 설비 이/적재 Point
+- Equipment Point:设备移/装载Point
+
+- SideBuffer : STB 이/적재Point
+- SideBuffer : STB 移/装载Point
+
+- MTL Maint : MTL Maint Zone Point
+
+
+- MTL Lifter : MTL Lifter Point 
+
+
+
+
+
+
+
+
+
+
+2) Point Type 变更方法
+ 
+① Type변경을 원하는 Point선택
+① 选择想要进行更改Type的Point
+
+② Point Type 선택 후 변경
+② 选择Point Type后进行变更 
+
+③ Point Type 변경 후 SAVE클릭
+③ Point Type 变更后点击SAVE
+
+④ 변경된 Point 확인 
+④ 确认变更的 Point 
+
+
+3) Auto Block, UserBlock, DisableBlock
+- Auto Block : Winlay 상에서 차량 사이즈와 세그먼트 사이즈 고려 후 자동 생성되는
+             Block Segment List
+- Auto Block:在Winlay上考虑车辆尺寸和Segment后自动生成的
+Block Segment List
+
+
+- UserBlock : AutoBlock리스트에 사용자가 Block Segment 추가할 경우 사용
+- User Block:用户在Auto Block列表中添加Block Segment时使用
+
+- DiableBlock: AutoBlock의 리스트에서 사용자가 Block Segment제외 할 경우 사용
+- Diable Block:在AutoBlock的列表中用户想要排除Block Segment时使用
+
+
+UserBlock, DisableBlock설정방법
+4) UserBlock, DisableBlock设置方法
+
+
+① UserBlock, DisableBlock설정 Point선택
+① 选择设置UserBlock, DisableBlock的 Point
+
+② Vehicle진입 및 진입금지 Point 확인 후 기입
+② 确认Vehicle进入及禁止进入Point后填写
+
+③ 설정변경 후 SAVE클릭 
+③ 更改设置后点击SAVE
+항목
+项目 | 7. Object -> 8.2. Segment
+내용
+内容 | Segment 속성 확인 및 AddWeight, UserBlock, DisableBlock 설정
+반송지연이 발생할 수 있으므로 AddWeight, UserBlock은 Simulation 후 설정
+检查 Segment 属性并配置 AddWeight、 UserBlock 和 DisableBlock
+可能会发生搬送延迟，因此AddWeight, UserBlock在Simulation后设定 
+사용 방법
+使用方法 | 
+
+
+
+① 설정 변경을 원하는 Segment 선택 
+① 选择想要更改配置的 Segment
+
+② Segment에 대한 추가 가중치 설정 시 사용 (변경 시 가중치 값 기입
+② 用于为 Segment 设置额外权重( 更改时填写权重)
+
+③ Auto Block, UserBlock, DisableBlock 설정 (변경 시 Segment 기입)
+③ 设置Auto Block、User Block、Disable Block（变更时填写Segment）
+
+
+- Auto Block : Winlay 상에서 차량 사이즈와 세그먼트 사이즈 고려 후 자동 생성되는 Block Segment List
+- Auto Block:在Winlay上考虑车辆尺寸和Segment后自动生成的Block Segment List
+
+- UserBlock : AutoBlock리스트에 사용자가 Block Segment 추가할 경우 사용
+- User Block:用户在Auto Block列表中添加Block Segment时使用
+
+- DiableBlock : AutoBlock의 리스트에서 사용자가 Block Segment제외 할 경우 사용 
+설정 변경 후 SAVE클릭
+- DiableBlock : 在AutoBlock的列表中用户排除Block Segment时使用更改设置后点击SAVE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+항목
+项目 | 8. Object -> 8.3 Vehicle
+내용
+内容 | 추가된 Vehicle의 상태확인 및 투입/삭제
+OnlineName, I/O Group 등 설정
+确认添加的Vehicle的状态及投入/删除
+OnlineName、 I/ O Group 等配置
+사용 방법
+使用方法 | 1) Commands
+대표적으로<Line in>, <Line Out>의 명령을 구체적으로 설명하며 나머지 Call, Push, Charge, Vehicle의 명령 조작 또한 동일하므로 참고하자
+代表具体说明<Line in>,<Line Out>的命令，剩下的Call, Push, Charge, Vehicle的命令操作也相同 
+
+
+
+
+① 등록하고자 하는 차량 선택 (아직 등록되지 않은 차량 선택)
+① 选择要登记的车辆（选择尚未登记的车辆）
+
+② Commands에서  클릭
+② 在Commands里点击 
+
+③ 차량이 등록되면  이 에서로 바뀐 것을 알 수 있다.
+③ 注册车辆后，从 变为
+
+2) Vehicle Line Out (차량 삭제) 
+2) Vehicle Line Out (车辆删除) 
+
+④ 삭제하고자 하는 차량 선택
+④ 选择要删除的小车
+
+⑤ Commands에서  클릭 
+⑤ 在Commands里点击  
+
+※ 삭제되면 등록차량 이 에서 로 바뀐 것을 알 수 있다
+※ 删除后， 从 变为 
+
+※ Icon说明  
+※ SetFocus : 차량 선택 후 Set Focus 클릭 시 해당 호기를 확대하여 위치를 알려준다
+※ SetFocus : 选择车辆后点击Set Focus时，放大相应小车告知位置 
+
+< Sub Vehicle Command >
+차량의 보조 명령어로서 분기진입이 정상적으로 되지 않을 시 Forcible Entry를 사용하여 진입하도록 한다
+作为车辆的辅助指令，在分支进入不正常时，请使用Forcible Entry进入 
+
+
+
+
+
+
+
+<기타 설명>
+<其他命令>
+-   - Deleted (차량 삭제) : Line Out
+-   - Deleted (删除车辆) : Line Out
+
+-   - Prevent Call : 자동 오더 할당 금지
+-   - Prevent Call : 禁止接受自动命令 
+
+-   - Prevent Push : (다른 차에 의한) 밀어내기 당함을 금지
+   - Prevent Push : 禁止(被其他车辆)推开
+
+-   - Prevent Charge : Charge를 금지 (OHS 해당사항 없음)
+-   - Prevent Charge : 禁止Charge (OHS 不适用)
+
+--  - RFIDReading : 화물을 적재 후에 실 CSTID를 오더 CSTID 와 비교하고, 
+둘의 CSTID가 다른 경우 오더를 삭제함(OHS 해당 없음)
+--  - RFIDReading : 将货物装载后实CSTID与订单CSTID进行比较，两者的CSTID不同时删除订单(OHS不适用)
+
+-   - CleanStatus : 차량이 이/적재 할 화물을 Normal/Clean/Dirty 중에 하나 지정함. 
+ex) Clean 으로 지정된 차량은 Clean한 화물만 이/적재 할 수 있다
+- CleanStatus : 车辆在Normal/Clean/Dirty中指定要装载的货物之一 
+ex) 被指定为Clean的车辆只能装载Clean的货物 
+
+-   - Full Charger Point : 저전압 시 괄호(좌측 괄호부터 우선순위)에 매겨진 Charger로 
+가서 최대치로 충전한다 (OHT 해당사항 없음)
+- Full Charger Point : 低压时用括号（左括号至优先级）规定的Charger去充电至最大值( OHT 无相关事项)
+
+
+
+
+항목
+项目 | 8. Object ->8.4.Station 
+내용
+内容 | Station의 이/적재Point, OnlineName, Type등 주요 설정 확인
+确认Station的移/装载Point、OnlineName、Type等主要设置
+사용 방법
+使用方法 | 
+
+
+
+① 설정 변경 원하는Station 선택
+① 选择想要变更的Station
+
+② 해당 Station OnlineName 기입 및 Property 설정
+② 填写相应的 Station OnlineName 填写和 设置Property
+
+- StationNumber : Station의 ID
+- StationNumber : Station的 ID
+
+- PointNumber : Station의 이/적재 Point
+- PointNumber : Station的移/装载 Point
+
+- Unuse : Station 사용 여부
+- Unuse : Station 是否使用 
+
+- SlotCount : Station의 Slot 개수
+- SlotCount : Station的 Slot 个数 
+
+- OnlineName : MCS와 통신시 사용하는 ID
+- OnlineName : 与MCS通信时使用的ID
+
+- ScreenName : RCP UI상에서 표시되는 ID
+- ScreenName : 在RCP UI上显示的 ID
+
+- StationType : Equipment, Stocker, Transfer등 Station의 Type 설정
+- StationType : 设置Equipment, Stocker, Transfer等 Station的 Type 
+
+- Direction : Vehicle이 이/적재 하는 방향 설정
+- Direction : 设置Vehicle 移、装载的方向 
+
+- WorkType : Station이 투입, 배출, 투입배출 용인지 설정
+- WorkType : 设置Station是否用于投入、排放、投入排放 
+
+- CassetteInfo : 해당 Station에 존재하는 Cassette 수
+- CassetteInfo : 该Station中存在的Cassette数 
+
+- Priority : 특정 Station에 반송이 생성되면 설정수치 만큼 Priority를 더함
+- Priority : 在特定Station中生成搬送命令时，按照设定值添加Priority
+
+- DuplicateFromOrderCount : From Order명령 제한 수(설정치 이상은 Nack처리)
+- DuplicateFromOrderCount : From Order命令限制数量（超过设定值时Nack处理）
+
+- DuplicateToOrderCount : To Order명령 제한 수(설정치 이상은 Nack처리)
+- DuplicateToOrderCount : To Order命令限制数量(超过设定值时Nack处)
+
+④ Commands
+- Set Focus : 각 Station 선택 후 SetFocus 선택 시 해당 Station의 위치를 확대
+- Set Focus : 选择各Station后，选择SetFocus时扩大相应Station的位置 
+
+- All View : UI상에 표기된 모든 스테이션 표시
+- All View : 在UI上表示的所有Station
+
+⑤ Station Mode
+- InputMode : 카세트 Unload 가능 포트로 모드 변경
+- InputMode : 变更可以 Unload卡夹的模式 
+
+- OutputMode : 카세트 Load 가능 포트로 모드 변경
+- OutputMode : 变更可以 Load卡夹的模式 
+
+- InService : 반송 가능 포트로 상위 보고 및 사용유무 변경
+- InService : 向上级报告可以搬送的PORT口和是否使用
+
+- OutService : 반송 불가 포트로 상위 보고 및 사용유무 변경
+- OutService : 向上级报告不可以搬送的PORT口和是否使用
+항목
+项目 | 8.Object -> 8.5. Safety
+내용
+内容 | 각 Safety별 Interlock 영역설정으로 Vehicle 진입 및 사고 방지 
+设置各Safety的Interlock区域，防止Vehicle进入及发生事故 
+사용 방법
+使用方法 |  
+1) Safety 설정을 위해서는 권한을 가진 ID로 로그인 해야 한다
+1) 为了设置Safety，需要拥有权限的ID注册
+
+
+
+①설정 할 Safety를 선택한다.
+①选择想要设置的Safety
+
+③해당 Safety의 Interlock 감지 시 Down Segment 영역을 선택하여 버튼으로 Segment List에 추가. (Shift버튼으로 중복선택 가능)
+③检测相应Safety的Interlock时，选择Down Segment区域，用按钮添加到Segment List （可使用Shift按钮进行重复选择）
+
+④※  버튼을 누른 후 Shift 버튼과 마우스 드래그로 영역설정이 가능하다
+④※ 点击 后 Shift跟鼠标滑轮选择区域 
+
+⑤Info
+- SafetyNumber : Safety의 Number
+- SafetyNumber : Safety的 Number
+
+- DeviceType : Safety의 Type
+- DeviceType : Safety的 Type
+
+- Name : Safety의 이름으로 Safety 객체이름과 Safety map 번호를 입력한다.
+- Name : 以Safety的名字输入Safety个体名称和Safety map编号 
+
+- Unuse : 해당 Safety의 사용 유무
+- Unuse : 对应 Safety的使用与否
+
+- SegmentAreaList : Safety에 설정되어 있는 Segment List Safety 범위확인
+- SegmentAreaList : 确认在Safety上设置好的Segment List Safety范围
+
+<  Safety 이벤트 발생 > 
+    发生Safety Event >
+ 
+
+1) Safety 범위 내에 Vehicle들이 구동을 멈춘다
+1) Safety 范围内的 Vehicle将停止移动 
+     
+- Interlock 감지 영역 내 Vehicle은 RCP Interlock Stop Error 상태로 전환된다. 
+  - Interlock 感知 区域内的 Vehicle将变为 RCP Interlock Stop Error 状态 
+
+2)  2) Safety 범위 외의 Vehicle들을, 범위 내로 접근을 막는다
+     2) 将禁止Safety 范围外的 Vehicle靠近 
+
+
+
+    - 인터락 감지 영역으로 Vehicle 진입 시 Vehicle은 NoWayToDest 상태로 전환되고 
+정지한다.
+- 进入联锁感知领域时，Vehicle转换为NoWayToDest状态并停止移动 
+
+
+- Order List 창 Step 탭에서 감지된 인터락 Number 와 Name을 확인 할 수 있다.
+- 可以在Order List窗 Step类型确认感知的Interlock Number和Name 
+
+
+항목
+项目 | 8. Object ->8.6. CPS 
+내용
+内容 | CPS DOWN구역 Interlock발생으로 해당구역 Vehicle 진입 방지
+CPS 상태확인(RUN, DOWN, FAILOVER)
+CPS DOWN区域发生Interlock，防止进入该区域Vehicle
+CPS状态确认(RUN, DOWN, FAILOVER)
+사용 방법
+使用方法 | 1) CPS감지 시 Interlock영역에 포함된 세그먼트 Interlock 발생
+1) CPS感知时发生Interlock区域中包含的片段Interlock
+
+2) CPS그룹화를 하면 Failover상태에서 정상적인 CPS동장 중이면 차량의 이동가능
+  하며 Fail over된 CPS의 Rail영역이 표기됨
+2) CPS集团化后，在Failover状态下正常进行CPS动作时，车辆可移动并显示 Fail over 的 CPS 的 Rail 区域
+
+
+
+
+①Interlock영역을 설정 할 해당CPS지정
+①指定设置Interlock区域的相应CPS
+
+②해당 CPS Interlock 감지시 Down Segment 영역을 선택하여 버튼으로
+Segment List에 추가. (Shift 버튼으로 중복선택 가능)
+②检测相应CPS Interlock时，选择Down Segment区域，用按钮
+添加到收藏夹列表( 可用 Shift 按钮重复选择)
+
+※  버튼을 누른 후 Shift 버튼과 마우스 드래그로 영역설정가능.
+※ 点击 后， 可以用Shift跟鼠标滑轮设置领域  
+
+③ INFO
+- SafetyNumber : Safety의 Number
+- SafetyNumber : Safety的 Number
+
+- DeviceType : Safety의 Type
+- DeviceType : Safety的 Type
+
+- Name : Safety의 이름으로 Safety 객체이름과 Safety map 번호를 입력한다.
+- Name : 以Safety的名字输入Safety个体名称和Safety map编号 
+
+- Unuse : 해당 Safety의 사용 유무
+- Unuse : 对应 Safety的使用与否 
+
+- SegmentAreaList : Safety에 설정 되어있는 Segment List Safety 범위확인
+- SegmentAreaList : 确认在Safety上设置的Segment List Safety范围 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+항목
+项目 | 8. Object -> 8.7. MTL 
+내용
+内容 | Vehicle 유지보수를 위한 MTL 및 Maintenance Zone 설정
+设置维护Vehicle的MTL和Maintenance Zone
+사용 방법
+使用方法 | 1) Layout에서 MTL 객체 생성 시 MTL에 대한 설정가능
+1) 在Layout中生成MTL个体时可设定MTL
+
+
+
+①MTL세그먼트 설정할 해당 MTL선택
+①选择要设置MTL的Segment的相应MTL 
+
+②MTL Zone 영역에 설정될 Segment List를 버튼으로 추가시킨다 
+
+ 버튼을 누른 후 Shift 버튼과 마우스 드래그로 영역설정가능.
+②把想要设置在MTL Zone领域的 Segment List，通过点击 进行设置
+
+点击 后，可以用 Shift跟鼠标滑轮进行领域设置 
+
+③Info
+- MTLNumber : MTL Number
+
+- ScreenName : UI 화면에 표시되는 MTL Name
+- ScreenName : 在UI画面上表示的MTL Name
+
+- OnlineName : MCS와 통신 시 사용하는 MTL Name
+- OnlineName : 与MCS通信时使用的MTL Name
+
+- Unuse : MTL 사용 유무
+- Unuse : MTL 使用与否
+
+- MTLType : MTL Type
+
+- SegList : MTL Zone 영역에 설정된 Segment List
+- SegList : 设置MTL Zone 领域的Segment List
+
+- PointList : MTL Zone 영역에 설정된 Point List
+- PointList : 设置MTL Zone 领域的 Point List
+- PIOPoint : 차량이 MTL로 진입하기 전에 MTL과 PIO 하는 Point
+- PIOPoint : 车辆进入MTL前，与MTL进行PIO的Point
+
+- PointNumber : MTL Point 
+
+- DetourPointNumber : PIO실패 후 진입실패 시 우회경로를 내릴 Point Number
+- DetourPointNumber : PIO失败并进入失败时的迂回路径的Point Number
+
+④ 차량 배출 가능한 MTL 상태(진입은 반대) 
+④ 车辆投出可能得MTL状态(进入则相反)
+- OrderMode : Auto 
+- Floor : UP 
+- Exist : NoExist
+- TrackMode : Track Out
+- Available : Available
+※ MTL차량 배출시  에서 차량호기 선택 후  버튼 클릭
+※ MTL投出车辆时  在选择对应的小车编号后点击
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+항목
+项目 | 8. Object ->8.8. Ping 
+내용
+内容 | RCP UI상 Ping Unit세팅 후 해당 Ping 유지되는지 확인
+RCP UI上设置Ping Unit后确认相应Ping是否维持 
+사용 방법
+使用方法 | 1) Ping Unit세팅 전 Layout editor에서 Ping Object등록해준뒤 세팅하도록 한다
+1) Ping Unit设置前在Layout editor注册Ping Object后进行设置 
+
+
+
+
+①  클릭
+① 点击 
+
+② Ping Unit Number입력 
+② 输Ping Unit Number 
+
+
+
+
+③ 등록된 Ping Object중 세팅을 원하는 항목 선택
+③ 选择注册的 Ping Object中，想要设置的项目 
+
+④ Setting항목에 Name, 해당 IP Address 넣어준다
+④ 填入Setting项目里的 Name, 对应 IP Address
+
+⑤ 설정 후 SAVE클릭
+⑤ 设置后，点击 SAVE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+항목
+项目 | 8. Object ->8.9. PLC 
+내용
+内容 | IP, PORT 정보 적용 후 PlcTag 데이터READ가능
+适用IP, PORT后，可以进行PlcTag数据READ
+사용 방법
+使用方法 | 1) PLC Group 세팅 전 Layout editor에서 PLC UNIT등록 후 세팅하도록 한다
+1) 设置PLC Group前，在Layout editor里注册PLC UNIT
+
+
+
+① 세팅을 원하는 PLC항목 선택
+① 选择想要设置的PLC项目 
+
+② Setting항목에 해당 값을 넣어주도록 한다
+② Setting项目里输入对应值 
+
+- PlcName : 표기 이름
+- PlcName : 表示名称
+
+- PollingTime : 데이터 읽어오는 주기
+- PollingTime : 读取数据的周期 
+
+- IP : 데이터 읽어올 주소
+- IP : 读取数据的周期 
+
+- TcpPort : 데이터 읽어올 포트 번호
+- TcpPort : 读取数据的Point Number
+
+- TcpPortRange : 통신 실패시 접속할 포트 번호
+- TcpPortRange : 通信失败时，重新连接的Port编号
+
+- VehicleNumber : FoolProof 적용시 비클번호 입력(예:VEH001)
+- VehicleNumber : FoolProof 适用时，请输入小车编号(例:VEH001)
+
+③ 설정 후 SAVE클릭
+③ 设置后点击 SAVE
+항목
+项目 | 8. Object ->8.10. Graphic 
+내용
+内容 | UI에 Graphic 작성하여 설비 명, 전달 내용 등 표시 
+在UI上填写Graphic，显示设备名、传达内容等 
+사용 방법
+使用方法 | 1) Layout editor에서 Text Box등록 후 문구 작성하도록 한다
+1) 在Layout editor注册Text Box后填写句子 
+
+
+
+① 문구작성을 원하는 해당 Text box 선택
+① 选择想要写语句的相应 Text box
+
+② Screen Name에 원하는 문구 삽입, 해주며, FontAlignment 지정을 통해 문구표기 위치 설정
+② 在Screen Name中插入想要的语句， 通过指定 Font Alignment 设置语句标记的位置 
+
+③ 설정 완료 후 SAVE클릭
+③ 设置完成后点击 SAVE
+
+
+항목
+项目 | 8. Object -> 8.11. Memo 
+내용
+内容 | UI 등록된 항목에 대해 MEMO삽입
+为 UI 注册的项目插入 MEMO
+사용 방법
+使用方法 | 
+
+
+① Memo삽입 할 Object 선택
+① 选择要插入Memo的 Object
+
+② Memo 입력 후 ‘SAVE’ 클릭
+② Memo 输入后，点击 ‘SAVE’
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+항목
+项目 | 8. Object -> 8.12. PLC Tag Group 
+내용
+内容 | PLC TAG의 Value값을 Bit 값으로 ON/OFF 묶어서 확인가능
+PLC TAG的Value值可用Bit值ON/OFF捆绑确认
+사용 방법
+使用方法 | 
+
+
+① PLC TAG 설정할 Group 선택
+① 选择 PLC TAG 配置的 Group
+
+② 선택한 Group에 맞는 TAG선택 후  클릭
+② 选择的与 Group正确的TAG后，点击 
+
+③ 설정 확인 후 ‘SAVE’
+③ 设置完成后，点击‘SAVE’
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+항목
+项目 | 9. Transfer ->9.1. Transfer Command 
+내용
+内容 | OCS에서 각 Vehicle 지정하여 수동 반송명령, MOVE Order 등 생성
+OCS指定各Vehicle，生成手动搬送命令、MOVE Order等
+사용 방법
+使用方法 | 1)Transfer (FROM TO) = 이재와 적재명령을 한번에 내릴 경우 사용
+1)Transfer (FROM TO) = 一次性下达转载和装载命令时使用
+
+
+
+
+① Auto 또는 반송을 진행할 Vehicle을 선택
+① 选择Auto或者进行要搬送的Vehicle
+
+※ 카세트 가지고 있는 Vehicle선택X 
+※ 选择有卡夹的Vehicle X 
+
+② FROMTO 탭 선택
+② 选择FROMTO 类型
+
+③ Vehicle에 카세트 이재 예정인 Station(FROM) 선택 
+③ 选择要在Vehicle中重新装入卡夹的Station(FROM) 
+
+④ Vehicle에서 Station으로 카세트 적재 예정인 Station(TO) 선택
+④ 选择从Vehicle到Station的装载预定Station(TO)
+
+⑤ 카세트ID 입력
+⑤ 输入卡夹ID
+
+⑥ 카세트SIZE(MASK, HALF, FULL) 선택
+⑥ 选择卡夹SIZE(MASK, HALF, FULL)
+
+⑦ Send 클릭 
+⑦ 点击Send 
+
+※ 카세트ID입력칸 옆 Copy Selected CassetteID버튼 클릭 시, 차량이 현재
+들고 있는 카세트의 ID가 자동으로 표기된다.
+※ 输入卡夹ID的方框旁边 Copy Selected CassetteID 点击时,会显示现在车辆持有卡夹的ID表示 
+
+
+2) Transfer(FROM) = 이재 명령만 내릴 경우 사용 
+2) Transfer(FROM) = 仅适用于移载命令  
+
+① 카세트 이재 진행예정 Vehicle선택
+① 卡夹预定进行移载时选择的Vehicle 
+
+② FROM 탭 선택
+② 选择FROM类型
+
+③ Vehicle에 카세트 이재 진행예정인 Station(From) 선택
+③ 选择计划在Vehicle重新进行移载的Station(From)
+
+④ 카세트ID입력
+④ 输入卡夹ID
+
+⑤ 카세트SIZE(Mask, Half, Full) 선택
+⑤ 选择卡夹SIZE(Mask, Half, Full)
+
+⑥ Send 클릭  
+⑥ 点击Send
+
+
+
+
+
+
+
+
+
+3) Transfer(TO) = 적재 명령만 내릴 경우 사용       
+3) Transfer(TO) = 仅适用于装载命令 
+
+① 카세트 적재 진행예정 Vehicle선택
+① 卡夹预定进行移载时选择的Vehicle 
+
+② TO 탭 선택
+② 选择TO类型
+
+③ Vehicle에 카세트 적재 진행예정인 Station(TO) 선택
+③ 选择计划在Vehicle重新进行移载的Station(TO)
+
+④ 카세트 ID 입력
+④ 输入卡夹ID
+
+⑤ 카세트 SIZE(Mask, Half, Full) 선택
+⑤ 选择卡夹SIZE(Mask, Half, Full)
+
+⑥ Send 클릭
+⑥ 点击Send
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3) Transfer (MOVE)
+
+① MOVE 명령을 내릴 Vehicle을 선택
+①选择要下 MOVE命令的Vehicle
+
+② MOVE 탭 선택
+② 选择MOVE类型
+
+③ 직접 수동으로 Move Point 위치 타이핑 
+③ 直接手动输入 Move Point 位置
+
+④ Move Point를 선택
+④ 选择Move Point
+
+⑤ Send 클릭
+⑤ 点击Send
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4) Transfer (HOME) (*1)
+
+① HOME 명령을 내릴 Vehicle 선택
+① 选择要下HOME命令的Vehicle
+
+② HOME 탭 선택
+② 选择HOME 类型
+
+③ HOMEPOINT 선택
+③ 选择HOMEPOINT
+
+④ Send클릭
+④ 点击Send
+
+
+(*1) 참고
+HOME 명령의 경우 Vehicle이 원하는 Home으로 이동되지 않는 경우가 있는데 이는 
+RCP내부 로직에 의해서 가까운 HOME으로 차량을 보내기 때문이다.
+(*1) 参考
+HOME命令有时Vehicle无法移动到自己想要的Home，这是因为
+因为根据RCP内部逻辑,将车辆发送到附近的HOME 
+
+
+
+
+항목
+项目 | 9. Transfer ->9.2. CycleMove Command 
+내용
+内容 | Vehicle을 지정한 횟수만큼 지정된 포인트들로 이동시킨다.
+신규차량, 반송불가 차량 등 Cycle Move를 통한 주행 테스트 진행
+Vehicle Call Disable 상태일때 가능
+将Vehicle按指定次数移动到指定点 
+新车、不可搬送车辆等通过Cycle Move进行行驶测试
+只有在Vehicle Call Disable状态时才可实现
+사용 방법
+使用方法 | 
+
+
+
+①  버튼 누르면 CycleMove를 추가, 삭제할 수 있는 조작화면이 나타남
+① 点击后，会出现可以进行增加删除的CycleMove的操作界面
+
+② Vehicle 추가
+② 增加Vehicle 
+
+
+
+
+
+
+
+③ Info
+- Name : CycleMove의 목적 (ex : 15K 구간 Glass Test) 
+- Name : CycleMove的目的 (ex : 15K 区域 Glass Test) 
+
+- Unuse : Cycle 사용 여부
+- Unuse : Cycle 使用与否
+
+- Pause : Cycle Pause 여부
+- Pause : Cycle Pause 与否
+
+- TotalCycleMove : 전체 CycleMove 횟수
+- TotalCycleMove : 全部 CycleMove 回数
+
+④ 차량 선택
+④ 选择车辆
+
+⑤ Move할 포인트들을 추가 ( Vehicle 진행방향 고려해서 Unuse Point, Segment를 삭제한다)
+⑤ 添加要移动的点(依据Vehicle移动方向删除Unuse Point, Segment)
+
+ 
+항목
+项目 | 10. Report -> 10.1 TransferHistory
+내용
+内容 | OCS에서 발생하는 모든 반송, 이동 Order 이력 조회
+Order에 관련된 시간대 및 특정 Type별 조회할 수 있다.
+OCS中发生的所有搬送、移动Order履历查询
+可以按与Order相关的时间段及特定类型进行查询
+사용 방법
+使用方法 | 
+
+
+
+① 날짜 및 시간 선택
+① 选择日期及时间
+
+② 항목별로 조회할 수 있다. 项目이 아닌 전체(‘ALL’ 또는 미 입력)로도 조회 가능하다
+② 可以逐项查询  项目也可以查询全部（'ALL'或未输入）
+
+- From Station : From Station Number
+- To Station : To Station Number
+- VehicleNumber : 차량 번호
+- VehicleNumber : 车辆编号 
+
+- OrderType : 오더의 종류
+- OrderType : 命令类型
+
+- CassetteID : Cassette ID
+
+
+- Trigger : 명령 종류
+- Trigger : 下达命令的主体
+
+- CompleteType : 정상완료 혹은 명령 삭제 등에 따라 선택
+- CompleteType : 根据命令正常完成或者命令被删除等进行选择 
+
+③ 시간 및 항목 분류가 끝나면 검색
+③ 时间和项目分类筛选结束后进行搜索
+
+- VehicleNumber : 차량 번호
+- VehicleNumber : 车辆编号 
+
+- VehicleOnlineName : 상위(MCS)에 등록된 차량 이름
+- VehicleOnlineName : 在上位(MCS)上注册的车辆 
+
+- CommandID : Order의 명령 ID
+- CommandID : Order的命令 ID
+
+- CstID : Cassette ID
+
+- OriginOrderType : 반송 종류
+- OriginOrderType : 搬送类别
+
+- Trigger : 명령 종류
+- Trigger : 命令类型
+
+- OrderNumber : 반송 번호
+ OrderNumber : 搬送编号
+
+- FromStation : 적재 Station Number
+- FromStation : 装载 Station Number
+
+- FromStationOnlineName : 적재 Station 이름
+- FromStationOnlineName : 装载 Station名称
+
+- ToStation : 목적지 Station Number
+- ToStation : 目的地 Station Number
+
+- ToStationOnlineName : 목적지 Station 이름
+- ToStationOnlineName : 目的地 Station 名称 
+
+- Point : 반송종료시 차량 위치
+- Point : 搬送停止时的车辆位置 
+
+- FinalLocation : 반송종료시 최종 Cassette 위치
+- FinalLocation : 搬送停止时的最终Cassette位置 
+
+- 생성 : 명령 생성 시간
+- 生成 : 命令生成时间 
+
+- 최초할당 : 차량에 최초 명령 할당 시간
+- 最初分配小车 : 分配最初的车辆所花费的时间 
+
+- 마지막할당 : 차량에 마지막에 할당 받은 시간
+- 最火分配车辆 : 分配最后的车辆所花费的时间 
+
+- 실행 : 차량에서 명령을 실행한 시간
+- 执行 : 在车辆上执行命令的时间 
+
+- From도착 : 차량이 FromStation에 도착한 시간
+- From到达:车辆到达From Station的时间 
+
+- From완료 : Station에서 적재를 완료한 시간
+- From完成:在Station完成装载的时间 
+
+- To도착 : 차량이 ToStation에 도착한 시간
+- To到达:车辆到达ToStation的时间 
+
+- To완료 : 목적지에서 Cassette를 내려놓은 시간
+- To完成:在Station完成移载的时间 
+
+- 생성->최초할당 : 명령이 생성되고 차량에 최초로 할당까지 걸린 시간
+- 生成->最初分配:从命令生成到车辆最初分配所需的时间 
+
+- 최초할당->마지막할당 : 최초할당부터 마지막할당까지 걸린 시간
+- 最初分配-> 最后分配:从最初分配到最后分配所需的时间 
+
+- 마지막할당->실행 : 마지막할당 시간부터 차량이 실행까지 시간
+- 最后分配-> 执行:从最后分配时间到车辆执行的时间 
+
+- 실행->From도착 : 차량이 실행한 시간부터 From Station에 도착까지 걸린 시간
+- 执行->到达From:从车辆运行到到达From Station所需的时间 
+
+- From도착->From완료 : From Station에 도착 후 적재를 완료까지 걸린 시간
+- From到达->From完成:到达From Station后到装载完成所需的时间 
+
+- From완료->To도착 : From Station에서 적재 완료 후 ToStation 도착까지 걸린 시간
+- From完成->到达To:从From Station装载完毕到到达To Station所需的时间 
+
+- To도착->To완료 : ToStation 도착부터 목적지에 Cassette를 내려놓기까지 걸린 시간
+- To到达->To完成:从到达ToStation到将Cassette放下目的地所花费的时间 
+
+- 생성->To완료 : 명령 생성 후 목적지에 Cassette를 내려놓기까지 걸린 시간
+- 生成->完成To:从命令生成到将Cassette放下目的地所花费的时间 
+
+- 마지막할당->To완료 : 마지막할당 시간부터 목적지에 Cassette를 내려놓기까지 걸린 시간
+- 最后分配->完成To:从最后分配时间到将Cassette放下目的地所花费的时间 
+
+- 실행->To완료 : 차량이 명령을 실행한 시간부터 목적지에 Cassette를 내려놓기까지 걸린 시간
+- 执行->完成To:车辆从执行命令到目的地放下Cassette所需的时间 
+
+- Completed : 반송 완료 유무
+- Completed : 搬送是否完成 
+
+- Deleted : 프로그램에서 명령 삭제 유무
+- Deleted : 是否在程序上删除了命令 
+
+- UserDeleted : 사용자의 명령 삭제 유무
+- UserDeleted : 是否有用户删除了命令 
+
+- StartPriority : 시작 우선순위 (99가 제일 높음)
+- StartPriority : 最初的优先级 (最高99)
+
+- CleanStatus : Cassette 상태 (Normal, Dirty, Clean)
+- CleanStatus : Cassette 状态 (Normal, Dirty, Clean)
+
+- FromToCalcTimeMSec : From에서 To까지 계산된 시간
+- FromToCalcTimeMSec : 从 From 到 To 的计算时间 
+
+- OnPositionFailCount : 정위치 실패 횟수
+- On Position FailCount: 正位置失败次数 
+
+- LightErrorCount : 경알람 발생 건수
+- LightErrorCount: 轻报警发生件数 
+
+- LightErrorTimeSec : 경알람 경과 시간 
+- LightErrorTimeSec: 轻报警经过时间 
+
+- HeavyErrorCount : 중알람 발생 건수
+- HeavyErrorCount:中闹钟发生件数 
+
+- HeavyErrorTimeSec : 중알람 경과 시간
+- HeavyErrorTimeSec:重报警经过时间 
+
+- BlockingCount : 반송 중 Blocking 걸린 건수
+- BlockingCount : 搬送中 Blocking 的件数 
+
+- BlockingTimeSec : 반송 중 Blocking 경과 시간
+- BlockingTimeSec : 搬送中 Blocking 经过时间 
+
+- HandOver : 명령 재할당 및 목적지 변경 건수
+- HandOver : 命令重新分配及目的地变更件数 
+
+
+
+
+
+
+
+
+
+
+
+
+
+항목
+项目 | 10. Report -> 10.2 ErrorHistory
+내용
+内容 | OCS에서 발생한 모든 Error 발생 이력 조회
+Error이력 확인으로 Vehicle Error Trend 및 시스템 안정화
+查询OCS中发生的所有Error发生履历 
+确认Error履历，稳定Vehicle Error Trend及系统 
+사용 방법
+使用方法 | 
+
+
+
+
+① 날짜 및 시간 선택
+①   选择日期跟时间 
+选择人小心 选择日期选择的的的
+
+② 항목 별로 조회할 수 있다. 项目이 아닌 전체(‘ALL’ 또는 미 입력)로도 조회 가능하다
+② 可以逐项查询  也可以查询非项目全部（'ALL'或未输入）
+
+ - CassetteID : Cassette ID
+ - KeepUp Time : Error 경과 시간
+ - KeepUp Time : Error 经过时间
+
+- Station : Error발생 한 Station Number와 OnlineName
+- Station : 发生Error的Station Number和 OnlineName
+
+- VehicleNumber : Error 발생 한 차량 번호
+- VehicleNumber : 发生Error的车辆编号 
+
+- ErrorLevel : 경알람(Light), 중알람(Heavy)
+- ErrorLevel : 轻报警(Light), 重报警(Heavy)
+
+- ErrorCode : ErrorTag에 지정된 알람 번호
+- ErrorCode : 在ErrorTag设定好的报警编号 
+
+- ErrorCodeRange : ErrorCode를 범위로 지정
+- ErrorCodeRange : 指定ErrorCode的范围 
+
+- StationRange : Station을 범위로 지정
+- StationRange : 指定Station的范围 
+
+③ 시간 및 항목 분류가 끝나면 검색
+③ 设定完时间和项目分类后进行检索
+
+ - Number : 차량 번호
+ - Number : 车辆编号
+
+ - OnlineName : 상위에 등록된 차량 이름
+- OnlineName : 在上位注册的车辆名称
+
+ - OnTime : Error 발생 시간
+ - OnTime : Error 发生事件
+
+ - OffTime : Error 종료 시간
+ - OffTime : Error 结束时间
+
+ - KeepUpTime : 발생부터 종료까지 걸린 시간
+ - KeepUpTime : 报警持续时间 
+
+ - ErrCode : ErrorTag에 등록된 Code번호
+ - ErrCode : 在ErrorTag上注册的Code编号 
+
+ - ErrType : ErrorTag에 등록된 Error종류
+ - ErrType : 在ErrorTag上注册的Error种类 
+
+ - ErrEvent : ErrorTag에 등록된 Event번호
+ - ErrEvent : 在ErrorTag上注册的Event编号 
+
+ - ErrText : ErrorTag에 등록된 Error명칭
+ - ErrText : 在ErrorTag上注册的Error名称 
+
+ - CommandID : Order의 명령 ID
+ - CommandID : Order的命令 ID
+
+ - CstID : Cassette ID
+ - Point : Error 발생한 Point
+ - Point : 发生Error的Point
+
+ - Segment : Error 발생한 Segment
+ - Segment : 发生Error的Segment
+
+ - ErrStationNumber : Error 발생한 Station 번호
+ - ErrStationNumber : 发生Error的Station编号 
+
+ - ErrStationOnlineName : Error 발생한 Station 이름
+ - ErrStationOnlineName : 发生Error的Station名称 
+
+ - ErrStationPoint : Error 발생한 Station의 Point
+ - ErrStationPoint : 发生Error的Station的 Point
+
+ - FromStation : Error 발생시에 할당되어 있는 From Station 번호
+ - FromStation : 发生Error时的命令的 From Station编号 
+
+ - FromStationOnlineName : Error 발생시에 할당되어 있는 From Station 이름
+ - FromStationOnlineName : 发生Error时的命令的From Station名称 
+
+ - ToStation : Error 발생시에 할당되어 있는 To Station 번호
+- ToStation : 发生Error时的命令的To Station编号 
+
+ - ToStationOnlineName : Error 발생시에 할당되어 있는 To Station 이름
+ - ToStationOnlineName : 发生Error时的命令的To Station名称 
+
+ - OrderType : Error가 발생했을 당시의 반송 종류
+ - OrderType : 发生Error时的命令的搬送类别
+
+ - Trigger : 명령 종류
+ - Trigger : 命令种类
+
+ - ErrLevel : ErrorTag에 등록된 Error 수준 (1 : 중알람, 9 : 경알람)
+ - ErrLevel : 在ErrorTag上注册的Error类型 (1 : 重报警, 9 : 轻报警)
+
+ - Comment : Error 조치 내용
+ - Comment : Error 措施内容
+
+④ 에러 조치내용을 Comment 입력 후 ⑤ 클릭
+④ 填入报警措施内容后点击⑤
+항목
+项目 | 10. Report -> 10.3 InOutHistory
+내용
+内容 | 특정 시간, 호기의 Vehicle이 Line In/Out 및 Call Enable/Disable 된 이력조회
+查询特定时间、Vehicle变为Line In/Out及Call Enable/Disable的履历 
+사용 방법
+使用方法 | 
+
+
+
+①  날짜 및 시간 선택
+①  选择日期跟时间 
+
+② 특정 VehicleNumber 혹은 전제(‘ALL’)으로 검색
+② 选择VehicleNumber或者全体(‘ALL’)进行筛选
+
+③ 시간 및 항목 분류가 끝나면 검색
+③ 选择完时间及项目分类后进行检索
+
+ - DateTime : 날짜
+ - DateTime : 日期
+
+ - VehicleNumber : 차량 번호
+ - VehicleNumber : 车辆编号
+
+ - VehicleOnlineName : 상위(MCS)에 등록된 차량 이름
+ - VehicleOnlineName : 上位(MCS)上注册的车辆名称 
+
+ - User : 사용자 ID
+ - User : 用户 ID
+
+ - InOut : 차량의 Line In/Out 기록
+ - InOut : 车辆的 Line In/Out 履历 
+
+ - Call : 차량의 Call Enable/Disable 기록
+ - Call : 车辆的 Call Enable/Disable 履历 
+
+ - TotalCount : Line In/Out의 Count를 합친 횟수
+ - TotalCount : Line In/Out的总Count
+
+ - LineInCount : 차량의 Line In 횟수
+ - LineInCount : 车辆的 Line In 回数 
+
+ - LineOutCount : 차량의 Line Out 횟수
+- LineOutCount : 车辆的 Line Out 回数 
+
+ - DisableCount : 차량의 Call Disable 횟수
+ - DisableCount : 车辆的 Call Disable 回数 
+
+ - Comment : 차량이 Line Out 혹은 Call Disable을 할 때 입력한 메모
+ - Comment : 车辆 Line Out 或者 Call Disable时输入的备注 
+
+
+항목
+项目 | 10. Report -> 10.4 InformHistory
+내용
+内容 | 시스템 운용 중 인수인계 및 특이사항 전달을 위한 기록 및 이력조회 
+
+사용 방법
+使用方法 | 
+
+
+
+① 전달할 Message 입력 후 INSERT 버튼 클릭하면 PC기준 시간으로 입력된다. 전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ
+① 输入想要传达的 Message后点击INSERT的话，将以 PC时间为标准进行显示 
+
+② 날짜 및 시간 입력 후 SEARCH(③) 클릭
+② ② 输入日期及时间后点击SEARCH（③）
+
+③ Message 확인 및 CONFIRM 체크
+③ 确认Message及确认CONFIRM
+
+ - DATETIME : Message를 남긴 시간
+ - DATETIME : 留下Message的时间 
+
+ - INDEX : Message의 누적 순서
+- INDEX:Message的累计顺序
+
+ - USER : Message를 남긴 사용자
+ - USER : 留下Message的用户 
+
+ - MESSAGE : Message 내용.
+ - MESSAGE : Message 内容 
+
+ - CONFIRM : Message 확인 Checkbox
+ - CONFIRM : 确认Message 的 Checkbox
+
+ - CONFIRMTIME : 확인(CONFIRM)을 클릭한 시간
+ - CONFIRMTIME : 点击确认(CONFIRM)的时间 
+
+
+항목
+项目 | 10. Report -> 10.5 RunningHistory
+내용
+内容 | 각 Vehicle 별로 현재까지 운행시간과 운행거리를 시간별로 조회할 수 있다.
+各Vehicle可以按时间查询到目前为止的运行时间和运行距离 
+사용 방법
+使用方法 | 
+
+
+
+① 날짜 및 시간 선택 전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ
+① 选择日期跟时间 
+
+② 특정 VehicleNumber 혹은 전체(‘ALL’) 입력
+② 输入特定 VehicleNumber或者全体(‘ALL’)小车 
+
+④ 항목 선택 완료 후 SEARCH 클릭
+④ 项目选择完成后点击SEARCH
+
+ - VehicleNumber : 차량 번호
+ - VehicleNumber : 车辆编号 
+
+ - VehicleOnlineName : 상위(MCS)에 등록된 차량 이름
+ - VehicleOnlineName : 上位(MCS)上注册的车辆名称 
+
+ - WriteTime : Running Time Log를 남긴 시간, 1시간 단위로 저장
+ - WriteTime : 留下Running Time Log的时间, 以1小时为单位进行保存 
+
+ - RunningDist(Total) : 차량이 움직인 총 거리
+ - RunningDist(Total) : 车辆的移动总距离 
+
+ - RunningTime(Total) : 차량이 움직인 총 시간
+ - RunningTime(Total) : 车辆移动状态的总时间 
+
+ - RunningDist(Hour) : 1시간 동안 차량이 움직인 거리
+- RunningDist(Hour) :1小时内小车的移动距离 
+
+ - RunningTime(Hour) : 1시간 동안 차량이 움직인 시간
+ - RunningTime(Hour) : 1小时内车辆处在移动状态的时间 
+
+ - ErrorTime(Hour) : 1시간 동안 차량의 Error 유지 시간
+ - ErrorTime(Hour) : 1小时内小车的 Error维持时间 
+
+ - WorkTime(Hour) : 1시간동안 이/적재 시간
+ - WorkTime(Hour) : 1小时内移/装载的时间 
+
+ - BlockTime(Hour) : 1시간 동안 차량이 Block 걸린 시간
+ - BlockTime(Hour) : 1小时内车辆Block的时间 
+
+ - IdleTime(Hour) : 1시간 동안 대기 시간
+- IdleTime(Hour) : 1小时内的待机时间 
+
+항목
+项目 | 10. Report -> 10.6 NackHistory
+내용
+内容 | 상위(MCS) 명령을 거부한 Order와 원인을 조회할 수 있다.
+可以查询拒绝上级(MCS)命令的Order和原因 
+사용 방법
+使用方法 | 
+
+
+
+① 날짜 및 시간 선택 전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ
+① 选择日期跟时间 
+
+② 항목별로 조회할 수 있으며, 미 입력시 전체 조회
+② 可逐项查询，未输入时全部查询.
+
+ - CassetteID : Cassette ID
+ - NackCode : 명령을 거부한 Message 번호, NackCode는 스펙에 기입되어 있다.
+- Nack Code:拒绝命令的Message编号，Nack Code记录在规格中 
+
+④ 항목 입력 완료 후 SEARCH 클릭
+④ 项目输入完成后点击SEARCH
+
+ - DATATIME : Nack 걸린 시간
+ - DATATIME : Nack 的时间 
+
+ - MSGTYPE : Nack의 종류 (SPEC 참조)
+- MSGTYPE : Nack的种类 (参考SPEC)
+ - CSTID : Nack 걸린 명령의Cassette ID
+ - CSTID : Nack 的命令的Cassette ID
+
+ - COMMANDID : Nack 걸린 명령의 Command ID
+- COMMANDID : Nack 的命令的 Command ID
+
+
+ - NACKCODE : Nack Code (SPEC 참조)
+- NACKCODE : Nack Code (参考SPEC)
+
+ - MESSAGE : Nack 걸린 이유
+ - MESSAGE : Nack 的原因 
+
+ - SOURCE : Nack 걸린 명령의 From Station Name
+ - SOURCE : Nack 的命令的 From Station Name
+
+ - DEST : Nack 걸린 명령의 To Station Name
+ - DEST : Nack 的命令的To Station Name
+
+항목
+项目 | 10. Report -> 10.6 BlockingHistory
+내용
+内容 | Vehicle이 블로킹 발생 시각, Point/Segment 등을 확인할 때 조회
+Vehicle确认Block发生时间、Point/Segment等时进行查询 
+사용 방법
+使用方法 | 
+
+
+
+① 날짜 및 시간 선택 전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ
+① 选择日期跟时间 
+
+② 항목 별로 조회할 수 있다. 项目이 아닌 전체(‘ALL’ 또는 미 입력)로도 조회 가능하다
+② 可以逐项查询  项目也可以查询全部（'ALL'或未输入）
+
+ - Blocking Time : 블로킹 발생 기간을 지정 시간 이상 혹은 이하로 검색
+- Blocking Time:搜索块发生时间在指定时间以上或以下 
+
+ - VehicleNumber : 차량 번호 
+ - VehicleNumber : 车辆编号 
+
+ - PointNumber : Point Number
+ - SegmentNumber : Segment Number
+ - CommandID : Order의 명령 ID
+ - CommandID : Order的命令 ID
+
+③ 항목 선택 완료 후 SEARCH 클릭
+③ 项目选择完成后点击SEARCH
+
+ - VehicleNumber : 차량 번호
+ - VehicleNumber : 车辆编号
+
+- VehicleOnlineName : 상위(MCS)에 등록된 차량 이름
+- VehicleOnlineName: 上位( MCS) 注册车辆名称 
+
+ - StartTime : 차량의 Blocking 시작 시간
+ - StartTime : 车辆的Blocking开始时间 
+
+ - EndTime : 차량의 Blocking 풀린 시간
+ - EndTime : 车辆的 Blocking 解除时间 
+
+ - BlockingTime : 차량 Blocking 경과 시간
+ - BlockingTime : 车辆 Blocking持续时间 
+
+ - BlockedBy : Blocking 차량의 앞 차량
+ - BlockedBy : Blocking 车辆前面的车辆 
+
+ - Point : Blocking 걸린 Point
+ - Point : Blocking 的 Point
+
+ - Segment : Blocking 걸린 Segment
+ - Segment : Blocking 的 Segment
+
+ - CommandID : Blocking 걸린 차량의 Command ID
+ - CommandID : Blocking 的车辆的 Command ID
+
+항목
+项目 | 10. Report -> 10.7 HandOverHistory
+내용
+内容 | 재할당(HandOver)된 Order와 시간조회
+与已重新分配(HandOver)的Order查询时间 
+사용 방법
+使用方法 | 
+
+
+
+① 날짜 및 시간 선택 전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ
+① 选择日期跟时间 
+
+② 항목별로 조회할 수 있다. 项目이 아닌 전체(‘ALL’ 또는 미 입력)로도 조회 가능하다
+② ② 可以逐项查询  也可以查询非项目全部（'ALL'或未输入）
+
+ - OrderNumber : 명령에 대한 번호
+ - OrderNumber : 命令编号 
+
+- VehicleNumber : 차량 번호
+- VehicleNumber : 车辆编号
+
+- CommandID : Order의 명령 ID
+- CommandID : Order的命令 ID
+
+- CassetteID : Cassette ID
+
+③ 항목 선택 완료 후 SEARCH 클릭
+③ 选择完项目后，点击SEARCH
+
+ - VehicleNumber : 차량 번호
+ - VehicleNumber : 车辆编号 
+
+ - CommandID : HandOver 걸린 명령의 Command ID
+ - CommandID : HandOver的车辆的 Command ID
+
+ - CstID : HandOver 걸린 명령의 Cassette ID
+ - CstID : HandOver 的命令的 Cassette ID
+
+ - OrderNumber : HandOver 걸린 명령의 반송 번호
+ - OrderNumber : HandOver的命令的搬送编号 
+
+ - Trigger : 명령 종류
+ - Trigger : 命令种类 
+
+ - DateTime : 명령이 HandOver된 시간
+ - DateTime : 命令被 HandOver的时间 
+항목
+项目 | 10. Report -> 10.8 CommHistory
+내용
+内容 | Vehicle과 RCP 간 통신 이력 조회
+차량의 출발, 현재, 목적 Point, 화물정보, 속도 등 현재 상태 등을 조회
+Vehicle和RCP间通信履历查询 
+查询车辆出发、当前、目的Point、卡夹信息、速度等当前状态等 
+사용 방법
+使用方法 | 
+
+
+
+① 날짜 및 시간 선택 전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ
+① 选择日期跟时间  전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ
+
+② 특정 VehicleNumber 혹은 전체(‘ALL’) 입력
+② 输入特定的 VehicleNumber 或全部( ALL)
+
+③ 항목 선택 완료 후 SEARCH 클릭
+③ 项目选择完成后点击SEARCH
+
+ - DateTime : Vehicle과 RCP간 통신한 시간
+ - DateTime : Vehicle和 RCP之间的通信时间 
+
+ - VehicleNumber : 차량 번호
+ - VehicleNumber : 车辆编号 
+
+ - Message : Vehicle 과 RCP간 통신 방식은 아래와 같다.
+- Message:Vehicle和RCP之间的通信方式如下 
+
+[(1),(2),(3),(4)], M=[(5)], S=[(6)], E=[(7)], D=[(8)], Spd=[(9)], Ra=[(10)], BSt=[(11)], Cst=[(12)]
+
+- (1) CurPoint : 차량이 최근에 읽은 Point Number
+- (1) CurPoint : 车辆最新读取的Point Number
+
+- (2) DirectionPoint : 차량이 분기점에서 어느 방향으로 갈지 알려주는 Point Number
+- (2) DirectionPoint : 车辆在分流区的引导 Point Number
+
+- (3) ChangeRoutePoint : 경로변경이 가능한 분기 Point Number
+- (3) ChangeRoutePoint : 可以进行路径变更的 Point Number
+
+- (4) TargetPoint : 목적지 Point Number
+- (4) TargetPoint : 目的地Point Number
+
+- (5) Mode : Vehicle Mode Auto/Manual
+
+- (6) Status : Vehicle 현재 상태
+- (6) Status : Vehicle 现在状态 
+
+- (7) Error : Error Code Number
+
+- (8) Dist : Vehicle이 이동한 거리
+- (8) Dist : Vehicle的移动距离 
+
+- (9) Speed : Vehicle 속도
+- (9) Speed : Vehicle 速度 
+
+- (10) RACK : Vehicle의 Cassette 인스톨 유무
+- (10) RACK : Vehicle的 Cassette 有无Inster
+
+- (11) BSt : Vehicle Bit 상태 값
+- (11) BSt : Vehicle Bit 状态值 
+
+- (12) CstID : Cassette ID
+
+
+
+
+
+
+
+항목
+项目 | 10. Report -> 10.9 CommErrHistory
+내용
+内容 | Vehicle과 RCP간의 통신 중 발생한 통신Error Log조회
+查询Vehicle与RCP之间的通信中发生的通信Error Log
+사용 방법
+使用方法 | 
+
+
+ 
+① 날짜 및 시간 선택 전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ
+① 选择日期跟时间 
+
+② 항목 별로 조회할 수 있다. 项目이 아닌 전체(‘ALL’)로도 조회 가능하다
+② 可以逐项查询  项目也可以通过全部("ALL")查询 
+
+ - VehicleNumber : CommError가 발생한 차량 번호 입력
+ - VehicleNumber : 输入发生CommError的车辆编号
+
+ - PointNumber : CommError가 발생한 Point의 PointNumber를 입력
+ - PointNumber : 输入发生CommError的Point的PointNumber
+
+ - SegmentNumber : CommError가 발생한 Segment의 SegmentNumber를 입력
+ - SegmentNumber : 输入发生CommError的Segment的SegmentNumber
+
+③ 항목 선택 완료 후 SEARCH 클릭
+③ 项目选择完成后点击SEARCH
+
+ - VehicleNumber : 차량 번호
+ - VehicleNumber : 车辆编号 
+
+ - VehicleOnlineName : 상위(MCS)에 등록된 차량 이름
+- VehicleOnlineName: 上位( MCS) 注册的车辆名称 
+
+ - Point : CommError 걸린 Point
+ - Point : 发生CommError 的 Point
+
+ - Segment : CommError 걸린 Segment
+ - Segment : 发生CommError 的 Segment
+
+ - ErrorSet : CommError 발생(Set)/조치완료(CLEAR)
+- ErrorSet : 发生CommError 的(Set)/(CLEAR)
+
+ - DateTime : 발생(Set)/조치완료(CLEAR) 된 시간
+ - DateTime : 发生(Set)/处理(CLEAR)的时间 
+
+항목
+项目 | 10. Report -> 10.10 CassetteHistory
+내용
+内容 | Cassette의 현재 위치, 반송완료 시간 등을 조회
+查询Cassette当前位置、搬送完成时间等 
+사용 방법
+使用方法 | 
+
+
+
+① 날짜 및 시간 선택 전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ
+① 选择日期跟时间 
+
+② 항목별로 조회할 수 있다. 항목이 아닌 전체(‘ALL’)로도 조회 가능하다
+② 可以逐项查询  也可以通过非项目全部（ALL）查询 
+
+ - CassetteID : 검색하고자 하는 CassetteID 입력
+ - CassetteID : 输入想要搜索的 CassetteID
+
+ - Location : Cassette가 Install/Remove된 Station 혹은 Vehicle 입력
+ - Location : 输入Cassette被 Install/Remove的 Station 或者 Vehicle
+
+③ 항목 선택 완료 후 SEARCH 클릭
+③ 项目选择完成后点击SEARCH
+
+ - CassetteID : CST ID
+
+ - Location : 해당 CST가 Install/Remove 된 위치
+ - Location : 相应CST处于Install/Remove位置 
+
+ - Event : Install/Remove
+
+ - DateTime : Event 발생한 시간
+- DateTime : Event 发生时间 
+
+항목
+项目 | 10. Report -> 10.12 PingHistory
+내용
+内容 | Ping Unit의 당시 Ping 상태 조회
+查询Ping Unit当时的Ping状态 
+사용 방법
+使用方法 | 
+
+
+ 
+① 날짜 및 시간 선택 전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ
+① 选择日期跟时间 
+
+② 검색하고자 하는 Ping Unit의 IP Address를 입력
+② 输入要搜索的Ping Unit的IP Address
+
+③ 항목 선택 완료 후 SEARCH 클릭
+③ 项目选择完成后点击SEARCH
+
+ - IP : PingUnit에 등록된 IP
+ - IP : PingUnit上注册的 IP
+
+ - DateTime : Ping Test 한 시간
+- DateTime : Ping Test 的时间 
+
+ - PingStatus : Unit과의 통신 상태
+ - PingStatus : 与Unit的通信状态 
+
+ - ReplyTime : Ping응답 시간 
+ - ReplyTime : Ping应答时间 
+항목
+项目 | 7. Report -> UIHistory
+내용
+内容 | Point/Segment Unuse, Vehicle Setting등 변경 점 및 조작사용자, PC 이력 조회
+查询Point/Segment Unuse、Vehicle Setting等变更点及操作用户、PC履历 
+사용 방법
+使用方法 | 
+
+
+ 
+① 날짜 및 시간 선택 전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ
+① 选择日期跟时间 
+
+② 검색하고자 하는 MessageName을 입력
+② 输入想要搜索的MessageName
+
+ Ex) 특정 시간의 UnusePoint 위치를 확인할 경우 MassageName에 ‘Unuse’로 검색
+Ex) 确认特定时间的UnusePoint位置时，在MassageName中搜索"Unuse"
+
+③ 항목 선택 완료 후 SEARCH 클릭
+③ 项目选择完成后点击SEARCH
+
+ - UserID : UI 변경 사용자 ID
+ - UserID: 更改UI的用户ID
+
+ - IP : UI 변경 사용자 IP
+ - IP : 更改UI的用户IP
+
+ - MessageName : Event Name, 클릭시 더 많은 정보를 볼 수 있음(상세内容SPEC참조)
+- MessageName: Event Name, 点击可查看更多信息(请参阅 内容 SPEC)
+
+ - RegTime : UI 변경 시간
+ - RegTime : UI 更改时间 
+항목
+项目 | 7. Report -> UserHistory
+내용
+内容 | 특정 시간대의 사용자 로그인/로그아웃 Log를 조회
+查询特定时间段用户登录/退出Log
+사용 방법
+使用方法 | 
+
+
+ 
+① 날짜 및 시간 선택 전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ
+① 选择日期跟时间 
+
+② 검색하고자 하는 사용자의 ID를 입력
+② 输入您要搜索的用户名 
+
+③ 항목 선택 완료 후 SEARCH 클릭
+③ 项目选择完成后点击SEARCH
+
+ - UserID : 사용자 ID
+ - UserID : 用户 ID
+
+ - Login : Login -> ‘O’, Logout -> ‘X’ 로 표기
+ - Login : 表示为Login -> ‘O’, Logout -> ‘X’ 
+
+ - AutoLogout : 자동 Logout -> ‘O’ 로 표기
+ - AutoLogout : 自动登出将显示为 Logout -> ‘O’
+
+ - RegTime : Login, Logout, AutoLogout 발생 시간
+ - RegTime : Login, Logout, AutoLogout 发生事件 
+항목
+项目 | 7. Report -> CpuRamHistory
+내용
+内容 | 특정시간 서버의 CPU, RAM 부하율 확인
+确认特定时间服务器的CPU、RAM负载率 
+사용 방법
+使用方法 | 
+
+
+ 
+① 날짜 및 시간 선택 전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ
+① 选择日期及时间 
+
+② 날짜 선택 완료 후 SEARCH 클릭
+② 选择日期后点击SEARCH
+
+ - DateTime : CPU, RAM 부하율 체크 시간
+ - DateTime : 确认CPU, RAM 负载率的时间 
+
+ - Cpu Usage : CPU 부하율
+ - Cpu Usage : CPU 负载率 
+
+ - Ram Usage : RAM 부하율
+ - Ram Usage : RAM 负载率 
+
+
+항목
+项目 | 10. Report -> 10.16 HSMSHistory
+내용
+内容 | 상위(MCS)와 통신한 XcomLog조회
+Search Word에 해당 Command ID로 검색하면 구분용이다
+查询与上级( MCS) 通信的 XcomLog
+在Search Word上用相应Command ID搜索的话，则是区分用的 
+사용 방법
+使用方法 | 
+
+
+ 
+① 날짜 및 시간 선택 전단ㄴㄴㅇㅁㄴㅇㄴㅁㅇㄴㄴ단다ㄷ전저ㅈ
+① 选择日期及时间 
+
+② 항목별로 조회할 수 있다. 항목이 아닌 전체(‘ALL’)로도 조회 가능하다
+② 可以逐项查询  也可以通过非项目全部（ALL）查询 
+
+ - Search Word : CommandID, CassetteID, Vehicle OnlineName중 입력
+ - Search Word : 输入CommandID, CassetteID, Vehicle OnlineName
+
+ - Stream : Stream별로 검색 ex) S2F41 일 경우 ‘2’ 입력
+- Stream:按Stream分类搜索ex) S2F41时输入'2'
+
+ - Function : Function별로 검색 ex) S2F41 일 경우’41’ 입력
+- Function:按Function分类搜索ex) S2F41时输入"41"
+
+- MessageName : Message 별로 검색, MessageName은 스펙 참조
+- MessageName: 按Message类别搜索， MessageName 参考配置 
+- Include MonitorEvent : Monitored Vehicle Event 만 검색
+- Include MonitorEvent : 只搜索Monitored Vehicle Event
+
+- InCludeEventReportAck : Event Report에 해당하는 응답 만 검색
+- InCludeEventReportAck:仅搜索与Event Report对应的响应 
+
+③ 항목 선택 완료 후 SEARCH 클릭
+③ 项目选择完成后点击SEARCH
+
+ - RegTime : 통신 시간
+ - RegTime : 通信时间 
+
+ - Stream : Stream 종류
+ - Stream : Stream 种类 
+
+ - Function : Function 종류
+ - Function : Function 种类 
+
+ - MessageName : Message 종류
+ - MessageName : Message 种类 
+
+ - CommandID : 통신 명령 ID
+ - CommandID : 通信命令 ID
+
+ - CstID : 통신 Cassette ID
+ - CstID : 通信 Cassette ID
+
+ - UnitID : 통신 Vehicle OnlineName
+ - UnitID : 通信 Vehicle OnlineName
+
+ - Type : 통신 종류, Recv, Send
+ - Type : 通信种类, Recv, Send
+항목
+项目 | 11. Statistics -> 11.1. Vehicle
+내용
+内容 | 차량 별 가동률 및 주행 정보에 대한 통계 확인
+确认各车辆开工率及行驶信息的统计 
+사용 방법
+使用方法 | 
+
+
+
+① 날짜 설정 후 Search 클릭
+① 选择日期后点击Search
+
+
+② Save 클릭(Excel 문서로 저장 가능)
+② 点击Save（可保存为Excel文档）
+
+항목
+项目 | 11. Statistics -> 11.1. Vehicle -> 차량 별 주행거리 및 시간 Table/Chart
+11. Statistics-> 11.1. Vehicle-> 各车辆行驶距离及时间Table/Chart
+내용
+内容 | Vehicle별 총 주행 거리 및 시간 통계 확인
+确认各Vehicle的总行驶距离及时间统计 
+사용 방법
+使用方法 | 
+
+
+① 차량 별 총 주행거리 및 시간(Table)
+① 各车辆的总行驶距离及时间(Table)
+
+- Vehicle : Vehicle Number
+
+- OnlinName : Vehicle의 Name
+- OnlinName : Vehicle的 Name
+
+- RunningDist(Km) : 조회한 날에 Vehicle이 주행한 거리
+- RunningDist(Km) : 查询当天Vehicle行驶的距离
+
+- RunningTime : 조회한 날에 Vehicle이 주행한 시간
+- Running Time:查询当天Vehicle行驶的时间 
+
+- WorkingCount : 조회한 날에 완료한 Order Count
+- Working Count:查询当天完成的Order Count
+
+- TotalRunningTime : Vehicle이 주행한 TotalTime
+- TotalRunningTime : Vehicle的走形 TotalTime
+
+- TotalWorkingCount : Vehicle 완료한 Total Order Count
+- TotalWorkingCount : Vehicle 完成的 Total Order Count
+
+② 차량 별 총 주행거리 및 시간(Chart)
+② 各车辆的总行驶距离及时间(Chart)
+
+- RunDist : 조회한 날에 Vehicle이 주행한 거리
+- RunDist:查询当天Vehicle行驶的距离 
+
+- RunTime : 조회한 날에 Vehicle이 주행한 시간
+- RunTime:查询当天Vehicle行驶的时间 
+항목
+项目 | 11. Statistics -> 11.1. Vehicle -> 일별 평균 가동률(차량동작) Table/Chart
+내용
+内容 | Vehicle 별 일일 평균 가동률 통계 확인
+确认各Vehicle每日平均开工率统计 
+사용 방법
+使用方法 | 
+
+① 일별 평균 가동률(차량동작, Table)
+① 日均开工率（车辆动作，Table）
+
+- Date : 날짜
+- Date : 日期
+
+- MoveRate : Vehicle이 이동한 시간 비율
+- MoveRate : Vehicle 移动的时间比例 
+
+- WorkRate : Vehicle이 작업한 시간 비율
+- WorkRate:Vehicle作业的时间比率 
+
+- IdleRate : Vehicle이 대기Point에 위치한 시간 비율
+- IdleRate: Vehicle 位于待机点的时间比例 
+
+- ErrorRate : Vehicle에 Error가 발생한 시간 비율
+- ErrorRate:Vehicle中发生Error的时间比率 
+
+- BlockRate : Vehicle이 다른 Vehicle에 의해 Block 당한 시간 비율
+- BlockRate:Vehicle被其他Vehicle Block的时间比率 
+
+② 일별 평균 가동률(차량동작, Chart)
+② 日均开工率（车辆动作，Chart）
+
+항목
+项目 | 11. Statistics -> 11.1. Vehicle -> 차량 별 평균 가동률(차량동작) Table/Chart
+11. Statistics-> 11.1. Vehicle-> 各车辆平均开工率(车辆动作) Table/Chart
+내용
+内容 | Vehicle 별 총 차량 동작에 대한 가동률 통계 확인
+确认各Vehicle车辆总动作的开工率统计 
+사용 방법
+使用方法 | 
+
+
+① 차량 별 평균 가동률(차량동작, Table)
+① 各车辆平均开工率（车辆动作，Table）
+
+- Vehicle : Vehicle Number
+
+- OnlineName : Vehicle의 Name
+- OnlineName : Vehicle的 Name
+
+- MoveRate : Vehicle이 이동한 시간 비율
+- MoveRate: Vehicle 移动的时间比例 
+
+- WorkRate : Vehicle이 작업한 시간 비율
+- WorkRate:Vehicle作业的时间比率 
+
+- IdleRate : Vehicle이 대기Point에 위치한 시간 비율
+- IdleRate: Vehicle 位于待机点的时间比例 
+
+- ErrorRate : Vehicle에 Error가 발생한 시간 비율
+- ErrorRate:Vehicle中发生Error的时间比率 
+
+- BlockRate : Vehicle이 다른 Vehicle에 의해 Block 당한 시간 비율
+- BlockRate:Vehicle被其他Vehicle Block的时间比率 
+
+② 차량 별 평균 가동률(차량동작, Chart)
+② 各车辆平均开工率（车辆动作，Chart）
+항목
+项目 | 11. Statistics -> 11.1. Vehicle -> 일일 차량 별 가동률(차량동작) Table/Chart
+11. Statistics-> 11.1. Vehicle-> 每日车辆开工率（车辆动作） Table/Chart
+내용
+内容 | Vehicle 일일 차량별 동작에 대한 가동률 통계 확인
+确认Vehicle每日车辆动作的开工率统计 
+사용 방법
+使用方法 | 
+
+① 일일 차량 별 가동률(차량동작, Table)
+① 每日车辆开工率（车辆动作，Table）
+
+- Date : 날짜
+- Date : 日期
+
+- Vehicle : Vehicle Number
+
+- OnlineName : Vehicle의 Name
+
+- MoveRate : Vehicle이 이동한 시간 비율
+- MoveRate: Vehicle 移动的时间比例 
+
+- WorkRate : Vehicle이 작업한 시간 비율
+- WorkRate:Vehicle作业的时间比率 
+
+- IdleRate : Vehicle이 대기Point에 위치한 시간 비율
+- IdleRate: Vehicle 位于待机点的时间比例 
+
+- ErrorRate : Vehicle에 Error가 발생한 시간 비율
+- ErrorRate:Vehicle中发生Error的时间比率 
+
+- BlockRate : Vehicle이 다른 Vehicle에 의해 Block 당한 시간 비율
+- BlockRate:Vehicle被其他Vehicle Block的时间比率 
+
+② 일일 차량 별 가동률(차량동작, Chart)
+② 每日车辆开工率（车辆动作，Chart）
+
+③ VehicleNumber 선택
+③ 选择VehicleNumber 
+항목
+项目 | 11. Statistics -> 11.1. Vehicle -> 일일 평균 가동률(차량명령) Table/Chart
+11. Statistics-> 11.1. Vehicle-> 日均开工率（车辆命令） Table/Chart
+내용
+内容 | 일별 Vehicle 차량명령에 대한 평균 가동률 통계 확인
+确认每日Vehicle车辆命令的平均开工率统计 
+사용 방법
+使用方法 | 
+
+① 일일 평균 가동률(차량명령, Table)
+① 日平均开工率（车辆命令，Table）
+
+- Date : 날짜
+- Date : 日期 
+
+- TotalWork : 전체 Vehicle들의 Total Work비율
+- Total Work:全体Vehicle的Total Work比率 
+
+- FromTo : 전체 Vehicle들의 FromTo Order비율
+- FromTo:全体Vehicle的FromTo Order比率 
+
+- From : 전체 Vehicle들의 FromOrder비율
+- From:全部Vehicle的FromOrder比率 
+
+- To : 전체 Vehicle들의 ToOrder비율
+- To:全部Vehicle的ToOrder比率 
+
+- Move : 전체 Vehicle들의 MoveOrder비율
+- Move:全部Vehicle的MoveOrder比率 
+
+- Home : 전체 Vehicle들의 HomeOrder비율
+- Home:全体Vehicle的HomeOrder比率 
+
+- FullCharge : 전체 Vehicle들의 FullChargeOrder비율(AGV만 사용)
+- Full Charge:全部Vehicle的Full ChargeOrder比率（仅使用AGV）
+
+- IdleCharge : 전체 Vehicle들의 IdleChargeOrder비율(AGV만 사용)
+- IdleCharge:全部Vehicle的IdleChargeOrder比率（仅使用AGV）
+
+- NoOrder : 전체 Vehicle의 NoOrder비율
+- NoOrder:全部Vehicle的NoOrder比率 
+
+- Error : Vehicle 중 Error 상태인 시간 비율
+- Error: Vehicle 中处于 Error 状态的时间比例 
+
+- LineOut : Vehicle 중 LineOut 상태인 시간 비율
+- LineOut:Vehicle中处于LineOut状态的时间比率 
+
+② 일일 평균 가동률(차량명령, Chart)
+② 日平均开工率（车辆命令，Chart）
+항목
+项目 | 11. Statistics -> 11.1. Vehicle -> 차량 별 평균 가동률(차량명령) Table/Chart
+11. Statistics-> 11.1. Vehicle-> 各车辆平均开工率(车辆命令) Table/Chart
+내용
+内容 | Vehicle별 차량명령에 대한 평균 가동률 통계 확인
+确认各Vehicle车辆命令的平均开工率统计 
+사용 방법
+使用方法 | 
+
+① 차량 별 평균 가동률(차량명령, Table)
+① 各车辆平均开工率（车辆命令，Table）
+
+- Vehicle : Vehicle Number
+
+- OnlineName : Vehicle의 Name
+- OnlineName : Vehicle的 Name
+
+- TotalWork : Vehicle의 Total Work비율
+- TotalWork : Vehicle的 Total Work比率 
+
+- FromTo : Vehicle의 FromTo Order비율
+- FromTo : Vehicle的 FromTo Order比率 
+
+- From : Vehicle의 FromOrder비율
+- From : Vehicle的 FromOrder比率 
+
+- To : Vehicle의 ToOrder비율
+- To : Vehicle的 ToOrder比率 
+
+- Move : Vehicle의 MoveOrder비율
+- Move : Vehicle的 MoveOrder比率 
+
+- Home : Vehicle의 HomeOrder비율
+- Home : Vehicle的 HomeOrder比率 
+
+- FullCharge : Vehicle의 FullChargeOrder비율(AGV만 사용)
+- FullCharge : Vehicle的 FullChargeOrder比率(只适用于AGV)
+
+- IdleCharge : Vehicle들의 IdleChargeOrder비율(AGV만 사용)
+- IdleCharge : Vehicle的 IdleChargeOrder比率(只适用于AGV)
+
+- NoOrder : Vehicle의 NoOrder비율
+- NoOrder : Vehicle的 NoOrder比率 
+
+- Error : Vehicle의 Error 상태인 시간 비율
+- Error : Vehicle的 Error 状态的时间比率 
+
+- LineOut : Vehicle의 LineOut 상태인 시간 비율
+- LineOut : Vehicle的 LineOut 状态的时间比率 
+
+② 차량 별 평균 가동률(차량명령, Chart)
+② 各车辆平均开工率（车辆命令，Chart）
+항목
+项目 | 11. Statistics -> 11.2. Transfer
+내용
+内容 | 전체 Order발생 횟수 및 경과시간 평균 파악
+搜索所有Order发生回数和平均所用时间 
+사용 방법
+使用方法 |  
+
+
+① 날짜 설정 후 Search 클릭
+① 选择好时间后，点击 Search
+
+② Save 클릭(Excel 문서로 저장 가능).
+② 点击Save(可以用Excel形式保存).
+항목
+项目 | 11. Statistics -> 11.2. Transfer -> 전체Order발생 횟수 및 시간
+11. Statistics-> 11.2. Transfer-> 全部Order发生次数和时间 
+내용
+内容 | 전체 Order발생 횟수 및 경과시간 조회
+查询全部Order发生次数及经过时间 
+사용 방법
+使用方法 | 
+① 전체Order발생 횟수 및 시간
+① 全部Order发生次数与时间
+
+- Count : 전체Order발생 횟수
+- Count : 全部Order发生回数 
+
+- Time : 전체Order 시간
+- Time : 全部Order 时间
+항목
+项目 | 11. Statistics -> 11.2.Transfer -> Order발생 횟수 및 시간
+11. Statistics -> 11.2. Transfer -> Order 发生次数和时间 | 11. Statistics -> 11.2.Transfer -> Order발생 횟수 및 시간
+11. Statistics -> 11.2. Transfer -> Order 发生次数和时间
+내용
+内容 | ▶ Vehicle, Date별 Order발생 횟수 및 시간 확인
+▶ 确认各Vehicle、Date Order发生次数及时间  | ▶ Vehicle, Date별 Order발생 횟수 및 시간 확인
+▶ 确认各Vehicle、Date Order发生次数及时间 
+사용 방법
+使用方法 | 
+① Order발생 횟수 및 시간(Date)
+① Order发生回数和事件(Date)
+
+- Date : 날짜
+- Date : 日期
+
+- FromTo : 날짜별 FromTo Order Count
+- FromTo : 筛选日期并根据 FromTo Order 进行Count
+
+- From : 날짜별 From Order Count.
+- From : 筛选日期并根据 From Order 进行Count.
+
+- To : 날짜별 To Order Count.
+- To : 筛选日期并根据 To Order 进行Count.
+
+- Home : 날짜별 Home Order Count.
+- Home : 筛选日期并根据 Home Order Count.
+
+- Move : 날짜별 Move Order Count.
+- Move : 筛选日期并根据 Move Order Count.
+
+- TotalCount : 날짜별 전체Order Count
+- TotalCount : 筛选日期并搜索所有Order Count
+
+- Avg(FromTo) : 날짜별 FromTo Order에 대한 평균Time
+- Avg(FromTo) : 每个日期的 FromTo Order 的平均时间 
+
+- TotalTime : 날짜별 전체Order에 대한 Time
+- Total Time:各日期所有Order的时间 
+
+② Order발생 횟수 및 시간(Vehicle)
+② Order发生的回数和事件(Vehicle)
+
+- Vehicle : Vehicle Number
+
+- OnlineName : Vehicle의 Name
+- OnlineName : Vehicle的 Name
+
+- FromTo : 차량별 FromTo Order Count
+- FromTo : 筛选车辆并根据 FromTo Order Count
+
+- From : 차량별 From Order Count
+- From : 筛选车辆并根据 From Order Count
+
+- To : 차량별 To Order Count
+- To : 筛选车辆并根据 To Order Count
+
+- Home : 차량별 Home Order Count
+- Home : 筛选车辆并根据 Home Order Count
+
+- Move : 차량별 Move Order Count
+- Move : 筛选车辆并根据 Move Order Count
+
+- TotalCount : 차량별 수행한 Order Count.
+- TotalCount : 筛选车辆搜索 Order Count.
+
+- Avg(FromTo) : 차량별 FromTo Order에 대한 평균Time
+- Avg(FromTo) : 各车辆FromTo Order的平均Time
+
+- TotalTime : 차량별 전체Order에 대한 Time
+- TotalTime : 各车辆所有Order的时间 
+
+③ Order발생 횟수 및 시간(Date, Vehicle, OrderType)
+③ Order发生回数和事件 (Date, Vehicle, OrderType) | 
+① Order발생 횟수 및 시간(Date)
+① Order发生回数和事件(Date)
+
+- Date : 날짜
+- Date : 日期
+
+- FromTo : 날짜별 FromTo Order Count
+- FromTo : 筛选日期并根据 FromTo Order 进行Count
+
+- From : 날짜별 From Order Count.
+- From : 筛选日期并根据 From Order 进行Count.
+
+- To : 날짜별 To Order Count.
+- To : 筛选日期并根据 To Order 进行Count.
+
+- Home : 날짜별 Home Order Count.
+- Home : 筛选日期并根据 Home Order Count.
+
+- Move : 날짜별 Move Order Count.
+- Move : 筛选日期并根据 Move Order Count.
+
+- TotalCount : 날짜별 전체Order Count
+- TotalCount : 筛选日期并搜索所有Order Count
+
+- Avg(FromTo) : 날짜별 FromTo Order에 대한 평균Time
+- Avg(FromTo) : 每个日期的 FromTo Order 的平均时间 
+
+- TotalTime : 날짜별 전체Order에 대한 Time
+- Total Time:各日期所有Order的时间 
+
+② Order발생 횟수 및 시간(Vehicle)
+② Order发生的回数和事件(Vehicle)
+
+- Vehicle : Vehicle Number
+
+- OnlineName : Vehicle의 Name
+- OnlineName : Vehicle的 Name
+
+- FromTo : 차량별 FromTo Order Count
+- FromTo : 筛选车辆并根据 FromTo Order Count
+
+- From : 차량별 From Order Count
+- From : 筛选车辆并根据 From Order Count
+
+- To : 차량별 To Order Count
+- To : 筛选车辆并根据 To Order Count
+
+- Home : 차량별 Home Order Count
+- Home : 筛选车辆并根据 Home Order Count
+
+- Move : 차량별 Move Order Count
+- Move : 筛选车辆并根据 Move Order Count
+
+- TotalCount : 차량별 수행한 Order Count.
+- TotalCount : 筛选车辆搜索 Order Count.
+
+- Avg(FromTo) : 차량별 FromTo Order에 대한 평균Time
+- Avg(FromTo) : 各车辆FromTo Order的平均Time
+
+- TotalTime : 차량별 전체Order에 대한 Time
+- TotalTime : 各车辆所有Order的时间 
+
+③ Order발생 횟수 및 시간(Date, Vehicle, OrderType)
+③ Order发生回数和事件 (Date, Vehicle, OrderType)
+항목
+项目 | 항목
+项目 | 11. Statistics -> 11.2.Transfer -> 반송명령 스탭별 평균 소요시간(Date/Vehicle)
+11. Statistics-> 11.2.Transfer-> 各退回命令工作人员平均所需时间(Date/Vehicle)
+내용
+内容 | 내용
+内容 | 반송명령 스탭별 평균 소요시간을 Date/Vehicle별로 조회
+按Date/Vehicle查询各退回命令各工作人员平均所需时间 
+사용 방법
+使用方法 | 사용 방법
+使用方法 | 
+① 반송명령 스탭별 평균 소요시간(Date)
+① 搬送命令 各工作人员平均所需时间(Date)
+
+- Date : 날짜
+- Date : 日期
+
+- FromTo : 날짜별 FromTo Order Count.
+- FromTo : 筛选日期并根据 FromTo Order Count.
+
+- 생성→최초할당 : 날짜별 FromTo의 생성부터 최초할당까지 평균Time
+- 生成→最初分配:从各日期FromTo的生成到最初分配的平均Time
+
+- 최초할당→마지막할당 : 날짜별 FromTo의 최초할당부터 마지막할당까지 평균Time
+- 最初分配→最后分配:按日期FromTo从最初分配到最后分配的平均时间 
+
+- 마지막할당→실행 : 날짜별 FromTo의 마지막 할당 후 실행까지 평균Time
+- 最后分配→运行:按日期分配FromTo到最后分配后运行的平均Time
+
+- 실행→From도착 : 날짜별 FromTo의 실행 후 From도착까지 평균Time
+- 运行→From到达:各日期FromTo运行后到From到达的平均时间 
+
+- From도착→From완료 : 날짜별 FromTo의 From도착 후 From완료까지 평균Time
+- From到达→From完成:各日期FromTo的From到达后到From完成为止的平均时间 
+
+- From완료→To도착 : 날짜별 FromTo의 From완료 후 To도착까지 평균Time
+- From完成→To到达:各日期FromTo的From完成到To到达的平均时间 
+
+- To도착→To완료 : 날짜별 FromTo의 To도착 후 To완료까지 평균Time
+- To到达→To完成:各日期FromTo的To到达后到To完成为止的平均Time
+
+- AssignFromDistance : 날짜별 FromTo의 차량위치에서 From까지 평균거리
+- Assign From Distance:按日期从FromTo的车辆位置到From的平均距离 
+
+- FromToDistance : 날짜별 FromTo의 From부터 To까지 평균거리
+- FromToDistance: 按日期FromTo的From到To的平均距离 
+
+- ErrorCount : 날짜별 FromTo동안 발생한 ErrorCount
+- ErrorCount:按日期在FromTo期间发生的ErrorCount
+
+- ErrorTimeSec : 날짜별 FromTo동안 발생한 Error의 평균Time
+- Error Time Sec:各日期FromTo期间发生的Error的平均时间 
+
+- BlockingCount : 날짜별 FromTo동안 발생한 BlockingCount
+- Blocking Count:各日期FromTo期间发生的Blocking Count
+
+- BlockingTimeSec : 날짜별 FromTo동안 발생한 Blocking의 평균 Time
+- Blocking Time Sec:各日期FromTo期间发生的Blocking的平均时间 
+
+② 반송명령 스탭별 평균 소요시간(Vehicle)
+② 搬送命令 各步骤平均所需时间(Vehicle)
+
+- Vehicle : Vehicle Number
+
+- OnlineName : Vehicle의 Name
+- OnlineName : Vehicle的 Name
+
+- FromTo : 차량별 FromTo Order Count
+- FromTo : 各车辆 FromTo Order Count
+
+- 생성→최초할당 : 차량별 FromTo의 생성부터 최초할당까지 평균Time
+- 生成→最初分配:从各车辆FromTo的生成到最初分配的平均Time
+
+- 최초할당→마지막할당 : 차량별 FromTo의 최초할당부터 마지막 할당까지 평균Time
+- 首次分配→最后一次分配:从各车辆FromTo的首次分配到最后一次分配的平均时间 
+
+- 마지막할당→실행 : 차량별 FromTo의 마지막 할당 후 실행까지 평균Time
+- 最后分配→运行:各车辆FromTo最后分配后到运行的平均Time
+
+- 실행→From도착 : 차량별 FromTo의 실행 후 From도착까지 평균Time
+- 运行→From到达:各车辆运行FromTo后到From到达的平均时间 
+
+- From도착→From완료 : 차량별 FromTo의 From도착 후 From완료까지 평균Time
+- From到达→From完成:各车辆FromTo的From到达后到From完成为止的平均时间 
+
+- From완료→To도착 : 차량별 FromTo의 From완료 후 To도착까지 평균Time
+- From完成→To到达:各车辆FromTo的From完成到To到达的平均时间 
+
+- To도착→To완료 : 차량별 FromTo의 To도착 후 To완료까지 평균Time
+- To到达→To完成:各车辆FromTo的To到达后到To完成为止的平均Time
+
+- AssignFromDistance : 차량별 FromTo의 차량위치에서 From까지 평균거리
+- Assign From Distance:各车辆从FromTo的车辆位置到From的平均距离 
+
+- FromToDistance : 차량별 FromTo의 From부터 To까지 평균거리
+- FromToDistance:各车辆FromTo的From到To的平均距离 
+
+- ErrorCount : 차량별 FromTo동안 발생한 ErrorCount
+- ErrorCount:各车辆FromTo期间发生的ErrorCount
+
+- ErrorTimeSec : 차량별 FromTo동안 발생한 Error의 평균Time
+- Error Time Sec:各车辆FromTo期间发生的Error的平均时间 
+
+- BlockingCount : 차량별 FromTo동안 발생한 BlockingCount
+- Blocking Count:各车辆FromTo期间发生的Blocking Count
+
+- BlockingTimeSec : 차량별 FromTo동안 발생한 Blocking의 평균 Time
+- Blocking Time Sec:各车辆FromTo期间发生的Blocking的平均时间 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+항목
+项目 | 11. Statistics -> 11.2.Transfer -> 반송명령 스탭별 평균 소요시간(Station)
+- Blocking Time Sec:各车辆FromTo期间发生的Blocking的平均时间  | 11. Statistics -> 11.2.Transfer -> 반송명령 스탭별 평균 소요시간(Station)
+- Blocking Time Sec:各车辆FromTo期间发生的Blocking的平均时间 
+내용
+内容 | 반송명령 스탭별 평균 소요시간을 Station별로 조회
+按Station查询各搬送命令步骤平均所需时间  | 반송명령 스탭별 평균 소요시간을 Station별로 조회
+按Station查询各搬送命令步骤平均所需时间 
+사용 방법
+使用方法 | 
+
+① 반송명령 스탭별 평균 소요시간(Station)
+① 各搬送命令步骤平均所需时间(Station)
+- Station : Station Number
+
+- OnlinName : Station의 Name
+- OnlinName : Station的 Name
+
+- From : FromStation인 Count
+- From : 为FromStation的 Count
+
+- To : ToStation인 Count
+- To : 为ToStation的 Count
+
+- 최초할당→마지막할당 : 해당 Station 포함된 FromTo의 최초할당부터 마지막 할당까지 평균Time
+- 最初分配→最后分配:包含相应Station的FromTo最初分配到最后到分配为止的平均时间 
+
+- 마지막할당→실행 : 해당Station 포함된 FromTo의 마지막할당부터 실행까지 평균Time
+- 最后分配→运行:包含相应Station的FromTo从最后分配到运行的平均Time
+
+- 실행→From도착 : 해당Station 포함된 FromTo의 실행부터 From 도착까지 평균Time
+- 运行→From到达:包含相应Station的FromTo运行到From到达的平均时间 
+
+- From도착→From완료 : 해당Station 포함된 FromTo의From도착부터From완료까지 평균Time
+- From到达→From完成:包含相应Station的FromTo从From到达到From完成的平均时间 
+
+- AssignFromDistance : 차량위치에서 FromStation까지 평균거리
+- Assign From Distance:从车辆位置到From Station的平均距离 
+
+- FromToDistance : 차량위치에서 ToStation까지 평균거리
+- FromToDistance:从车辆位置到ToStation的平均距离 
+
+- RetryCountFrom : PIO 발생 후 Station에서 FromOrder를 Retry한 Count
+- RetryCountFrom : PIO 발생 후 Station에서 FromOrder를 Retry한 Count
+
+- RetryCountTo : PIO 발생 후 Station에서 ToOrder를 Retry한 Count
+- RetryCountTo:发生PIO后，在Station内对ToOrder进行Retry的Count | 
+
+① 반송명령 스탭별 평균 소요시간(Station)
+① 各搬送命令步骤平均所需时间(Station)
+- Station : Station Number
+
+- OnlinName : Station의 Name
+- OnlinName : Station的 Name
+
+- From : FromStation인 Count
+- From : 为FromStation的 Count
+
+- To : ToStation인 Count
+- To : 为ToStation的 Count
+
+- 최초할당→마지막할당 : 해당 Station 포함된 FromTo의 최초할당부터 마지막 할당까지 평균Time
+- 最初分配→最后分配:包含相应Station的FromTo最初分配到最后到分配为止的平均时间 
+
+- 마지막할당→실행 : 해당Station 포함된 FromTo의 마지막할당부터 실행까지 평균Time
+- 最后分配→运行:包含相应Station的FromTo从最后分配到运行的平均Time
+
+- 실행→From도착 : 해당Station 포함된 FromTo의 실행부터 From 도착까지 평균Time
+- 运行→From到达:包含相应Station的FromTo运行到From到达的平均时间 
+
+- From도착→From완료 : 해당Station 포함된 FromTo의From도착부터From완료까지 평균Time
+- From到达→From完成:包含相应Station的FromTo从From到达到From完成的平均时间 
+
+- AssignFromDistance : 차량위치에서 FromStation까지 평균거리
+- Assign From Distance:从车辆位置到From Station的平均距离 
+
+- FromToDistance : 차량위치에서 ToStation까지 평균거리
+- FromToDistance:从车辆位置到ToStation的平均距离 
+
+- RetryCountFrom : PIO 발생 후 Station에서 FromOrder를 Retry한 Count
+- RetryCountFrom : PIO 발생 후 Station에서 FromOrder를 Retry한 Count
+
+- RetryCountTo : PIO 발생 후 Station에서 ToOrder를 Retry한 Count
+- RetryCountTo:发生PIO后，在Station内对ToOrder进行Retry的Count
+항목
+项目 | 11. Statistics -> 11.3.Error
+내용
+内容 | OCS에서 발생한 알람 발생 횟수 및 시간 통계 확인
+确认OCS中发生的报警发生次数及时间统计
+사용 방법
+使用方法 | 
+
+
+
+① 날짜 설정 후 Search 클릭
+① 筛选完日期后点击Search
+
+② Save 클릭(Excel 문서로 저장 가능)
+② 点击Save(可以用Excel形式进行保存)
+
+
+항목
+项目 | 11. Statistics -> 11.3.Error -> 전체 알람 발생 횟수 및 시간
+11. Statistics-> 11.3.Error-> 全部报警发生次数和时间
+내용
+内容 | OCS에서 발생한 전체 알람 발생 횟수 및 시간 통계 확인
+确认OCS中发生的全部报警发生次数及时间统计
+사용 방법
+使用方法 | 
+
+①전체 알람 발생 횟수 및 시간
+①全部闹钟发生次数与时间 
+
+- Count : 조회한 시간 내에 발생한 전체Error Count
+- Count: 在查询时间内发生的全部Error Count
+
+- Time : 조회한 시간 내에 발생한 전체Error Time
+- Time:查询时间内发生的全部Error Time
+
+항목
+项目 | 11. Statistics -> 11.3.Error -> 알람 발생 횟수 및 시간(일별, Data, Chart)
+11. Statistics-> 11.3.Error-> 报警发生次数和时间（每日、Data、Chart）
+내용
+内容 | OCS에서 발생한 Error 발생 횟수 및 시간을 Data/Chart 로 확인
+通过Data/Chart确认OCS中发生的Error发生次数及时间
+사용 방법
+使用方法 | 
+
+① 알람 발생 횟수 및 시간(Data)
+① 报警发生次数和时间(Data)
+
+- Date : 날짜
+- Date : 日期
+
+- ErrorCount : 조회한 시간 내에 발생한 전체Error Count
+- ErrorCount : 在查询时间内发生的全部Error Count
+
+- ErrorTime : 조회한 시간 내에 발생한 전체Error Time
+- Time:查询时间内发生的全部Error Time
+
+② 알람 발생 횟수 및 시간(Chart)
+② 报警发生次数和事件(Chart)
+항목
+项目 | 11. Statistics -> 11.3.Error -> 알람 발생 횟수 및 시간(일별, 차량별, Data, Chart)
+11. Statistics-> 11.3.Error-> 闹钟发生次数及时间（每日、车辆、Data、Chart）
+내용
+内容 | 날짜별, 차량별 알람 발생 횟수 및 시간을 Data/Chart로 확인
+通过Data/Chart确认各日期、各车辆的报警发生次数及时间
+사용 방법
+使用方法 | 
+
+① 알람 발생 횟수 및 시간(일별, 차량별, Data)
+① 报警发生次数和时间(按日, 按车, Data)
+
+- Date : 날짜
+- Date : 日期
+
+- Vehicle : Vehicle Number(VehicleNum = 0, ErrType이 Vehicle이 아닌 것
+- Vehicle : Vehicle Number(VehicleNum = 0表示, ErrType不是 Vehicle的
+
+- ErrorCount : 조회한 시간 내에 발생한 Vehicle Number별 Error Count
+- ErrorCount:查询时间内发生的各Vehicle Number Error Count
+
+- ErrorTime : 조회한 시간 내에 발생한 Vehicle Number별 Error Time
+- Error Time:查询时间内发生的各Vehicle Number Error Time
+
+② 알람 발생 횟수 및 시간(날짜별, 차량별, Chart)
+② 报警发生次数及时间（日期、车辆、Chart）
+
+항목
+项目 | 11. Statistics -> 11.3.Error -> 알람 발생 횟수 및 시간(알람별)
+11. Statistics-> 11.3.Error-> 报警发生次数和时间（报警类别）
+내용
+内容 | 알람별로 알람 발생 횟수 및 시간 확인
+按报警确认闹钟发生次数及时间 
+사용 방법
+使用方法 | 
+
+① 알람 발생 횟수 및 시간(알람별)
+① 报警发生次数与时间（闹钟类别）
+
+- Code : Error Code
+
+- Type : Error Type
+
+- Event : Error Event Number
+
+- Text : Error명
+- Text : Error名
+
+- Count : 조회한 시간 내에 발생한 Error Count
+- Count : 搜索时间内发生的报警的 Error Count
+
+- ErrorTime : 조회한 시간 내에 발생한 Error Time
+- ErrorTime : 搜索时间内发生的报警的 Error Time
+항목
+项目 | 11. Statistics -> 11.3.Error -> 알람 발생 횟수 및 시간(차량별, Data, Chart)
+11. Statistics-> 11.3.Error-> 报警发生次数及时间（各车辆、Data、Chart）
+내용
+内容 | 차량별로 알람 발생 횟수 및 시간 확인
+确认各车辆报警发生次数及时间
+사용 방법
+使用方法 | 
+
+① 알람 발생 횟수 및 시간(차량별, Data)
+① 报警发生次数及时间（各车辆，Data）
+
+- Vehicle :Vehicle Number(Vehicle = 0, ErrType이 Vehicle이 아닌 것)
+- Vehicle :Vehicle Number(Vehicle = 0表示, ErrType不为 Vehicle)
+
+- VehicleOnlineName :Vehicle의 Name
+- VehicleOnlineName :Vehicle的 Name
+
+- ErrorCount : 조회한 시간 내에 발생한 차량별 Error Count
+- ErrorCount : 查询时间内发生的各车辆Error Count
+
+- ErrorTime : 조회한 시간 내에 발생한 차량별 Error Time
+- Error Time:查询时间内发生的各车辆Error Time
+
+② 알람 발생 횟수 및 시간(차량별, Chart)
+② 报警发生次数及时间（各车辆，Chart）
+
+항목
+项目 | 11. Statistics -> 11.5.ErrorProfiler
+내용
+内容 | Error에 대한 상세 분석 확인.
+对Error的详细分析确认 
+사용 방법
+使用方法 | 
+
+
+
+
+① 날짜 설정 후 Search 클릭
+① 选择日期后点击 Search
+
+② Save 클릭(Excel 문서로 저장 가능)
+② 点击Save(可以用Excel形式保存)
+항목
+项目 | 11. Statistics -> 11.5.ErrorProfiler -> 알람 발생 횟수 및 시간(에러시간 별, Data)
+11. Statistics-> 11.5.ErrorProfiler-> 报警发生次数和时间（按报警时间，Data）
+내용
+内容 | 선택한 알람 발생 횟수 및 시간 에러시간별/시간대별 확인
+确认所选择的闹钟发生次数及时间错误时间/时间段 
+사용 방법
+使用方法 | 
+
+
+① 알람 발생 횟수 및 시간(에러시간대별, Data)
+① 报警发生次数与时间（按错误时间段，Data）
+
+- Time : Error 발생 후 Clear까지 총 경과시간
+- Time:发生Error后到Clear为止的总经过时间 
+
+- ErrorCount : 경과 시간별 발생한ErrorCount
+- ErrorCount:按经过时间发生的ErrorCount
+
+- ErrorTime : 경과 시간별 발생한ErrorTime
+- ErrorTime:各经过时间发生的ErrorTime
+
+② 알람 발생 횟수 및 시간(시간대별, Data)
+② 报警发生次数与时间（各时间段，Data）
+- Time : 알람이 발생한 시간Table
+- 时间: 报警发生时间Table
+
+- ErrorCount : 시간 내에 발생한ErrorCount
+- ErrorCount: 在规定时间内发生的ErrorCount
+
+- ErrorTime : 시간 내에 발생한ErrorTime
+- ErrorTime: 在规定时间内发生的ErrorTime
+항목
+项目 | 11. Statistics -> 11.5. Errpr Profiler -> 알람 발생 횟수 및 시간
+11. Statistics-> 11.5. Errpr Profiler-> 报警发生次数和时间
+내용
+内容 | 선택한 알람 발생 횟수 및 시간 요일별/차량별/일별 확인
+确认所选择的报警发生次数及时间、星期/车辆/日期
+사용 방법
+使用方法 | 
+① 알람 발생 횟수 및 시간(요일별, Data)
+① 报警发生次数与时间（按星期，Data）
+
+- DayOfWeek : 요일
+- DayOfWeek : 星期
+
+- ErrorCount : 요일별 발생한 ErrorCount
+- ErrorCount : 按星期发生的 ErrorCount
+
+- ErrorTime : 요일별 발생한 ErrorTime
+- ErrorTime : 按星期发生的 ErrorTime
+
+② 알람 발생 횟수 및 시간(요일별, Data)
+② 报警发生次数和事件(按星期, Data)
+
+- DayOfWeek : 요일
+- DayOfWeek : 星期
+
+- ErrorCount : 요일별 발생한ErrorCount
+- ErrorCount : 按星期发生的ErrorCount
+
+- ErrorTime : 요일별 발생한ErrorTime
+- ErrorTime : 按星期发生的ErrorTime
+
+③ 알람 발생 횟수 및 시간(차량별, Data)
+③ 报警发生次数和时间(按车辆, Data)
+
+- Vehicle : Vehicle Number
+
+- OnlineName : Vehicle의 Name
+- OnlineName : Vehicle的 Name
+
+- ErrorCount : 차량별Error가 발생한 Count
+- ErrorCount : 各车辆发生的Error Count
+
+- ErrorTime : 차량별Error의 경과시간
+- ErrorTime : 各车辆发生的Error的持续时间
+
+- RunningDist(Km) : 차량별 주행거리
+- RunningDist(Km) : 各车辆移动距离
+
+- RunningHour : 차량별 주행시간
+- RunningHour : 各车辆移动时间
+
+- FromTo : 차량별 FromTo Order Count
+- FromTo : 各车辆 FromTo Order Count
+
+- From : 차량별 From Order Count
+- From : 各车辆 From Order Count
+
+- To : 차량별 To Order Count
+- To : 各车辆 To Order Count
+
+- Home : 차량별 Home Order Count
+- Home : 各车辆 Home Order Count
+
+- Move : 차량별 Move Order Count
+- Move : 各车辆 Move Order Count
+
+- TotalCount : 차량별 전체 Order Count
+- TotalCount : 各车辆的所有 Order Count
+
+- OrderTime : 차량별 전체 Order Time 
+- OrderTime : 各车辆的所有 Order Time 
+항목
+项目 | 12. Window -> 12.1.OrderList -> ORDER
+내용
+内容 | Vehicle에 할당된 Order 상태 및 미 할당된 Order 정보 확인
+할당 받은지 오래된 Order의 경우 빨간색으로 표시됨
+确认分配给Vehicle的Order状态及未分配的Order信息
+对于已分配较旧的Order， 用红色表示
+사용 방법
+使用方法 | 
+
+
+
+① OrderList 상세설명
+① OrderList 详细说明
+
+- Command ID : Host로부터 수신했거나 RCP가 자체적으로 생성한 Order 구분ID
+자체 생성한 ID Format – “MNL” + 생성 시간
+- Command ID:从Host接收或RCP自行生成的Order分类ID
+自行生成的 ID Format – "MNL" + 生成时间
+
+- Vehicle ID : 실행 중인 OHS 차량번호
+- Vehicle ID : 行驶中的 OHS车辆编号
+
+- Carrier ID : 화물 ID
+- Carrier ID : 卡夹 ID
+
+- Origin Type : 최초 오더 종류
+- Origin Type : 最初命令种类
+
+- From : Station으로 이동 후 Unload(Station → OHS) 작업
+- From : 移动到Station后进行 Unload(Station → OHS) 
+
+- To : Station으로 이동 후 Load(OHS → Station) 작업
+- To : 移动到Station后进行 Load(OHS → Station)
+
+- Move : 지정 Point로 이동
+- Move : 移动至指定 Point
+
+- Go Home : Home(대기 Point)로 이동
+- Go Home : 移动至Home(待机Point)
+
+- From To : Unload/Load 작업을 순차적으로 실행
+- From To : 按顺序执行Unload/Load作业 
+
+- Type : 현재 오더의 종류
+- Type : 当前命令种类 
+
+- Step : 오더 실행 단계
+- Step : 现命令阶段
+
+‘대기 중’ : 실행 전 상태
+‘待机中’ : 运行前的状态
+
+‘주행 중’ : 목표 지점으로 이동 중인 상태
+'行驶中' : 移动到目标地点的状态
+
+‘블로킹 정지’ : 다른 차량에 의해 가로 막힌 상태
+‘Block停止’ : 因别的车辆而无法前进的状态
+
+‘완료 중’ : 이 적재 작업 중 상태
+‘完成中’ : 移载中的状态
+
+‘경로 탐색 중’ : 목표 지점까지의 경로를 검색 중인 상태
+‘搜索路径中’ : 正在寻找前往目的地的路线的状态
+
+- Priority : 우선순위(숫자가 높을수록 우선적인 Order이다.)
+- Priority:优先顺序（数字越高越优先的Order ）
+
+- From/To/From To : Unload → Load Station 또는 목적지 Point
+- From/To/From To : Unload → Load Station 或者目的地 Point
+
+- Status : 에러 메시지, 수동 운전 여부, 블로킹 OHS 호기 등 표시
+- Status:显示错误信息、手动驾驶与否、Block OHS号机等
+
+- Trig Time : Order가 최초에 생성된 시간
+- Trig Time: Order 最初生成的时间 
+
+- Duration : Order가 경과된 시간
+- Duration : Order的生成持续时间
+
+- Command Button
+
+‘Delete’ : 선택된 Order 삭제
+‘Delete’ : 删除选择的 Order
+
+‘Pause’ : 선택된 오더가 진행 중인 경우 진행 중지. Queuing상태의 오더는OHS 할당 금지
+‘Pause’ : 已选择的订单正在进行时停止进行 Queuing状态的订单禁止分配OHS
+
+‘Resume’ : 선택된 Order 중지 해제
+‘Resume’ : 恢复选择的 Order 的暂停状态
+
+‘Hand Over’ : 선택된 Order 재할당
+‘Hand Over’ : 重新给选择的 Order 分配小车
+
+‘DestUpdate’ : 선택된 Order의 목적지 변경
+‘DestUpdate’ : 变更选择的 Order的目的地
+항목
+项目 | 12. Window -> 12.1.OrderList -> NACK
+내용
+内容 | MCS메시지의 대해 거부한 이력을 실시간으로 보여준다.
+이전 NACK이력은 로그로 조회할 수 있다(p66 참조)
+实时展示拒绝MCS信息的履历 
+以前的NACK历史可以通过日志查询(参见p66)
+사용 방법
+使用方法 | 
+
+
+
+① OrderList -> NACK 클릭
+① OrderList -> 点击NACK
+
+ - DATETIME : 날짜
+ - DATETIME : 日期
+
+ - MSGTYPE : NACK MSG Type
+
+ - CSTID : Cassette ID
+
+ - COMMANDID : Commmand ID
+
+ - MESSAGE : MCS메세지 거부한 원인
+ - MESSAGE : 拒绝MCS信息的原因
+
+ - NACK CODE : Nack Code(Basic Spec참조) 
+ - NACK CODE : Nack Code(请参考Basic Spec) 
+
+ - SOURCE : Unload Port
+
+ - DEST : Load Port
+
+ - CLEAR : 확인 후 삭제
+ - CLEAR : 确认后删除
+항목
+项目 | 12. Window -> 12.2.AlarmList
+
+내용
+内容 | Error 발생시 자동으로 창이 생성되면 Error가 없을 시 자동으로 창이 사라진다.
+경알람 : 흰색으로 표시 -> 일정시간 이후 빨간색으로 표시
+중알람 : 빨간색으로 표시
+发生Error时自动生成窗口，没有Error时窗口会自动消失 
+轻报警:用白色表示-> 在一定时间后用红色表示
+重报警: 用红色表示
+사용 방법
+使用方法 | 
+
+
+
+① AlarmList 세부 정보
+① AlarmList 详细信息
+
+- NUMBER : Error 발생한 Vehicle Number
+- NUMBER : 发生Error 的 Vehicle Number
+
+- NAME : Vehicle OnlineName
+
+- ONTIME : Error 발생한 시간
+- ONTIME : Error 的发生时间
+
+- ERRCODE : RCP 에 등록된 Error Code
+- ERRCODE : 在RCP上注册的Error Code
+
+- Type : Error 발생 주체
+- Type : 发生Error的主体
+
+- EVENT : Vehicle에서 RCP로 보내는 Error Code Number
+- EVENT : Vehicle向 RCP发送的 Error Code Number
+
+- ERRTEXT : 발생한 Error 내용
+- ERRTEXT : 发生的 Error内容
+
+- ELAPSEDTIME : 해당 Error가 발생해서 유지된 시간
+- ELAPSEDTIME : 对应 Error的持续时间
+
+- FOCUS : FOCUS 클릭 시 해당 Error 발생 호기를 확대하여 위치를 알려준다.
+- FOCUS:点击FOCUS时，扩大相应Error发生号机并告知位置 
+항목
+项目 | 12. Window -> 12.3.CycleList
+내용
+内容 | 현재 진행 중인 Cycle Move Command를 알 수 있다.
+可以看出正在进行中的Cycle Move Command
+사용 방법
+使用方法 | 
+
+
+
+① CycleMoveList 세부 정보
+① CycleMoveList 详细信息
+
+- VEHICLE : Vehicle Number
+
+- NAME : CycleMoveList에 등록된 Cycle Name
+- NAME : CycleMoveList上注册的 Cycle Name
+
+- MOVEPOINTLIST : CycleMove 에 등록된 PointList
+- MOVEPOINTLIST : CycleMove 上注册的 PointList
+
+- STEP : CycleMove의 상태
+- STEP : CycleMove的状态
+
+- USECLEAN : CleanModule용 CycleMove로 사용할지 여부
+- USECLEAN : 是否适用CleanModule的 CycleMove
+
+- USE : CycleMove 사용/미사용 여부
+- USE : CycleMove 使用/不使用 与否
+
+- CURRENTCOUNT :  CycleMove 현재 Cycle 진행횟수
+- CURRENTCOUNT :  CycleMove 现在 Cycle 进行回数
+
+- TOTALCOUNT : CycleMove 설정된 전체 Cycle 횟수
+- TOTALCOUNT : CycleMove 设定的全部 Cycle回数
+항목
+项目 | 12. Window -> 12.4.PingList
+내용
+内容 | 현재 Ping Unit별 통신 상태 및 정보 확인
+Ping Unit 등록 후 조회(p51참조)
+确认当前各Ping Unit的通信状态与信息
+Ping Unit注册后查询（请参考p51）
+사용 방법
+使用方法 | 
+
+
+
+① PingList 세부 정보
+① PingList 详细信息
+
+- NUMBER : Ping Unit Number
+
+- NAME : Ping Unit에 설정된 Name
+- NAME : Ping Unit上设置的 Name
+
+- IP : Ping Unit에 설정된 IP Address
+- IP : Ping Unit上设置的 IP Address
+
+- TYPE : Ping Unit Type
+
+- USE : 사용 유무
+- USE : 使用与否
+
+- INTERVAL : Ping Test 주기
+- INTERVAL : Ping Test 周期
+
+- SENDBYTE : Ping Test시 전송할 Byte 크기
+- SENDBYTE : Ping Test时传输的 Byte大小
+
+- RECVTIMEOUT : Ping Test시 응답 제한 시간에 걸리는 시간
+- RECVTIMEOUT : Ping Test时响应限制时间所需的时间
+
+- CURERRORCOUNT : Ping Test시 현재 Error Count
+- CURERRORCOUNT : Ping Test时的 Error Count
+
+- SETERRORCOUNT : Ping Test시 Error를 발생시키는 ErrCount 기준 값
+- SETERRORCOUNT : Ping Test时发生Error的ErrCount基准值
+
+- REPLYTIMELIMIT : Error로 기록을 남기는 응답시간 최대치
+- REPLYTIMELIMIT : 用Error记录响应时间的最大值
+
+- UPDATETIME : 갱신된 시간
+- UPDATETIME : 更新的时间
+항목
+项目 | 12. Window -> 12.6.CommEvent
+내용
+内容 | 실시간 Vehicle과 주고받은 통신 및 상태 확인
+이전 CommEvent는 CommHistory로 조회 가능(p69 참조)
+实时确认与Vehicle的通信及状态
+以前的CommEvent可通过CommHistory查询(参见p69)
+사용 방법
+使用方法 | 
+
+
+
+① Number : Vehicle Number
+
+② RegTime : 시간 정보
+② RegTime : 时间
+
+③ Message 세부 정보
+③ Message 详细信息
+
+                  (1)  (2)  (3)  (4)
+
+- (1) CurPoint : 차량이 최근에 읽은 Point Number
+- (1) CurPoint : 小车最近读取的 Point Number
+
+- (2) DirectionPoint : 차량이 분기점에서 어느 방향으로 갈지 알려주는 Point Number
+- (2) DirectionPoint : 告知车辆在分流区的移动 Point Number
+
+- (3) ChangeRoutePoint : 경로변경이 가능한 분기 Point Number
+- (3) ChangeRoutePoint : 可以变更路径的分流 Point Number
+
+- (4) TargetPoint : 목적지 Point Number
+- (4) TargetPoint : 目的地 Point Number
+
+- Mode : Vehicle Mode Auto/Manual
+
+- Status : Vehicle 현재 상태
+- Status : Vehicle 现在状态
+
+- Error : Error Code Number
+
+- Dist : Vehicle이 이동한 거리
+- Dist : Vehicle的移动距离
+
+- Speed : Vehicle 속도
+- Speed : Vehicle 速度
+
+- RACK : Vehicle의 Cassette 인스톨 유무
+- RACK : Vehicle上有无 Cassette 
+
+- BSt : Vehicle Bit 상태 값
+- BSt : Vehicle Bit 状态值
+
+- CstID : Cassette ID
+
+
+
+
+
+
+
+
+
+
+
+
+
+항목
+项目 | 12. Window -> 12.7.DockSetting
+내용
+内容 | 각 서브창 별로 Docking상태나 초기 창 사이즈 여부를 설정
+为每个子窗口设置是否为Docking状态或初始窗口尺寸
+사용 방법
+使用方法 | 
+
+
+
+① NAME : 각 서브창 Name
+① NAME : 各设备窗口的 Name
+
+② 설정
+② 设置
+
+ - Width : 창 가로 크기
+ - Width : 窗口长度
+
+ - Height : 창 세로 크기
+ - Height : 窗口高度
+항목
+项目 | 13. Layout -> 13.1.Run
+내용
+内容 | RCP UI에 필요한 Object를 User 가 추가/삭제 가능
+User可添加/删除RCP UI所需的Object
+사용 방법
+使用方法 | 
+
+
+
+
+① 좌측 정렬, 우측 정렬, 상하 정렬 기능으로 Object등을 일정하게 정렬할 때 사용
+① 以左侧对齐、右侧对齐、上下对齐功能，用于将Object等整齐排列时
+
+② Object및 버튼 정보
+② Object和按键信息
+
+- LEFT, TOP : 좌표 값
+- LEFT, TOP : 坐标轴
+
+- WIDTH, HEIGHT : 크기
+- WIDTH, HEIGHT : 大小
+
+- ANGLE : Object의 방향
+- ANGLE : Object的方向
+
+- APPLY : 적용
+- APPLY : 应用
+
+- UPDATE : Object 변경사항 Layout 적용
+- UPDATE : 将Object 的变更事项适用给Layout
+
+- DELETE : Object 삭제
+- DELETE : 删除Object
+
+③ Object 및 Safety, Graphic등을 마우스를 이용하여 RCP UI에 적용
+③ Object 和 Safety, Graphic等用鼠标适用给 RCP UI
+
+④ Object 적용 후 마우스로 위치, 크기 조정 및 정렬 기능
+④ 应用Object后用鼠标定位、调整大小及排序功能
+
+⑤ Object의 위치 변경 등, 변경사항을 나타내고 3번의 UPDATE 버튼으로 적용
+⑤ 显示Object位置变更等变更事项，使用3号UPDATE按钮
+
+⑥ 마우스 우 클릭 시 나타나는 메뉴로서, Layout, Object, Safety등을 각각 선택하여 UI에 보여주거나, Select 기능으로 한번에 여러 Object를 선택할 수 있어 동일한 크기를 맞추기 위해 사용 할 수 있다
+⑥ 鼠标右键点击时出现的菜单，可分别选择Layout、Object、Safety等显示在UI上，或利用Select功能一次选择多个Object，为达到相同大小而使用 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+항목
+项目 | 7. Layout -> 13.3.Setting
+내용
+内容 | Layout Setting으로 각 사이트에 맞는 UI Layout크기 설정
+通过Layout Setting设置适合各网站的UI Layout大小
+사용 방법
+使用方法 | 
+
+
+
+
+① CoordScale : 전체 UI Scale 조절
+① CoordScale : 调整所有的 UI Scale
+
+② BaseVehicleScale : Vehicle 크기 조절
+② BaseVehicleScale : 调整Vehicle大小
+
+③ PointScale : Point 크기 조절
+③ PointScale : 调整Point 大小
+
+④ PointNumberScale : Point Number 크기 조절
+④ PointNumberScale : 调整Point Number大小
+
+⑤ SegmentThickness : Segment Number 크기 조절
+⑤ SegmentThickness : 调整Segment Number大小
+
+⑥ Confirm : 변경 값 적용 확인 버튼
+⑥ Confirm : 确认变更值是否适用成功
+
+⑦ Reset : 초기화 버튼
+⑦ Reset : 初始化按键
+항목
+项目 | 14. PlayBack -> 14.1 Run
+내용
+内容 | PlayBack 활용으로 이전 상황을 초단위로 확인하여 Error 현상확인 및 개선
+利用PlayBack以秒为单位确认以前的情况，确认和改善Error现象
+사용 방법
+使用方法 | 
+
+
+
+
+
+① Oder List : 당시 Order List를 나타낸다.
+① Oder List : 显示当时的 Order List
+
+② UI : 당시 Layout과 Vehicle 상태를 나타낸다.
+② UI : 显示当时的Layout和 Vehicle 状态
+
+③ Error : 당시 발생했던 Error를 나타내다.
+③ Error : 显示当时的发生的 Error
+
+④ PlayBack Control : 배속, 실행, 일시정지, 재현할 시간, 재생되고있는 시간 등
+④ PlayBack Control : 倍速、 执行、 暂停、 再现时间、 播放时间等
+
+⑤ 배속 : 1 ~ 16배속 까지 가능
+⑤ 倍速 : 可以调整至1 ~ 16倍速
+
+⑥ 실행 : ⑩버튼으로 실행할 시간을 불러온 뒤 클릭한다.
+⑥ 运行 : 用⑩按键把时间调整至想要观察的时间段后点击开始播放
+
+⑦ 일시정지 : 실행 중 잠시 정지할 때 사용한다.
+⑦ 暂停 : 运行中想要暂停时使用
+
+⑧ 시간설정 : PlayBack을 실행 할 시간을 설정한다.
+⑧ 设定时间 : 设定想要观察的时间段的PlayBack
+
+⑨ 시간단위 설정 : 분단위로 1 ~ 30분까지 설정할 수 있다.
+⑨ 设定时间单位 : 可以以分钟为单位设定1~30分钟
+
+⑩ 불러오기 : 시간설정 후 불러오기 버튼클릭
+⑩ 导入 : 设定时间后点击导入按钮
+
+⑪ 현재 재생되고 있는 시간을 나타낸다. 스크롤 바를 이동하여 확인가능
+⑪ 显示当前播放的时间，可移动滚动条查看
+
+
+
+
+
+
+
+
+
+
+
+
+
+항목
+项目 | 14. PlayBack -> 14.2 Export 
+내용
+内容 | PlayBack 데이터를 저장하여 다른 환경에서 실행시키기 위해 사용
+用于保存 PlayBack 数据并在其他环境中运行
+사용 방법
+使用方法 | 
+
+
+
+① Export하고 싶은 시간을 선택한다.(선택한 시간부터 30분 분량이 추출된다)
+① 选择您想要Export的时间 （从选择时间起提取30分钟）
+
+② Export를 누르면 메인 서버의 하드에 저장이 된다.(경로는 Parameter에서 설정)
+ ② 点击Export即可保存到主服务器的硬盘中 （路径在Parameter设置）
+항목
+项目 | 15. Help -> 15.1 Version 
+내용
+内容 | OCS Program의 Version관리와 Version별 Update 내용 확인
+确认 OCS Program 的 Version 管理和各 Version 的 Update 内容
+사용 방법
+使用方法 | 
+
+
+
+① 각 Program 명, Version 정보
+① 各 Program 名, Version信息
+
+
+
+② Show클릭시 Update内容과 이전 Version의 Update内容을 확인할 수 있다
+② 点击Show可查看Update 内容和之前Version的Update 内容
+항목
+项目 | 15. Help -> 15.2 Define 
+내용
+内容 | OCS의 모든 Object의 색상에 따른 상태 설명 및 파악
+根据OCS的所有Object颜色进行状态说明及掌握
+사용 방법
+使用方法 | 
+
+
+1) Point
+
+2) Segment
+
+3) AlramLamp
+
+4) Charger
+
+5) CPS
+
+6) Door
+
+7) MTL
+
+8) PLC Group
+
+9) Ping Unit
+9) Safety
+10) Station
+
+11)Vehicle

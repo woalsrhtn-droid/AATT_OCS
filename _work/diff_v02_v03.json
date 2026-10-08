@@ -1,0 +1,301 @@
+[
+ {
+  "id": "L1-17",
+  "changes": {
+   "flag_note": {
+    "old": "MXA본에는 System>Vehicle IO Tag 장이 없음(v04 근거). Home Point 필드는 RCPHMI 메모의 '필요한 듯'·save 불가 기록뿐이라 평가 문항에서 제외하고 위치 인지만. IO 비트로 차량 이상을 판정하는 것은 L3-a.",
+    "new": "System>Vehicle IO Tag는 v04본 근거. Home Point 필드는 RCPHMI 메모의 '필요한 듯'·save 불가 기록뿐이라 평가 문항에서 제외하고 위치 인지만. IO 비트로 차량 이상을 판정하는 것은 L3-a."
+   },
+   "flags": {
+    "old": [
+     "추정해석",
+     "근거약함",
+     "MXA외"
+    ],
+    "new": [
+     "추정해석",
+     "근거약함"
+    ]
+   }
+  }
+ },
+ {
+  "id": "L1-34",
+  "changes": {
+   "flag_note": {
+    "old": "MXA본은 메뉴 탭 목록에 Statics가 있으나 Statistics 장이 없음(v04 근거). L1-35~37도 같음.",
+    "new": "Statistics는 v04본 근거(MXA본에는 상세 장이 없음). L1-35~37도 같음."
+   },
+   "flags": {
+    "old": [
+     "MXA외"
+    ],
+    "new": []
+   }
+  }
+ },
+ {
+  "id": "L1-35",
+  "changes": {
+   "flag_note": {
+    "old": "MXA본 Statistics 장 없음(v04 근거). 평균 비교로 느린 구간·설비를 특정하는 것은 L3-a.",
+    "new": "v04본 근거. 평균 비교로 느린 구간·설비를 특정하는 것은 L3-a."
+   },
+   "flags": {
+    "old": [
+     "MXA외"
+    ],
+    "new": []
+   }
+  }
+ },
+ {
+  "id": "L1-36",
+  "changes": {
+   "flag_note": {
+    "old": "MXA본 Statistics 장 없음(v04 근거). 여러 축 결과로 알람 원인을 특정하는 것은 L3-a.",
+    "new": "v04본 근거. 여러 축 결과로 알람 원인을 특정하는 것은 L3-a."
+   },
+   "flags": {
+    "old": [
+     "MXA외"
+    ],
+    "new": []
+   }
+  }
+ },
+ {
+  "id": "L1-37",
+  "changes": {
+   "flag_note": {
+    "old": "v04본 근거. MXA본은 Statistics 장 자체가 없음(L1-34 참조).",
+    "new": "v04본 근거."
+   },
+   "flags": {
+    "old": [
+     "MXA외"
+    ],
+    "new": []
+   }
+  }
+ },
+ {
+  "id": "L1-42",
+  "changes": {
+   "flag_note": {
+    "old": "MXA본 10장에는 TerminalMsg가 없고 Docking Setting(10.6)만 있음. TerminalMsg 부분은 v04 근거.",
+    "new": "TerminalMsg는 v04본, Docking Setting은 MXA본 10.6 근거."
+   },
+   "flags": {
+    "old": [
+     "MXA외"
+    ],
+    "new": []
+   }
+  }
+ },
+ {
+  "id": "L1-50",
+  "changes": {
+   "flag_note": {
+    "old": "MCS_IF는 OCS UI와 별개 프로그램이며 그 안의 View 탭. cfg 경로·Sys Type은 사이트별. Xcom configuration으로 Message Spec과 비교하는 것은 L2-b. MXA본에는 MCS_IF 탭 장이 없음(v04/setup 가이드 근거).",
+    "new": "MCS_IF는 OCS UI와 별개 프로그램이며 그 안의 View 탭. cfg 경로·Sys Type은 사이트별. Xcom configuration으로 Message Spec과 비교하는 것은 L2-b. MCS_IF 프로그램 화면은 사용자 매뉴얼 3판에 없고 setup 가이드·설치 기준서에만 있다. MXA본은 MCS_IF를 'UI 없이 내부 구동'으로 적고 있어(2.2) 현장 MCS_IF 화면 유무를 확인해야 한다."
+   },
+   "flags": {
+    "old": [
+     "사이트의존",
+     "MXA외"
+    ],
+    "new": [
+     "사이트의존",
+     "자료충돌"
+    ]
+   }
+  }
+ },
+ {
+  "id": "L1-51",
+  "changes": {
+   "flag_note": {
+    "old": "MCS_IF 화면은 OCS 메뉴 탭 밖. Server IP는 배포 시 마스킹. MCS_IF의 역할·통신 상대 설명과 드라이버 설정파일(IP 0.0.0.0)은 C230 주 버킷(L2-b). MXA본에는 MCS_IF 탭 장이 없음(v04/setup 가이드 근거).",
+    "new": "MCS_IF 화면은 OCS 메뉴 탭 밖. Server IP는 배포 시 마스킹. MCS_IF의 역할·통신 상대 설명과 드라이버 설정파일(IP 0.0.0.0)은 C230 주 버킷(L2-b). MCS_IF 프로그램 화면은 사용자 매뉴얼 3판에 없고 setup 가이드·설치 기준서에만 있다. MXA본은 MCS_IF를 'UI 없이 내부 구동'으로 적고 있어(2.2) 현장 MCS_IF 화면 유무를 확인해야 한다."
+   },
+   "flags": {
+    "old": [
+     "사이트의존",
+     "민감정보",
+     "MXA외"
+    ],
+    "new": [
+     "사이트의존",
+     "민감정보",
+     "자료충돌"
+    ]
+   }
+  }
+ },
+ {
+  "id": "L2a-11",
+  "changes": {
+   "flag_note": {
+    "old": "MXA본 6장에 System>Cluster 장이 없음(v04 근거). MaxVehicleLowCount/HighCount 같은 Cluster Info 수치를 바꿔 거동을 튜닝하는 것은 L3-a. C306 Insert 실패는 원인 미규명이라 채점하지 않는 주의사항으로만 쓴다. 화면 필드명 오기(MaxVehicleConut) 있음.",
+    "new": "v04본·중문통합본 근거. MaxVehicleLowCount/HighCount 같은 Cluster Info 수치를 바꿔 거동을 튜닝하는 것은 L3-a. C306 Insert 실패는 원인 미규명이라 채점하지 않는 주의사항으로만 쓴다. 화면 필드명 오기(MaxVehicleConut) 있음."
+   },
+   "flags": {
+    "old": [
+     "사이트의존",
+     "근거약함",
+     "추정해석",
+     "MXA외"
+    ],
+    "new": [
+     "사이트의존",
+     "근거약함",
+     "추정해석"
+    ]
+   }
+  }
+ },
+ {
+  "id": "L2b-13",
+  "changes": {
+   "flag_note": {
+    "old": "IO Tag 부분은 MXA본에 장이 없음(v04 근거). STATUS·S= 부분은 프로토콜 사양서 근거라 영향 없음. S= 체계로 정체 지점을 판정하거나 IO 비트로 차량 이상을 판정하는 일은 L3-a.",
+    "new": "IO Tag 부분은 v04본 근거. STATUS·S= 부분은 프로토콜 사양서 근거라 영향 없음. S= 체계로 정체 지점을 판정하거나 IO 비트로 차량 이상을 판정하는 일은 L3-a."
+   },
+   "flags": {
+    "old": [
+     "MXA외"
+    ],
+    "new": []
+   }
+  }
+ },
+ {
+  "id": "L2b-30",
+  "changes": {
+   "flag_note": {
+    "old": "Cluster EntranceLimit 부분은 MXA본에 장이 없음(v04 근거). 나머지 Parameter는 MXA본 6.10에 있음. PushWeight·UseBothWay 등의 값을 조정해 현상을 해결하는 일은 L3-a. PushWeight 미동작 건은 RCPHMI에 미해결로 남아 있다.",
+    "new": "Cluster EntranceLimit 부분은 v04본 근거, 나머지 Parameter는 MXA본 6.10 근거. PushWeight·UseBothWay 등의 값을 조정해 현상을 해결하는 일은 L3-a. PushWeight 미동작 건은 RCPHMI에 미해결로 남아 있다."
+   },
+   "flags": {
+    "old": [
+     "사이트의존",
+     "MXA외"
+    ],
+    "new": [
+     "사이트의존"
+    ]
+   }
+  }
+ },
+ {
+  "id": "L2b-31",
+  "changes": {
+   "flag_note": {
+    "old": "MXA본에 System>AltTransfer 장이 없음(표 안 1회 언급뿐). 경유지 반송이 있는 사이트에만 해당.",
+    "new": "System>AltTransfer는 v04본 근거. 경유지 반송이 있는 사이트에만 해당."
+   },
+   "flags": {
+    "old": [
+     "사이트의존",
+     "근거약함",
+     "추정해석",
+     "MXA외"
+    ],
+    "new": [
+     "사이트의존",
+     "근거약함",
+     "추정해석"
+    ]
+   }
+  }
+ },
+ {
+  "id": "L3c-05",
+  "changes": {
+   "flag_note": {
+    "old": "Export까지만 채점한다. RDT 매뉴얼은 Export/Import Json File만 있고 MDB 출력이 없다. MXA본 11장은 'Winlay로 작성한 MDB를 Core에서 불러온다(Layout>MapLoad, MDB → UPDATE)'고만 적는다. RDT JSON이 OCS DB에 들어가는 경로(변환 도구, 메뉴, 재기동 여부, 이중화 양 노드 반영)는 어느 자료에도 없다. 경로 E:\\test.json은 예시다.",
+    "new": "Export한 결과물을 OCS에 넣는 것은 L3c-07(Layout>MapLoad)이다. RDT로 만든 맵도 Winlay로 만든 맵과 같은 절차로 OCS Layout 탭 MapLoad에서 반영한다(2026-10-08 사이트 확인). 경로 E:\\test.json은 예시다."
+   },
+   "flags": {
+    "old": [
+     "근거약함",
+     "사이트의존",
+     "자료없음"
+    ],
+    "new": [
+     "근거약함",
+     "사이트의존"
+    ]
+   }
+  }
+ },
+ {
+  "id": "L3c-06",
+  "deleted": true
+ },
+ {
+  "id": "L3c-07",
+  "changes": {
+   "content": {
+    "old": "반영 메뉴 경로는 자료마다 다르게 표기된다(Layout > MapLoad: MDB 선택·BackupPath·MDB → UPDATE / Core > System 탭 > MabLoad: Map 선택·백업 폴더·MDB -> SQL / System -> MapLoad: MDB File Path·BackupPath·(MDB->SQL)). 어느 경로든 MDB 파일과 BackupPath(백업 폴더)를 지정한 뒤 MDB->SQL(UPDATE)로 맵을 SQL DB에 적재한다. 원문은 '저장 날짜, 파일 이름 확인(매우 중요)'만 적고 있다. 그러므로 실행 전에는 지정한 MDB의 저장 날짜·파일 이름이 의도한 개정판인지 확인한다. 실행 후에는 지정한 백업 폴더에 결과물이 생겼는지 확인하고, 복귀에 쓸 직전 MDB와 백업 위치를 기록해 둔다. 백업 폴더에 정확히 무엇이 저장되는지, 백업에서 되돌리는 롤백 절차가 무엇인지는 어느 자료에도 없다.",
+    "new": "RDT로 만든 맵도 Winlay로 만든 맵과 같은 절차로 OCS Layout 탭 MapLoad에서 반영한다(2026-10-08 사이트 확인). 반영 메뉴 경로는 자료마다 다르게 표기된다(Layout > MapLoad: MDB 선택·BackupPath·MDB → UPDATE / Core > System 탭 > MabLoad: Map 선택·백업 폴더·MDB -> SQL / System -> MapLoad: MDB File Path·BackupPath·(MDB->SQL)). 어느 경로든 MDB 파일과 BackupPath(백업 폴더)를 지정한 뒤 MDB->SQL(UPDATE)로 맵을 SQL DB에 적재한다. 원문은 '저장 날짜, 파일 이름 확인(매우 중요)'만 적고 있다. 그러므로 실행 전에는 지정한 MDB의 저장 날짜·파일 이름이 의도한 개정판인지 확인한다. 실행 후에는 지정한 백업 폴더에 결과물이 생겼는지 확인하고, 복귀에 쓸 직전 MDB와 백업 위치를 기록해 둔다. 백업 폴더에 정확히 무엇이 저장되는지, 백업에서 되돌리는 롤백 절차가 무엇인지는 어느 자료에도 없다."
+   },
+   "flag_note": {
+    "old": "메뉴는 MXA본 기준 Layout>MapLoad(MDB 선택·BackupPath·MDB → UPDATE). RDT 매뉴얼은 Export/Import Json File만 있고 MDB 출력이 없다. MXA본 11장은 'Winlay로 작성한 MDB를 Core에서 불러온다(Layout>MapLoad, MDB → UPDATE)'고만 적는다. RDT JSON이 OCS DB에 들어가는 경로(변환 도구, 메뉴, 재기동 여부, 이중화 양 노드 반영)는 어느 자료에도 없다. 사이트 반영 절차를 받기 전까지는 MDB 기준 절차로 가르치고, 실습은 테스트 서버로 제한한다.",
+    "new": "메뉴는 MXA본 11장 기준 Layout>MapLoad(파일 선택·BackupPath·UPDATE). 매뉴얼 원문은 선택 파일을 MDB로 적고 RDT 산출물은 JSON(Export Json File)이므로, 현장 MapLoad 화면에서 고르는 파일 형식을 실습 전에 확인한다. 백업에서 되돌리는 롤백 절차는 어느 자료에도 없다. 실패하면 전 라인에 영향을 주므로 실습은 테스트 서버로 제한한다."
+   },
+   "flags": {
+    "old": [
+     "근거약함",
+     "사이트의존",
+     "추정해석",
+     "자료없음"
+    ],
+    "new": [
+     "근거약함",
+     "사이트의존",
+     "추정해석"
+    ]
+   }
+  }
+ },
+ {
+  "id": "L3c-08",
+  "changes": {
+   "flag_note": {
+    "old": "AccessDatabaseEngine은 MDB를 읽는 MapLoad 전제 조건이다. RDT JSON 반영 경로에서도 필요한지는 L3c-07의 반영 절차가 확정되어야 판단할 수 있다.",
+    "new": "AccessDatabaseEngine은 MDB를 읽는 MapLoad 전제 조건이다(setup 가이드 3.5). RDT 맵도 같은 MapLoad로 반영하므로 이 점검을 적용하되, 현장에서 MapLoad에 넣는 파일이 MDB가 아니면 AccessDatabaseEngine이 관여하는지 확인한다."
+   },
+   "flags": {
+    "old": [
+     "자료없음"
+    ],
+    "new": []
+   }
+  }
+ },
+ {
+  "id": "L3c-09",
+  "changes": {
+   "content": {
+    "old": "RDT에서 작도·Attributes 수정·Save(Revision 기록)한 결과는 사이트 폴더 안에만 머문다. Auto Blocking 계산, Safety Margin·Progress Unit 변경, Export Json File, MapLoad(MDB->SQL)는 실 시스템에 들어갈 데이터를 만들거나 직접 바꾼다. 수행하려는 조작이 이 체인(RDT 작도 → 오토블로킹 → JSON Export → OCS 반영)의 어느 단계인지 짚고, 실 반영 단계라면 백업과 테스트 서버 선행 여부를 확인한다.",
+    "new": "RDT에서 작도·Attributes 수정·Save(Revision 기록)한 결과는 사이트 폴더 안에만 머문다. Auto Blocking 계산, Safety Margin·Progress Unit 변경, Export Json File, MapLoad(MDB->SQL)는 실 시스템에 들어갈 데이터를 만들거나 직접 바꾼다. 수행하려는 조작이 이 체인(RDT 작도 → 오토블로킹 → JSON Export → OCS Layout>MapLoad 반영)의 어느 단계인지 짚고, 실 반영 단계라면 백업과 테스트 서버 선행 여부를 확인한다."
+   },
+   "flag_note": {
+    "old": "이 기준은 조사자가 매뉴얼을 종합해 만든 것이다. JSON Export 이후 OCS 반영 단계는 절차서가 없어(L3c-07) 그 단계의 선행 조치는 절차서 확보 후 문항으로 확정한다.",
+    "new": "이 기준은 조사자가 매뉴얼을 종합해 만든 것이다. RDT로 만든 맵도 Winlay로 만든 맵과 같은 절차로 OCS Layout 탭 MapLoad에서 반영한다(2026-10-08 사이트 확인). 반영 후 롤백 절차는 자료에 없으므로 '실 반영 전 백업·테스트 서버 선행'까지만 채점한다."
+   },
+   "flags": {
+    "old": [
+     "추정해석",
+     "자료없음"
+    ],
+    "new": [
+     "추정해석"
+    ]
+   }
+  }
+ }
+]
