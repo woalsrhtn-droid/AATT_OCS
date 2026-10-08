@@ -4,19 +4,20 @@
 
 Dear All,
 
-Please find attached the rough first draft of the RCP Project Setup & Maintenance Training plan (19–30 Oct), which I will deliver as trainer.
+Thank you for the proposal file. Please find attached the trainer version of the RCP Project Setup & Maintenance Training plan (19–30 Oct), in the same format with the technical sequence and content filled in.
 
 **1. RCP Project Setup & Maintenance Training (19–30 Oct)**
 
-- 9 training days + 1 assessment day. 9 sections: System Setup, Screen Operation, Map & Traffic Control, Vehicle Interface, Host Interface, PLC & Equipment Interface, Parameters & Operation Settings, Alarm & Troubleshooting, Redundancy & Network.
-- The curriculum is a competency item list of 91 items in three levels (L1 screen familiarity, L2 structure and entry points, L3 hands-on resolution), organised in the same Section / Module structure as the LCS Training & Competency System workbook. Each item is one assessable skill, and all items are taught within the 9 days.
-- Assessment on Day 10 (30 Oct): written + practical (screen tasks and log / Rose / map cases), scored by section with the LCS-style level bands. A scorecard per trainee and a summary for management will follow.
+- Same frame as the proposal: 10 weekdays, 09:00–16:00, Week-1 checkpoint on Day 5, knowledge test on Day 9, individual practical on Day 10.
+- Days 1–3 are setup (server preparation, MSSQL / DB build and backup-restore, RCP application install, UI on IIS, simulator, site configuration). Days 4–5 OCS screens, Day 6 map (OCS settings, RailDesignTool, MapLoad), Day 7 HSMS, Day 8 simulation and troubleshooting, Day 9 Rose MirrorHA.
+- The curriculum is a competency item list of 91 items in the LCS Section / Module structure (sheet 'Curriculum Items'). 69 core items are taught and assessed in the 10 days; 22 extended items (deep log analysis, SECS deep-dive, Rose maintenance, network equipment, EQ monitoring) are handed over as reference for November follow-up.
+- Assessment: knowledge test by section (Day 9, 100) and individual practical (Day 10, 100: setup, DB, site configuration, map, HSMS, fault recovery, handover). Pass proposal: knowledge ≥ 70, practical ≥ 80, critical checks passed.
 - Pass criteria and target level per trainee are proposed in the document and are open for discussion.
 
 **2. Requests to MMP before 19 Oct**
 
-- A training server or VM with OCS and the simulator, RailDesignTool on two PCs, access to a Rose test pair (or a read-only window on the live pair), and sample log sets from the site.
-- Three site-specific confirmations listed in section 3.2 of the document (MCS_IF window, MapLoad file type, AltTransfer screen).
+- Lab server / VM, MSSQL 2016 media, RailDesignTool on two PCs, access to a Rose test pair (or a read-only window on the live pair), and sample log sets from the site. Gun Ho is included in the participant list as per your e-mail.
+- Three site-specific confirmations listed in the 'Before training' table of the Management Overview sheet (MCS_IF window, MapLoad file type, AltTransfer screen).
 
 For the OHT Operation & Maintenance Training in November, I will join as a trainee and support Thines and Gun Ho as needed.
 
