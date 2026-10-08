@@ -1,0 +1,69 @@
+1. MSSQL설치시 D에 데이터베이스 파일 설치하는지(메뉴얼 확인)
+2. Core, MCSIF, PLCDrv 정상실행여부
+3. Core-Event로그에 CPU,RAM 정상적으로 기록되고 있는지 확인
+3. Core-TaskMgr 로그기록여부
+4. MCSIF 드라이버 설정파일 IP세팅 : 0.0.0.0
+5. 윈도우 이벤트 로그 특이사항 확인
+6. UPS작동확인(서버 전원 일정시간이후 자동종료 되는지 확인) 
+   : UPS구성옵션에 따라 다름. 파워 입력 이중화시 자동종료 되면 안됨
+7. 네트워크 카드 - 속성 - 전원관리 - 전원을 절약하기 위채 컴퓨터가 이 장치를 끌수 있음(체크해제)
+8. 원격데스크톱 기본 포트 변경 : 3389 -> 9833
+
+[프로그램 경로]
+
+D:\DataBase\aspnetdb.ldf mdf등등등
+
+D:\Program\Backup
+D:\Program\Core
+D:\Program\McsIF
+D:\Program\PlcDrv
+D:\Program\RCPGT\Local
+D:\Program\RCPGT\Host
+D:\Program\UpdateFile\YYMMdd\
+
+D:\UTIL
+
+[설치프로그램]
+1. MicrosoftEdge설치
+2. 반디집
+3. AcrobatPDF Reader[제외 Edge에서 가능]
+4. UltraEdit
+5. ExcelViewer or OpenOffice
+6. ssms
+7. .net8 / .net framework ( RCP관련 프로그램 실행시 자동설치됨)
+8. 시간동기화 프로그램 nettime 설치및 세팅( 업데이트 간격 1시간 ), 로컬vip로 설정
+
+[필요파일]
+1. cport
+2.
+
+[HA]
+1. LocalVIP설정확인
+2. HostVIP설정확인
+3. StandBy서버에서 미러디스크 접근불가 및 수정 불가 확인
+4. FailOver시 VIP로 UI접속여부 확인
+5. 서버 동시에 꺼졌을때 온라인 되는지 확인하는 방법[ 동시 OFFLINE시 온라인은 수동 ]
+
+[Parameter]
+0. BASE
+ : CPU, MEMORY Level
+   MemoryLevel1 : 70
+   MemoryLevel2 : 80
+   MemoryLevel3 : 90
+
+1. OHT
+ : ChangeRoute
+ : PreCmd
+ : FindPathExceptCase
+ : TaskMgr로그기록여부
+2. OHS
+ : CheckAllocPoint : 감속중 재가속 안되는 문제( 재전송 빠르게 )
+ : 
+
+3. PlcGroup
+ : Melsec의 경우 Port 2개이상 열려있는지, TcpPortRange 설정여부
+
+4. Layout
+ : 커브. 직진 속도 맞게 셋팅됐는지
+ : 차량 사이즈 제대로 설정 됐는지.
+ : Point/Segment UserBlock/DisableBlock 설정여부

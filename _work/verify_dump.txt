@@ -1,0 +1,262 @@
+============================== boundary ==============================
+SUMMARY: 관점은 레벨 경계 검증이다. 214개 전부를 경계표에 대고 확인했다. 원문으로는 기동 순서(설치 기준서 docx, 단독 실행 pptx), v04 목차(Report 10.1~10.17, Layout 13.1~13.3), setup 가이드 4.4/4.5와 5.7을 직접 확인했다.
+
+[확정 op 9건]
+① L3b-12 → L3a: Rose 조작이 없고, 이력·설정을 대조해 원인을 특정하는 일이라 L3-a다.
+② AUX-18 L3 → L2: 절차대로 하는 시뮬 환경 구성이다. 같은 절차를 L1-50은 L1로 두고 있다.
+③ AUX-17 → L3a-08 병합: 근거와 절차가 같다.
+④ L2c-20 → L2b-02 병합: IIS 점검은 L2-c 정의 밖이고, 같은 현상을 지목하는 역량이 두 곳에 있었다.
+⑤ L1-31: 목표에서 L2-c 역량을 빼고, L1 조작 항목이 없던 CommHistory·UIHistory·FailOverHistory를 넣었다.
+⑥ L2a-16: L1-21과 겹치는 MTL 5조건 판독을 뺐다.
+⑦ L3a-24: 목표가 L1-11과 같은 행위뿐이어서 본문에 있던 L3 요소로 바꿨다.
+⑧ L2b-04·L3b-13: 기동 순서 자료충돌 flag.
+⑨ AUX-04: 제목에서 '설정'을 뺐다.
+적용 후: L1 50 / L2a 18 / L2b 32 / L2c 20 / L3a 39 / L3b 13 / L3c 12 / AUX 28 = 212.
+
+[10개 탭 L1 점검]
+Layout 탭은 실질 L1이 0개다. L1-43(탭:Layout)의 내용은 메인화면 ⑤layout·⑥찾기·System>Home 결과색이고, Layout 메뉴(v04 13.1 Run/13.2 Check/13.3 Setting, MXA MapLoad)가 아니다. 정의가 Run/Check/Setting을 L2-a로, MapLoad를 L3-c로 묶어서 생긴 결과라 op 대신 발주자 결정을 요청한다.
+- (a) 그대로 수용한다.
+- (b) 맵을 바꾸지 않는 Layout>Setting(UI 표시 크기)이나 'Layout>Check 실행·Message 목록 읽기'를 L1로 분리한다.
+나머지 9개 탭에는 L1이 있다. 다만 실제 View 메뉴를 다루는 L1은 L1-04뿐이고, Help의 실제 화면 항목은 2개다(L1-48은 용어집). 탭 내부 공백은 다음과 같다.
+- Object>Segment·Safety는 L2-a에만 있다(정의상 수용 가능).
+- System>AltTransfer(setup 가이드 5.10)는 등록 조작 L1이 없다.
+
+[경계 의심: op 미제출, 판단 요청]
+- L3b-01: 콘솔 로그인과 4요소 상태 읽기는 경계표상 '상태값 읽기 = L1~L2'다. L1-06(ALIVE), L1-21(5상태 판정)과 기준이 어긋난다. L2로 내리거나 'L3-b 선행요건'으로 명시해야 한다.
+- L3b-11: 경로 확인과 Standby 접근 시험은 점검(L2)이고 AUX-09와 짝을 이룬다. 'Failover 비정상 원인 특정'으로 목표를 바꾸지 않으면 레벨이 과하다.
+- L3b-04: SECS 복구 판정이 L3a-34와 같은 예시로 중복된다. L3-b에만 있는 내용은 VIP 접속과 FailOverHistory 확인뿐이다.
+- L3c-12: 조작을 도구 내부 / 실반영으로 분류하는 일은 구조 이해(L2-b) 성격이다.
+- L2a-11: 목표는 MaxVehicleCount 지정인데 flags는 'Cluster 수치 튜닝 = L3-a'라고 적혀 있다. '초기값 입력(L2-a)과 현상 해결 조정(L3-a)'을 가르는 문구가 필요하다. L2a-12 Weight와 L2a-14 DisableBlock(안전 영향)도 같은 경계에 걸린다.
+- L2a-17: L2-a 목표 안에 Sub Command(차량 이동)라는 L1 조작이 섞여 있다.
+- AUX-06: Parameter 조정이라 L3-a(L3a-38과 같은 성격)에 맞는다.
+- AUX 안에서 기준이 일관되지 않다. 기준값대로 하는 설정이 AUX-13은 L1, AUX-15는 L2, AUX-22·23은 L3다. 절차대로 하는 AUX-10은 L3인데 AUX-09는 L2다.
+- L2b-04: 목표의 '어느 조건이 전이를 막는지'에 진단 뉘앙스가 있다. 채점은 '파라미터 관계 설명'으로 한정해야 한다.
+
+[정의와 어긋난 주석: 텍스트라 op 대상 아님]
+- L1-37 '막힌 반송 개입 명령 선택 = L2-c': 조치 결정은 L3-a이고, 해당하는 L2-c 항목도 없다.
+- L1-15·L1-27 'CycleMove 경로 구성은 L2-a로 분리': L2-a에 해당 항목이 없다.
+- L2b-01·L1-46 'RCPGT 외 UI 없음': L1-49·L1-50(MCS_IF 화면), L3c-09(Core>System 탭>MabLoad), L2c-19(CORE 상태 표시)와 충돌한다.
+- L2c-09·L2b-09의 L3-b 표기: ①에 맞춰 L3-a로 고쳐야 한다.
+
+[정의상 생기는 비대칭]
+OCS Layout>Check(L2a-18)는 L2-a인데, 같은 성격의 LayOut Designer Check Layout(L3c-08)은 L3-c다. 교재에 그 이유(실반영 직전 게이트)를 적어야 한다.
+
+  [move] ['L3b-12'] to_bucket=L3a to_level=L3
+      RoseMirrorHA 콘솔 조작(기동·절체·복제·스냅샷)이나 단독 실행이 전혀 없다. 'Report>FailOverHistory COMMENT + MCCSParam 4.1~4.4 + SystemParam 10.7/10.10/10.13/10.16 대조 → 트리거(CPU/Memory/Host Disconnect) 특정 → 임계값 조정 에스컬레이션 판단'은 경계표의 '여러 로그·이력을 대조해 원인 특정 / 조치·에스컬레이션 결정'이므로 L3-a다. 본 항목 flags에 적힌 대로 MCCS(Mantech) 기준이라 Rose와 연동된다는 근거도 없다. 함께 고칠 것: L2c-09 본문 'MCCSParam과 대조해 원인을 확정하고 복구하는 일은 L3-b'는 원인 확정=L3-a, Rose 복구 조작만 L3-b로 고친다
+  [move] ['AUX-18'] to_bucket=AUX to_level=L2
+      XcomPro Simulator 설정(Host Type·IP/Port·Connection Mode=Active·Log 경로), Start XCom, Simulation.exe 실행, RCP UI 오더 확인은 모두 설치 기준서 4장 절차 3~15와 setup 가이드 표39를 그대로 수행하는 일이다. 원인 특정·거동 조정·로그 판독·Rose 조작·맵 반영 같은 L3 요소가 없다. 같은 4장 절차(S1F17→MCMD REMOTE, S2F41 RESUME, S2F49 오더 생성)를 L1-50은 L1로 두고 있어 L1↔L3로 어긋난다. HSMS Active/Passive와 cfg/sml 역할을 알아야 하므로 L2로 둔다. AUX 안에서 설치 항목 AUX-08/09가 L2인 것과도 맞는다.
+  [merge] ['L3a-08', 'AUX-17']
+      AUX-17 본문(AP>Bridge>Vehicle PLC 순으로 ping해 구간 좁히기, tracert·telnet/tcping·netstat·arp·nbtstat로 끊긴 홉·포트·IP 충돌 판별)은 L3a-08 후반부와 같은 절차다. 근거도 같다(setup 가이드 p.30 표22·24, p.50~52 표42~51). 7개 목표 중 L3-a(로그 분석·처리, 조치·에스컬레이션 결정)에 자연스럽게 들어가므로 AUX 요건에 맞지 않는다. L3a-08에는 AUX-17에만 있던 tcping과 에스컬레이션 결정만 흡수한다. AUX-17 flags의 'Case Bank 실습 설계 필요'와 tcping 반입 승인 메모(AUX-16)는 L3a-08 비고로 옮긴다.
+      NEW_CONTENT: Ping 로그 '09:00:43.817, No.61, IP=10.1.0.61, Byte=32, Time=14, Status=Success'를 채널 규칙으로 읽는다. 10.1.0.NN은 차량 NN의 채널1(No.NN), 10.1.1.NN은 같은 차량의 채널2(No.1NN)이다(예: No.50과 No.150은 같은 차량). 한쪽 채널만 TimedOut이면 통신 단절이 아니라 이중화만 깨진 상태로, 양쪽 모두 TimedOut이면 단절로 판정한다. 화면에서는 Window>PingList, Report>PingHistory로 대조한다. Ve
+  [merge] ['L2b-02', 'L2c-20']
+      L2c-20(IIS 찾아보기 → URL 오타→IIS 등록 도메인→App 2.0 지우기→Config 점검)은 서버(IIS) 구성 점검이라 L2-c 정의(현상→OCS 실시간 창/Report/로그 지목) 밖이다. 원문도 setup 가이드 4.4 'IIS Web 등록 및 Config 수정'(L2b-02 근거) 바로 다음 장인 4.5 'Web RCP UI 실행 확인'(설치 검증 단계)이다. L2b-02 목표('UI가 안 열린다/다른 PC에서만 안 열린다 → IIS 기능·응용 프로그램 등록·Config.asp DB IP 중 확인 지점 지목')와 같은 역량을 L2-b와 L2-c에서 두 번 평가하고 있어 L2b-02로 합친다. 근거에 setup 가이드 p.28 표18을 추가한다. App 2.0 삭제 같은 실제 조치 수행은
+      NEW_CONTENT: RCP UI(RCPGT)는 IIS의 Default Web Site에 응용 프로그램(별칭/경로)으로 등록된 웹 애플리케이션이다. 경로는 D:\Program\RCPGT\Local과 \Host 두 벌이고, 127.0.0.1/rcpgt(별칭)로 접속해 확인한다. 제어판>Windows 기능 켜기/끄기에서 '인터넷 정보 서비스'(+.Net Framework, 웹 관리도구)가 빠지면 RCPUI 실행 자체가 불가하다. Web Config(Config.asp)의 DB 접속 IP를 루프백으로 두면 서버 로컬에서만 열리고, DB Server IP를 넣
+  [edit] ['L1-31'] add_flags=['민감정보']
+      (1) 목표의 '질문(어제 누가 로그인했나 등)에 맞는 Report 화면을 열어'는 L2c-06 목표('운영 질문을 듣고 답이 있는 Report 화면 지목')와 같은 L2-c 역량이다. L1↔L2-c로 어긋나므로 L1은 지정받은 화면을 조작하는 데까지로 한정한다. (2) L1 정의상 Report 조회 조작은 L1이다. 그런데 v04 목차의 Report 17개 중 10.9 CommHistory(p68), 10.13 UIHistory(p72), 10.17 FailOverHistory(p76)는 L2c-07/09/11·L3a-01·L3b-04가 목적지로만 쓰고 L1 조작 항목이 없다. 그래서 v04 각 장의 조회 방법 원문대로 추가했다. 근거 칸에 v04 p68·p72·p76을 추가해야 한다. UIHistory 
+      NEW_CONTENT: Report 화면은 조건 입력 → SEARCH(→SAVE) 공통 패턴이다: InOutHistory(Line In/Out·Call Enable/Disable·Comment), InformHistory(인수인계 Message INSERT·CONFIRM), RunningHistory(1시간 단위 RunningDist/Time·ErrorTime·WorkTime·BlockTime·IdleTime), NackHistory(NackCode·MESSAGE), HandOverHistory, CassetteHistory(Install/Remove 위
+  [edit] ['L2a-16']
+      배출·진입 가능 5조건(OrderMode/Floor/Exist/TrackMode/Available) 판독은 L1-21 목표('MTL 상태값 5개를 읽어 배출 가능 여부 판정')와 같은 행위다. 그런데 L2a-16 목표에도 들어 있어 L1과 L2-a에서 두 번 평가된다. 상태값 읽기는 경계표상 L1~L2이고 맵·통행영역 수정(L2-a)이 아니다. 그래서 L2a-16에는 Zone/PIO/Detour 설정만 남기고 판독은 L1-21로 보낸다. PIOPoint·DetourPointNumber 설명은 L1-21 원문 표기를 따랐다.
+      NEW_CONTENT: 먼저 Layout에서 MTL 객체를 생성한 뒤 Object > MTL에서 MTL Zone Segment List를 추가한다. Info는 MTLNumber, ScreenName, OnlineName(MCS 통신명), Unuse, MTLType, SegList, PointList, PIOPoint(진입 전 PIO Point), PointNumber, DetourPointNumber(PIO 실패 후 우회 Point)다. 차량 배출·진입 가능 5조건(OrderMode/Floor/Exist/TrackMode/Available) 판독은 L1-
+  [edit] ['L3a-24']
+      현재 목표('Not Define→ErrorTag 미등록 특정, 매핑 규칙대로 ErrorTag 보완')에는 L1 조작과 L2b-23 매핑 규칙밖에 없다. L1-11 본문('미등록 Error 발생 시 Not Defined Error', 개별 Insert)과 setup 가이드 5.7 Tag 등록 절차의 한 줄 메모('Not Define 알람이 올라오면 확인하여 ErrorTag 추가 및 수정', 원문 확인)를 그대로 옮긴 수준이라 L1-11↔L3a-24로 어긋난다. 본문에 이미 있는 L3 요소(PlcTag↔ErrTag 정의를 대조해 미등록 대역 찾기, 차량 담당자 확인 후 VehicleEvent Parameter 17.2/17.5/17.6 반영)를 목표에 명시해 L3 근거를 채점 대상으로 만든다.
+  [flag] ['L2b-04', 'L3b-13'] add_flags=['자료충돌']
+      기동 순서가 두 원문에서 다르다(둘 다 직접 확인). 설치 기준서 4장은 '프로그램 실행(관리자권한으로 실행) 1.Core.exe 2.PlcDriver.exe 3.MCS_IF.exe'(L2b-04 근거), Server Independent Execution Manual 슬라이드 11은 'Run Program files in that path in order: Core → MCS_IF → PlcDriver'(L3b-13 근거)다. 실행 폴더명도 McsIF/PlcDrv(L2b-01·03)와 MCS_IF/PLCDRIVER(L3b-13)로 다르다. L3b-13 목표가 '기동 순서 위반'을 채점하고 L2b-04는 '기동 순서 재현'을 요구하므로, 현행 순서를 확정하기 전에는 어느 한쪽을 정답으로 고정하면 안 된다.
+  [edit] ['AUX-04'] new_title=SQL 메모리 점유·상한 판정
+      제목의 '설정'(SQL 최대 서버 메모리 변경 = 설정값으로 거동 조정, 경계표상 L3 행위)이 목표('상한 설정 필요 여부 판정'), 본문('설정해야 함을 설명'), 레벨(L2)과 맞지 않는다. 실제 변경까지 평가하려면 L3로 올려야 하고, 현 목표를 유지한다면 제목에서 '설정'을 뺀다.
+  -- goal_check --
+   O L1 OCS 화면 조작 (50) L1-31 목표에 섞인 L2-c 역량(질문을 듣고 Report 고르기)을 빼고, L1 조작 항목이 없던 Report 3화면을 넣었다(edit).
+   O L2-a 맵 수정 (18) L1-21과 겹치는 L2a-16의 MTL 5조건 판독을 뺐다(edit). L2a-11/12/14는 수치·Block 입력이 L3-a 튜닝과 어디서 갈리는지 문구가 필요하다.
+   O L2-b 구조 이해 (32) L2c-20을 L2b-02에 병합한 뒤 32개. L2b-04는 기동 순서 자료충돌 flag.
+   O L2-c 진입 경로 (20) L2c-20(IIS 점검)은 L2-c 정의(OCS 실시간 창/Report/로그) 밖이라 L2b-02로 병합했다.
+   O L3-a 로그 분석·처리 (39) L3b-12가 들어오고 AUX-17은 L3a-08로 병합했다. L3a-24는 목표를 본문의 L3 요소로 바꿨다.
+   O L3-b Rose 이중화 (13) L3b-01(상태 읽기)과 L3b-11(경로 점검)은 레벨이 과하게 매겨졌을 가능성이 있다. L3b-04의 SECS 판정은 L3a-34와 겹친다. L3b-14는 근거가 없다.
+   O L3-c RailTool 반영 (12) L3c-12는 조작을 분류하는 항목이라 구조 이해(L2-b) 성격이 의심된다. 레벨 오배정은 없다.
+   O AUX (28) AUX-17은 병합, AUX-18은 L3에서 L2로 내렸다. 적용 후 L1 7 / L2 13 / L3 8. AUX-06은 L3-a에 맞을 수 있다.
+   O 메뉴 탭 L1: View (7) 실제 View 메뉴를 다루는 항목은 L1-04 하나다. L1-01·02·03·05는 메인화면, L1-49·50은 MCS_IF 화면(OCS 메뉴 밖)이라 탭 표기가 느슨하다.
+   O 메뉴 탭 L1: System (8) v04 7.1~7.14 중 Home·Cluster·Unuse·StationWeightGroup은 정의상 L2-a다. System>AltTransfer(setup 가이드 5.10)는 등록 조작 L1이 없다.
+   O 메뉴 탭 L1: Object (12) 8.2 Segment·8.5 Safety는 L2-a(L2a-14·15)에만 있다. 정의상 Segment는 L2-a라 수용 가능하다.
+   O 메뉴 탭 L1: Transfer (2) 9.1·9.2를 모두 다룬다.
+   O 메뉴 탭 L1: Report (5) v04 10.1~10.17 중 10.9 CommHistory·10.13 UIHistory·10.17 FailOverHistory에 L1 조작 항목이 없었다. L1-31 edit로 메웠다.
+   O 메뉴 탭 L1: Statistics (4) 11.1~11.5를 모두 다룬다.
+   O 메뉴 탭 L1: Window (6) 12.1~12.7을 모두 다룬다(CycleList는 L1-27).
+   X 메뉴 탭 L1: Layout (0) 명목상 L1-43 하나가 있지만 내용은 메인화면 ⑤layout·⑥찾기·Home 결과색이다. Layout 메뉴(v04 13.1 Run/13.2 Check/13.3 Setting, MXA MapLoad)를 다루는 L1은 실질 0개다. 정의가 Run/Check/Setting을 L2-a, MapLoad를 L3-c로 둔 결과이므로 발주자 결정이 필요하다.
+   O 메뉴 탭 L1: PlayBack (2) 14.1·14.2를 모두 다룬다.
+   O 메뉴 탭 L1: Help (3) L1-48은 MXA 매뉴얼 용어집이라 화면이 아니다. 실제 Help 화면 항목은 Version·Define 2개다.
+
+============================== dup-grounding ==============================
+SUMMARY: 214항목을 Manual 폴더 원자료(PDF·docx·pptx·xlsx에서 텍스트 추출)와 대조해 중복과 근거를 검증했다. op는 21건이다: edit 11, merge 2(3항목 흡수, 214→211), move 1, flag 7.
+
+[근거를 잘못 읽었거나 단정한 것 — 수정함]
+- L3b-07: Rose p.53을 거꾸로 읽음. 원문은 'Compare file content 선택, Recover to specified path Uncheck'다.
+- L3a-14: 5.15 Nack을 MCS 탓으로 단정함. 매뉴얼은 'OrderGroup 설정 확인'을 함께 적었다.
+- L3a-24: Not Define을 '설비 고장 아님'으로 단정함. 실제로는 미등록 Error가 발생한 것이다.
+- L2b-16: S9F9를 스펙 불일치로 묶음. S9F9는 Transaction Timer time-out이다.
+
+[중복 정리]
+- L3a-08↔AUX-17: CMD 구간 분리가 같다.
+- L3b-04↔L3a-34: Down→Up SECS 시퀀스가 같다.
+- L2a-16↔L1-21: MTL 5조건이 같다.
+- L2b-02↔L2c-20·AUX-08: UI 접속 불가 지목이 같다.
+- L1-31↔L2c-06: 질문→Report 매핑이 같다.
+- L2b-10↔L2b-09·L2c-05: Level3→MCCS 연결과 LogParam 보존기한이 겹친다. LogParam 쪽은 검증자 fix7 중복이 해소되지 않은 채 남아 있었다.
+- L3b-10↔AUX-15: NIC Teaming이 같다.
+- L3c-02·L3c-04는 L3c-05로, L3c-10은 L3c-09로 병합했다.
+
+[표기되지 않은 충돌·추정 — 플래그 추가]
+- 기동 순서: 설치 기준서는 Core→PlcDriver→MCS_IF, 단독 실행 매뉴얼은 Core→MCS_IF→PlcDriver다(L2b-04, L3b-13).
+- PLCCOMM 대응표: ErrTag는 7500~7507이고 ErrorDescription은 7500~7505로, 설비 대응도 다르다(L2c-17).
+- Exist 태그 표기: EXISTSENSOR와 EXIST(L2b-23).
+- ST 값 의미가 원자료에서 '관측·추정'으로 표기됨(L2b-26).
+- MNL CommandID 형식이 자료마다 다름(L3a-27).
+- AltTransfer 등록 수가 예시 1건뿐임(L2b-31).
+
+[레벨 이동]
+- L3b-12는 Rose 조작이 없고 근거가 MCCS 기준이어서 L3a로 옮겼다.
+
+[op로 내지 않은 것 — 스키마로 표현할 수 없거나 애매함]
+1. L1-30·L2c-10 주석의 'MXA본에는 HSMSHistory 없음'은 사실이 아니다. MXA 목차에 9.17 HsmsHistory(p.90)와 9.19 FailOver History(p.92)가 있고, 중문본에도 10.16 HSMSHistory가 있다. L1-30의 버전차이 플래그와 두 주석을 지워야 하는데 플래그 제거 op가 없다. 검증자 open question의 같은 서술도 오류다. 반대로 MXA 전용 Report>Safety History(9.18)는 어느 항목에도 없다.
+2. L1-03 주석의 'Help>Define(L1-49)'는 L1-47의 오기다.
+3. L1-27 주석은 'CycleMove 경로 구성을 L2-a로 분리'했다고 하나 해당 L2a 항목이 없다(검증자 fix7 미완).
+4. Parameter 매뉴얼 본문 헤딩 번호가 목차와 어긋난다. 본문에는 5.15 PostOrderAbnormal, 5.16 CheckTransferDeliverOrderGroup가 있고 5.17이 두 번 나오며, 5.7과 5.8 헤딩 이름이 같다. 항목들은 목차 번호를 쓰므로 교재에는 파라미터 이름을 함께 적기를 권한다.
+5. L2c-14의 JunctionParam>JunctionOccupyWaitTimeOutSec은 ErrorDescription의 Description에만 있다. Parameter 매뉴얼과 사용자 매뉴얼의 그룹 목록에는 없다.
+6. L2a-13: 10.19 PassPointReleaseInterlock에 등록되지 않은 Point는 Pass 등록·해제 시 'PointType을 변경할 수 없습니다' 팝업이 뜬다. 절차에 선행조건으로 넣기를 권한다.
+7. 원문에 없는 검증자 해석 두 가지: AUX-15의 'Rose 이중화 전제'(원문은 Teaming 기본설정만 적음), L3a-36의 'Max Penalty→Noway Timeout'(원문은 '경로를 찾지 못함'만 적음).
+8. 역량 레벨이 달라 병합하지 않은 부분 중첩:
+   - L2b-04·L2c-12·L2c-19: 10.1~10.4 설명이 반복됨
+   - L2b-11↔L2c-11
+   - L2b-25↔L2c-04·L2c-17
+   - L3a-35의 일반 의존쌍↔L3a-30/37/38
+   - AUX-08↔L3c-11
+   - L1-49 본문의 'MCS_IF가 안 뜨면' 문장↔L2b-06
+9. edit·병합 후 sources와 플래그를 다시 정리해야 한다(스키마로 수정할 수 없음): L3a-08의 setup 가이드·RCPHMI 인용, L3b-04의 SCENARIO SPEC 인용과 자료충돌·추정해석 플래그, L2b-10의 DB 점검 매뉴얼 인용, L3b-10의 setup 가이드 p.47 인용.
+10. L3b-02 목표의 'Delete 금지 이유' 중 '복구 불가'는 매뉴얼에 없다. 매뉴얼에는 '운영서비스 중지 필요'만 있다.
+
+  [edit] ['L3b-07']
+      Rose 운영가이드 p.53을 거꾸로 읽었다. 원문은 'Compare file content 선택 / Uncheck: Recover to spectied path'이고, 캡처에서도 Compare file content 라디오가 선택돼 있고 Recover to specified path 체크박스는 해제돼 있다. 원 항목은 'Compare file content(매뉴얼 지시: Uncheck)'로 적고 5개를 모두 '선택'한다고 썼다. 실제로는 앞 3개가 택1 라디오, 뒤 2개가 체크박스다. 목표의 'Compare file content를 해제하는 이유'도 근거가 없는 문항이다.
+      NEW_CONTENT: Snapshot > Recover Snapshot은 운영서비스 중지(Downtime)가 반드시 필요하며, 진행하면 Group이 Bring Out 된다. 복구할 Node / 복구시점 / 복구 Data를 차례로 고른다. Recover Mode 화면에서는 복구 방식 3개 중 하나(Compare file property=파일 속성 비교 / Compare file content=파일 내용 비교 / Sync the whole file=전체 파일 복구)를 고르고, 체크박스 2개(Bring in after finishing recovery=복구 
+  [edit] ['L3a-14']
+      원문은 5.15 Nack을 'MCS가 목적지를 잘못 보낸 것이므로 OCS 문제가 아니다'로 단정했다. Parameter 매뉴얼(목차 5.15, 본문 헤딩 5.16)은 사용예시에 'OrderGroup 설정 확인'을, 참고란에 'MCS에서 명령이 잘못 내려왔을 시 담당자 확인요청'을 함께 적었다. 따라서 OCS 설정 누락을 먼저 배제해야 한다(L2b-31도 등록 누락이면 반송 불가라고 적음). 단정형 판정 규칙을 그대로 두면 채점에서 오답이 정답으로 처리된다.
+      NEW_CONTENT: OrderNack 원문에서 Type(FromOrder/ToOrder), CstID(UNKNOWN…은 미인식), Result(거부 사유), CmdID·EventNumber, Trig(HOST=상위/GT=수동)를 읽는다. 예: 'Result=Call Prevented, VehicleNumber = 50, CmdID = 737278', 'Result=Cannot find Cassette ID'. 같은 CmdID·EventNumber로 MCSIF MCSSystem의 'S2F49 TRANSFER Call Prevented', 'S2F41 A
+  [edit] ['L3a-24']
+      원문의 '설비 고장이 아니라 ErrorTag 미등록으로 판정한다'는 근거와 어긋난다. 사용자 매뉴얼 7.8(L1-11 본문)은 '등록되지 않은 Error가 발생하면 Not Defined Error가 뜬다'고 적었다. 즉 이벤트 자체는 실제로 발생했다는 전제다. 설비·차량 이상을 '고장 아님'으로 넘기는 오판이 채점 기준에 들어가지 않게 고친다.
+      NEW_CONTENT: Window>AlarmList에 Not Define(Not Defined Error) 알람이 뜨면 ErrorTag에 등록되지 않은 Error가 실제로 발생한 것이다(사용자 매뉴얼 7.8: 미등록 Error 발생 시 'Not Defined Error' 표시). 알람명만으로는 원인을 알 수 없다. 발생 이벤트의 ErrType·ErrEvent(PlcTag Name/Value 또는 차량 에러번호)를 찾아 원래 이벤트(설비·차량 이상일 수 있음)는 따로 처리하고, ErrorTag 미등록을 보완한다. RCP 자체 알람은 초기 셋업 때 자동으로
+  [edit] ['L2b-16']
+      원 목표 'S9 계열 5종이 각각 어떤 스펙 불일치를 뜻하는지'는 사실과 다르다. MESSAGE SPEC 2.46은 S9F9를 Transaction Timer time-out으로 정의한다. L3a-22도 S9F1~F7(스펙 불일치)과 S9F9(타임아웃)를 나눠 판정하므로, 채점 기준이 L3a-22와 어긋나지 않게 고친다.
+  [edit] ['L3a-08'] new_title=Ping 2채널 판독·단절 판정
+      본문 후반(AP>Bridge>Vehicle PLC 순 Ping, tracert/telnet/netstat/arp/nbtstat로 원인 특정)은 AUX-17(CMD 결과로 장애 구간 특정)과 내용과 근거(setup 가이드 p.30 표22·24, p.50~52 표42~51)가 같다. ComGroup 중복 확인은 RCPHMI 현상2의 추정으로, L2b-11에 이미 있다. L3a-08은 검증자 missing이 요구한 로그 2채널 판독으로 좁힌다. 축소 후 sources의 setup 가이드·RCPHMI 인용은 필요 없다.
+      NEW_CONTENT: Ping 로그 '09:00:43.817, No.61, IP=10.1.0.61, Byte=32, Time=14, Status=Success'를 채널 규칙으로 읽는다. 10.1.0.NN은 차량 NN의 채널1(No.NN), 10.1.1.NN은 같은 차량의 채널2(No.1NN)다(예: No.50과 No.150은 같은 차량 — 원자료 '추정'). 차량별로 두 채널을 짝지어, 한쪽 채널만 TimedOut이면 통신 단절이 아니라 이중화만 깨진 상태로, 양쪽 모두 TimedOut이면 단절로 판정한다. 같은 판정을 Window>PingList(CU
+  [edit] ['L3b-04']
+      본문 후반의 SECS 시퀀스(EquipmentOFFline(CEID 1)→Select→S1F13/14→S1F17/18→OnlineRemote→TSCAutoInitiated→TSCPaused→다운 전 명령 3건 재보고→RESUME→TSCAutoCompleted)와 '명령이 살아남았는지 판정'은 L3a-34와 내용과 근거(SCENARIO SPEC p.48~49 10장)가 같다. L3a-34 목표에는 이미 '(또는 Rose Failover)'가 들어 있다. L3b-04는 절체 쪽 서비스 검증으로 좁힌다. 축소 후에는 SCENARIO SPEC 인용과 자료충돌(CEID)·추정해석(C392 적용) 플래그를 다시 평가해야 한다.
+      NEW_CONTENT: Failover가 일어난 뒤 HA 점검 4번대로 VIP 주소로 RCP UI 접속이 되는지 확인한다(Web Config의 DB 접속 IP를 DB Server IP로 등록했다는 전제). 이어 OCS Report > FailOverHistory의 DATETIME / MODULE / COMMENT(서버명칭, Program 명칭, FailOver 원인, 결과 값)로 어느 Program이 언제 왜 넘어갔는지 확인한다. 진행 중이던 반송 명령이 살아남았는지는 SECS 로그의 Controller Down→Up 재접속 시퀀스로 판정하며, 그 판독은
+  [edit] ['L3b-10']
+      NIC Teaming 부분(Switch independent / Dynamic / Standby None, 해제 전 IP 기록)은 AUX-15와 내용과 근거(setup 가이드 p.47 Teaming Setting)가 같다. 게다가 setup 가이드의 Teaming 절은 Rose나 Failover를 언급하지 않는다. Teaming을 Rose 절체 전제로 묶은 것은 검증자 missing의 해석이다. L3b-10은 Rose 운영가이드 p.64 근거(포트·경로·프로세스·서비스 중지 주의)로 좁힌다.
+      NEW_CONTENT: 절체가 안 되면 Rose 통신 전제부터 점검한다. 보안솔루션 예외와 Windows Firewall Inbound 규칙에 RoseMirrorHA 포트 TCP/UDP 7330, 3000, 3001, 3002, 7320이 열려 있는지 확인한다. 설치 경로 C:\Program Files\MirrorHA와 프로세스 MirrorHAService.exe, MirrorService.exe, MirrorMonitor.exe가 등록돼 있는지도 확인한다(Inbound port와 process 동일 설정). 매뉴얼 프로세스명과 현장 services.ms
+  [edit] ['L2a-16']
+      원 목표 후반의 '배출 가능 상태 5조건을 화면에서 확인'과 본문의 Info 10필드·5조건 서술은 L1-21(MTL 필드·배출 가능 상태)과 같은 내용이고 근거도 같다(사용자 매뉴얼 8.7). L1-21 목표가 이미 'Object>MTL 상태값 5개를 읽어 배출 가능 여부 판정'이다. L2a-16은 Zone 설정, 즉 맵·통행영역 수정으로 좁힌다.
+      NEW_CONTENT: 먼저 Layout에서 MTL 객체를 생성한다. 그다음 Object > MTL에서 해당 MTL을 선택하고, MTL Zone 영역에 들어갈 Segment List를 버튼으로 추가한다(버튼을 누른 뒤 Shift+마우스 드래그로 영역 설정). 이 항목에서 설정하는 값은 SegList·PointList(MTL Zone 영역), PIOPoint(차량이 MTL 진입 전 MTL과 PIO 하는 Point), PointNumber(MTL Point), DetourPointNumber(PIO 실패로 진입 실패 시 우회경로를 내릴 Point)다. 같은 
+  [edit] ['L2b-02']
+      원 목표 후반('UI가 안 열린다/다른 PC에서만 안 열린다' 현상에서 확인 지점 지목)은 다른 두 항목이 이미 평가하는 진입 경로 역량이다. L2c-20은 setup 가이드 4.5의 URL→IIS 도메인→App 2.0→Config 점검 순서를, AUX-08은 IIS 미설치→RCP UI 실행 실패 지목을 다룬다. L2b-02는 L2-b 정의대로 구조 설명으로 좁혀, 같은 증상 문항이 세 항목에서 겹쳐 채점되지 않게 한다.
+  [edit] ['L2b-10'] new_title=자원 경고 Parameter 구조
+      원 목표의 'Level3가 MCCS FailOver 트리거로 이어지는 관계'는 L2b-09 목표('서버 자원 과부하·상위 단절이 왜 절체로 이어졌는가를 SystemParam 경고 Level3와 연결해 설명')와 같다. LogParam 보존기한 나열은 검증자 fix7이 지적한 'LogParam↔Report 보존기간' 중복 쌍의 한쪽이다. L2c-05 주석은 '이 항목 하나로 묶었다'고 적었지만 여기 그대로 남아 있다(보존기한·백업 주기의 디스크 영향 조정은 AUX-06). 두 부분을 빼 자원 경고 구조로 좁힌다. 축소 후 sources의 DB 점검 매뉴얼 p.4·p.11 인용은 필요 없다.
+      NEW_CONTENT: SystemParam의 CPU 경고는 10.5~10.7 CPUWarnLevel1/2/3(%)와 10.8~10.10 CpuWarnLevel1~3SecTime(초)로, Memory 경고는 10.11~10.13 MemoryWarnLevel1~3와 10.14~10.16 SecTime으로 이루어진다. 사용률이 Level을 넘은 상태가 SecTime 이상 지속되면 ErrorList에 'CPU Warning Level1/2/3' / 'MEMORY Warning Level1/2/3'이 뜬다(SecTime 0=미사용). 10.17 HDDWarnin
+  [edit] ['L1-31']
+      원 목표의 '질문(어제 누가 로그인했나, 특정 CST가 어디서 Remove됐나)에 맞는 Report 화면을 고른다'는 L2c-06(Report 보조 이력 질문 매핑)과 같은 역량이다. L2c-06도 UserHistory·CassetteHistory를 포함한 같은 8개 화면을 다룬다. 검증자 권고10도 '어느 화면이 어느 질문에 답하는가(L2c)'와 '화면을 열고 조회하는 조작(L1)'을 나누라고 했다. L1-31은 조작과 조회 가능 기간 확인으로 좁힌다.
+  [merge] ['L3c-05', 'L3c-04', 'L3c-02'] new_title=오토블로킹 생성·Swept 검증 add_flags=['근거약함']
+      L3c-04(Progress Unit 설정 후 Segment Swept로 이동 단위 확인)는 L3c-05 절차(Progress Unit 지정→생성→Segment Swept)의 한 단계이고 근거도 같다(RDT 매뉴얼 p.35~36). L3c-02의 Swept 표시와 5종 식별은 L2a-07(Tool>Swept, p.26)과 겹친다. L3c-02의 '인접 궤도와의 간섭 판정'은 L3c-05의 'Swept로 블로킹 결과 타당성 검증'과 같은 역량이다. p.26은 궤도 그림 5장뿐이고 간섭 판정 기준이 없어 근거약함을 단다. 세 항목 공통인 도구미확정은 유지한다.
+      NEW_CONTENT: 사이트 네비게이션 트리에서 사이트를 우클릭해 Auto Blocking 창을 연다. Progress Unit(매뉴얼 정의: 차량 궤도의 차량 이동 단위, 예 5 mm — Export JSON File 창에도 같은 필드가 있다)을 정하고 'Start Auto-Blocking List Creation'으로 오토블로킹 정보를 생성한다. Point Swept에 포인트 아이디(예 1376)를 넣고 Enter를 치면 그 포인트 위치의 차량 궤도가 표시·숨김된다. Segment Swept에 세그먼트 아이디(예 2176)를 넣고 Enter를 치면 
+  [merge] ['L3c-09', 'L3c-10'] new_title=MapLoad 반영·백업 확보 add_flags=['근거약함', '사이트의존', '추정해석']
+      두 항목은 같은 한 줄 근거로 같은 MapLoad 실행을 평가한다: setup 가이드 p.29 표21('백업 폴더 지정 … 저장 날짜, 파일 이름 확인(매우 중요)'), 설치 기준서 p.35 절차 10, MXA Layout 장. L3c-10의 '반영 전 기존 맵을 백업한다'는 원문에 없는 해석이다(BackupPath에 무엇이 저장되는지 기재가 없음). 롤백 절차도 없어 L3c-10을 따로 채점할 근거가 없다.
+      NEW_CONTENT: 반영 메뉴 경로는 자료마다 다르게 표기된다(Layout > MapLoad: MDB 선택·BackupPath·MDB → UPDATE / Core > System 탭 > MabLoad: Map 선택·백업 폴더·MDB -> SQL / System -> MapLoad: MDB File Path·BackupPath·(MDB->SQL)). 어느 경로든 MDB 파일과 BackupPath(백업 폴더)를 지정한 뒤 MDB->SQL(UPDATE)로 맵을 SQL DB에 적재한다. 원문은 '저장 날짜, 파일 이름 확인(매우 중요)'만 적고 있다. 그러므
+  [move] ['L3b-12'] to_bucket=L3a to_level=L3
+      FailOverHistory COMMENT를 MCCSParam(4.1~4.4)·SystemParam(10.7/10.10/10.13/10.16) 설정값과 대조해 FailOver 트리거를 특정하고 에스컬레이션을 정하는 일이다. 경계 규칙상 '여러 로그·이력을 대조해 원인 특정'은 L3-a다. Rose 콘솔 조작(절체·기동·복구)이 없다. 근거 문서도 MCCS 기준이고 RoseMirrorHA와의 연동 자료가 없으므로(항목 자체 주석), L3-b(Rose 조작) 역량으로 셀 근거가 없다.
+  [flag] ['L2b-04'] add_flags=['자료충돌']
+      기동 순서 1.Core→2.PlcDriver→3.MCS_IF는 설치 기준서 p.31(4장 절차 2) 기준이다. Server Independent Execution Manual 슬라이드 11은 Core→MCS_IF→PlcDriver 순서로 실행하라고 적는다(L3b-13 본문). 목표 '기동 순서를 재현'을 채점하려면 기준 순서를 먼저 확정해야 한다.
+  [flag] ['L3b-13'] add_flags=['자료충돌']
+      5단계 기동 순서 Core→MCS_IF→PlcDriver(단독 실행 매뉴얼 슬라이드 11)가 설치 기준서 p.31의 Core→PlcDriver→MCS_IF(L2b-04)와 다르다. 실행 파일 경로도 D:\Program\MCS_IF·PLCDRIVER(단독 실행 매뉴얼)와 McsIF·PlcDrv(최초설치 확인사항)로 갈린다. 목표에 있는 '순서를 바꿨을 때 생기는 결과'는 어느 자료에도 없다.
+  [flag] ['L2c-17'] add_flags=['자료충돌']
+      검증자 overreach(ErrCode 대역 확정 기재)에 해당한다. 260103_ErrTag_L30은 PLCCOMM이 7500~7507 8행(CPS/MTL/OLUS1~4/FireDoor1·2)이다. ErrorDescription.xlsx는 7500~7505 6행(CPS/MTU/MGZ MPORT#1·#2/CST MPORT#1·#2)으로, 코드 수와 설비 대응이 모두 다르다. 항목은 앞쪽 값을 확정형으로 적었고 플래그는 사이트의존뿐이다.
+  [flag] ['L2b-23'] add_flags=['자료충돌']
+      Exist Sensor 태그 예시 'TagProperty EXISTSENSOR'는 Parameter 매뉴얼 9.1 사용예시의 표기다. 현장 260103_PlcTag_L30.xlsx의 STATION 태그는 TagProperty 'EXIST'(49행)를 쓴다(L2b-26·L3a-25도 _EXIST). 'Exist Sensor 태그 누락→RCPSTATION 알람' 구조를 채점하려면 어느 표기가 현행인지 먼저 확인해야 한다.
+  [flag] ['L2b-26'] add_flags=['추정해석']
+      '_ST(1 정상/3 알람)'은 근거인 로그분석 매뉴얼 슬라이드 20이 'ST 값 읽기 (관측 기준 · 추정)'으로 표기한, 사례 1건 기반 해석이다. 같은 값을 쓰는 L3a-23은 추정해석을 달았는데 L2b-26에는 사이트의존만 있다.
+  [flag] ['L3a-27'] add_flags=['자료충돌']
+      수동 지령 CommandID 형식 'MNL+설비명 8자리+YYYYMMDDHH24MISS+순번'은 BASIC SPEC VID 58의 예시다. OCS 사용자 매뉴얼(v04·중문·MXA)은 'MNL'+생성시간으로 적고, MESSAGE SPEC 예시는 'MNL0905143922'다. 판정 규칙은 'MNL로 시작하는가'로만 채점해야 한다.
+  [flag] ['L2b-31'] add_flags=['근거약함', '추정해석']
+      System>AltTransfer 화면은 사용자 매뉴얼 3종(v04·중문·MXA) 어디에도 없다(HandleAltTransferOrder 파라미터만 있음). 근거는 setup 가이드 p.37 표31 하나다. 'OrderGroup 3개·AltTransfer 10개'는 산정 규칙 없이 예시 1건으로만 제시돼 있어, 목표 '등록 수 산정'을 채점하려면 예시 1건에서 규칙을 귀납해야 한다.
+  -- goal_check --
+   O L1 (50) op 반영 후 50(변동 없음). 화면 조작 항목은 충분하다. L1-31 목표를 조작으로 좁혀 L2c-06과 분리했다. 빈 곳: v04 Report>CommHistory·UIHistory·FailOverHistory의 L1 조회 조작이 없고(L2c에서 지목만 함), MXA 전용 Report>Safety History(9.18)가 빠졌으며, MTL 차량 배출 버튼 조작(매뉴얼 8.7 ※)도 없다. L1-30의 'MXA본 HSMSHistory 없음' 버전차이 플래그는 오류다(MXA 9.17 HsmsHistory 존재).
+   O L2a (18) op 반영 후 18. OCS 화면 수정 10개와 RDT 8개(도구미확정 조건부)로 구성된다. L2a-16을 Zone 설정으로 좁혔다. L1-27 주석은 'CycleMove 진행방향 경로 구성'을 L2-a로 분리했다고 적었으나 해당 항목이 없다. L2a-13에는 10.19 PassPointReleaseInterlock 선행조건(Pass 변경 시 팝업) 보강을 권고한다.
+   O L2b (32) op 반영 후 32. 구조 설명은 충분하지만 항목이 과밀하다. L2b-02·L2b-10의 범위를 줄여 L2c-20·AUX-08, L2b-09·L2c-05와의 중복을 없앴다. 플래그 추가: L2b-04 기동 순서와 L2b-23 EXISTSENSOR/EXIST 자료충돌, L2b-26 ST 의미 추정, L2b-31 예시 1건 근거. 부분 중첩(L2b-11↔L2c-11, L2b-25↔L2c-17, L2b-04↔L2c-12·L2c-19)은 역량 레벨이 달라 유지했다.
+   O L2c (21) op 반영 후 21. 현상→실시간 창/Report/로그 지목 경로는 충분하다. L2c-17 PLCCOMM 대응표에 자료충돌을 달았다. L2c-10 주석의 'MXA HSMSHistory 없음'은 오류다. L2c-14의 JunctionParam은 Parameter 매뉴얼(16/17/15그룹)에 없는 그룹이다.
+   O L3a (39) op 반영 후 39(현재 38 + L3b-12 이동). 판독·조인·원인 특정은 충분하다. 다만 '처리(조치)' 근거(점유 고착 해제, WaitConnect 재시작 대상, 멈춘 Order 해소)는 여전히 자료가 비어 있다. L3a-14·L3a-24의 단정형 판정을 고쳤고, L3a-08은 2채널 판독으로 좁혔다. 다수 항목이 1개 사이트 1시간 표본에 기반하므로 채점은 수치 암기가 아니라 절차형으로 해야 한다.
+   O L3b (13) op 반영 후 13(현재 14 − L3b-12 이동). 콘솔·Group 조작·수동 절체·복제·스냅샷·장애 대처·단독 실행은 평가할 수 있다. L3b-07의 Recover Mode 오독을 고쳤고, L3b-04·L3b-10에서 L3a-34·AUX-15와 겹치는 부분을 덜어냈다. 단독 실행 후 복귀(L3b-14)는 원복 절차서가 없어 평가할 수 없고, Rose 로그 경로와 판정 수치도 없다.
+   X L3c (9) op 반영 후 9(현재 12; L3c-02·L3c-04→L3c-05, L3c-10→L3c-09 병합 — 같은 근거, 같은 절차). JSON→OCS 배포 절차와 롤백 절차가 어느 자료에도 없고, 도구 체인(MDB/MapLoad 대 RDT/JSON)도 확정되지 않았다. 그래서 정의의 '실 시스템 반영(배포·백업·롤백)' 가운데 절반을 평가할 수 없다. 검증자 fix9대로 조건부 모듈로 처리해야 한다.
+   O AUX (29) op 반영 후 29. 정기 점검·설치 기준·네트워크 장비·EQ 감시가 충분하다. AUX-17은 L3a-08에서 떼어낸 CMD 구간 분리를 다루는 유일한 항목이 됐다. AUX-15의 'Rose 이중화 통신의 전제 설정이다'는 원문 근거가 없는 검증자 해석이다.
+
+============================== goal-coverage ==============================
+SUMMARY: 목표 충족 관점에서 214항목을 발주자 7개 목표, critic.txt의 missing 16건과 하나씩 대조했다. 판본 관련 주장은 원본(v04·중문·MXA docx 목차와 본문, Clean_Vehicle pptx 캡처 이미지, Server Independent Execution pptx)을 직접 열어 확인했다.
+
+결론:
+- missing 16건은 모두 반영됐다. #5(타임아웃 알람)만 L3-a 판정 쪽이 Noway·All Port Loading Fail 2건뿐이라 부분 반영이다.
+- L1·L2-a·L2-b·L2-c·L3-a는 평가에 충분하다. L3-a에는 처리·에스컬레이션 결정 항목이 12개 있다.
+- L3-b는 '단독 실행 후 복귀'가 근거 없는 골격(L3b-14)뿐이라 평가할 수 없다. L3-c는 롤백 절차와 RDT JSON 반영 절차가 자료에 없고 도구 체인이 미확정이다. 두 목표는 자료 부족으로 adequate=false로 판단했다.
+
+ops는 15건이다(신설 없음).
+
+스키마로 처리할 수 없어 수작업이 필요한 사항:
+1. L1-30·L2c-10의 '버전차이(MXA본 HSMSHistory 없음)' 플래그와 주석은 사실 오류다. MXA 목차 9.17과 본문에 HsmsHistory가 있다. 플래그 제거 op가 없어 수작업으로 지워야 한다. critic open question의 같은 주장도 틀렸다.
+2. L1-03 주석의 'Help>Define(L1-49)'는 L1-47을 잘못 적은 것이다.
+3. L1-41 주석: TerminalMsg는 중문본뿐 아니라 MXA본에도 없다.
+4. L1-15 주석의 '원 pptx의 ID/PW'는 확인 결과 텍스트·노트·이미지 어디에도 계정정보가 없다. 실제 민감정보는 캡처 타이틀바의 호스트명·IP와 차량명이다.
+5. L1-15·L1-27 주석은 'CycleMove 경로 구성을 L2-a로 분리'했다고 적었지만 L2-a에 해당 항목이 없다. C198(v04 p57)의 진행방향 고려·Unuse 제외 내용이 사라졌다.
+
+애매해서 op로 내지 않은 것:
+- 부분 중복(merge 관점에서 재검토 권장): L1-21↔L2a-16(MTL 5조건), L3a-08↔AUX-17(CMD 구간 특정), L3b-10↔AUX-15(NIC Teaming), L3a-34↔L3b-04(Down→Up 시퀀스), L2b-02↔L2c-20(UI 접속 불가), L2b-04↔L2c-12↔L2c-19(10.1~10.4).
+- AUX-18(시뮬 환경 구성)은 절차 수행에 가까워 L3가 과대일 수 있다.
+- L3a-25의 카세트 ID(TPK31082)와 각 로그 예시의 차량번호를 마스킹할지는 open question 결정을 기다린다.
+- L1-43의 '탭:Layout'은 메인 화면 layout 영역을 가리켜 Layout 메뉴 탭과 혼동될 수 있다.
+- 2026 현장 UI의 미문서 메뉴(Point Occupy·Station Point·MTU·Junction·Vehicle Version·MTU Command)는 설명 자료가 없어 L1에 넣을 수 없다. 교육 전에 사이트 메뉴를 실측해야 한다.
+
+  [flag] ['L2b-04', 'L3b-13'] add_flags=['자료충돌']
+      OCS 프로그램 기동 순서가 두 자료에서 다르다. 설치 기준서 4장 절차2는 1.Core→2.PlcDriver→3.MCS_IF이고, Server Independent Execution Manual 슬라이드 11은 Core→MCS_IF→PlcDriver다(원본 확인). 실행 폴더명도 McsIF·PlcDrv와 MCS_IF·PLCDRIVER로 갈린다.
+  [edit] ['L3b-13']
+      기동 순서가 자료끼리 충돌하는 상태에서 '기동 순서 위반'을 채점 항목으로 두면 정답이 두 개가 된다. 단계 누락과 단계 순서는 그대로 평가하고, 5단계 내부의 프로그램 순서만 사이트 확정 전까지 채점에서 뺐다.
+  [flag] ['L2c-09'] add_flags=['자료충돌']
+      FailOverHistory의 MODULE 정의가 v04 10.17은 'FailOver 된 Program', MXA 9.19는 '가동 서버'로 다르다(원본 확인). 그래서 목표 'MODULE 값으로 넘어간 프로그램을 짚는다'가 MXA 계열 사이트에서는 성립하지 않을 수 있다.
+  [flag] ['L3a-09'] add_flags=['자료충돌']
+      주석에 이미 두 자료의 불일치가 적혀 있다. Event 로그 형식은 로그분석 매뉴얼이 [CPU]/[RAM]/[DB][HQ][PQ], DB 점검 매뉴얼이 'CPU : %, Memory : %, Process, DBQ'이고, CPU 임계값은 현장 캡처 87/92/97, Parameter 매뉴얼 80/85/90이다. 이는 판본(v04/중문/MXA) 차이가 아니라 자료 사이의 값 충돌이다.
+  [flag] ['AUX-06'] add_flags=['자료충돌']
+      주석에 HDDWarningSpaceGB 예시값이 Parameter 매뉴얼은 50, CPU_RAM_HDD 점검 캡처는 5로 다르다고 적혀 있다. 두 자료가 서로 다른 값을 제시하는데 자료충돌 플래그가 빠져 있었다.
+  [flag] ['L1-25'] add_flags=['버전차이']
+      MXA본 Object 장(Point/Segment/Vehicle/Station/Safety/CPS/MTL(MTU)/Ping Unit/PlcGroup/Graphic/PlcTagmonitor/PlcTagGroup)에 Memo가 없다. Object>Memo는 v04 8.11과 중문 8.11에만 있다(원본 목차·본문 확인).
+  [flag] ['L1-15'] add_flags=['버전차이']
+      Sub Vehicle Command 구성이 판본마다 다르다. v04 p44는 작업내용/경로 확인·강제 분기진입·청소차량 On/Off·레일 진단차량 On/Off다. MXA 7.3.2는 레일 진단차량을 빼고 '무언정지 리셋'을 넣었다. 2026 현장 캡처(Clean_Vehicle 슬라이드 3)는 Check Comment/LongStayReset/VehicleInit/IgnoreJcpHW/Clean On/Clean Off다. 이 항목은 v04 목록과 현장 Clean 절차를 한데 섞고 있다.
+  [flag] ['L2b-31'] add_flags=['버전차이']
+      System>AltTransfer 화면은 v04(7.1~7.14)·중문(7.1~7.14)·MXA(System 장) 사용자 매뉴얼 어디에도 없고 RCP setup 가이드 5.10에만 있다. 대상 사이트 빌드에 이 화면이 있는지 실측해야 한다.
+  [flag] ['L1-27'] add_flags=['민감정보']
+      근거 슬라이드 4~5·8~9의 화면 캡처 타이틀바에 현장 서버 호스트명과 IP가 그대로 보인다(원본 이미지 확인). L1-15와 같은 원본이므로 배포 시 마스킹해야 한다.
+  [flag] ['L3a-31'] add_flags=['민감정보']
+      주석의 OrderNack 실례 문자열에 사이트 호스트명(STOTA20100)이 들어 있다. 같은 예시를 쓰는 L3a-14에는 민감정보가 달려 있으므로 같은 기준을 적용한다.
+  [flag] ['L1-21'] add_flags=['사이트의존']
+      상태값과 PlcTag 태그명(MTL ORDERMODE/FLOOR/EXIST/TRACKMODE/AVAILABLE)의 대응 근거가 사이트 파일(260103_PlcTag_L30.xlsx)이다. 같은 근거를 쓰는 L2b-26과 같은 기준이며, 타 사이트에서는 태그 체계를 다시 확인해야 한다.
+  [edit] ['L1-31']
+      v04 Report 17종 가운데 CommHistory·UIHistory·FailOverHistory는 조회 조작이 L1 어디에도 없고 L2c·L3에만 나온다. 그래서 L1 정의('Report 화면을 열고 조건 넣고 조회·저장하는 조작도 L1')를 채우지 못했다. 이 셋을 공통 조회 항목에 넣었다. MXA본 Report 9.18 Safety History도 어느 항목에도 없어 함께 적었다.
+      NEW_CONTENT: Report 화면은 조건 입력 → SEARCH(→SAVE) 공통 패턴이다: InOutHistory(Line In/Out·Call Enable/Disable·Comment), InformHistory(인수인계 Message INSERT·CONFIRM), RunningHistory(1시간 단위 RunningDist/Time·ErrorTime·WorkTime·BlockTime·IdleTime), NackHistory(NackCode·MESSAGE), HandOverHistory, CommHistory(날짜·VehicleNumber 또는 
+  [flag] ['L1-31'] add_flags=['민감정보']
+      UserHistory·UIHistory 조회 결과에 사용자 ID와 IP가 나오므로 교재 캡처는 마스킹해야 한다. L2c-07과 같은 기준이다.
+  [edit] ['L1-30']
+      MXA본 목차 9.17 HsmsHistory(p90)와 본문 절이 실제로 있다. 그래서 기존 주석과 버전차이 플래그('MXA본에는 HSMSHistory 화면 없음')는 사실 오류이고 제거해야 한다. 아울러 v04 원문에 있는 MessageName 조건이 빠져 있어 추가했다. 또 원문은 Include MonitorEvent·InCludeEventReportAck를 해당 유형'만' 검색하는 옵션으로 정의하는데, 이를 '노이즈를 거른다'로 적은 부분을 바로잡았다.
+      NEW_CONTENT: Report > HSMSHistory는 상위(MCS)와 주고받은 XcomLog를 조회한다(v04 10.16·중문통합본 10.16·MXA본 9.17에 모두 있다). Search Word에는 CommandID / CassetteID / Vehicle OnlineName(MXA본은 Vehicle Number) 중 하나를 넣는데, CommandID로 검색하면 구분하기 쉽다. Stream과 Function은 따로 입력하고(S2F41이면 Stream '2', Function '41'), MessageName(스펙 참조)으로 메시지별 검색을 할
+  [edit] ['L3a-28']
+      MESSAGE SPEC 2.38은 CEID 503/504를 RPTID 13에 묶지만, SCENARIO SPEC(UnitAlarmSet CEID 504, REPORTID 12)과 실제 SECS-II 로그(L3a-21의 CEID '504' … RPTID '12')는 RPTID 12를 쓴다. 같은 커리큘럼의 L3a-29와도 정면으로 충돌해 채점 기준이 둘로 갈리므로, 매핑표를 현장 SML 확인 조건부로 고쳤다.
+      NEW_CONTENT: S6F11의 CEID→RPTID 매핑으로 본문 필드 구성을 정해 판독한다. 매핑 예(MESSAGE SPEC 2.38 기준): RPTID 1 → CEID 1,2,3,10,11,51~57 / RPTID 2 → 107,109 / RPTID 3 → 101~106,108,110,111 / RPTID 9 → 254 / RPTID 11 → 251 / RPTID 13 → 503,504 / RPTID 14 → 270 / RPTID 16 → 153,154. 다만 SCENARIO SPEC(7·8장 UnitAlarmSet)과 실제 SECS-II 로그('
+  -- goal_check --
+   O L1 — OCS 프로그램을 잘 아는가(화면 전수 조작) (50) v04 목차(4~15장) 대비 전수 대조 결과, L1 조작이 비어 있던 곳은 Report 3종(CommHistory 10.9 p68, UIHistory 10.13 p72, FailOverHistory 10.17 p76)뿐이었다. 셋 다 L2c·L3에만 나왔고, L1-31 edit로 편입했다. System>Home/Cluster/Unuse/StationWeightGroup, Object>Segment/Safety, Layout 탭은 L2-a 정의에 따라 L2a에서 다룬다. 원본 대조로 확인한 판본 사실: ① MXA본에도 HsmsHis
+   O L2-a 맵 수정(화면 기능·RailTool 작도) (18) 정의 요소는 모두 대응한다. Layout>Run/Check/Setting은 L2a-18이고, MapLoad는 빠져서 L3c-09로 고정됐다(정상). System>Unuse(09)·Cluster(11)·StationWeightGroup(12)·AutoParkArea(17), Object>Point Type·Block(13·14), RDT 작도·편집(01~08)이 있고, Home(10)·Safety/CPS 영역(15)·MTL 존(16)이 보강돼 있다. 약점: ① RDT 8항목이 모두 도구미확정이다. 사이트 도구가 Winlay/LayOu
+   O L2-b 구조 이해 (32) 정의 요소가 모두 있다: 실행 단위·통신 상대(01), RCPGT(02), Config(03·05·06), 기동 순서·Core 상태 전이(04), 서버·망·Rose·MCCS(07~09), 자원 Parameter(10), 차량 프로토콜(11~15), HSMS/SECS(16~22), Tag·ErrCode 체계(23~28), Parameter 체계(29·30·32), AltTransfer(31). 결함: L2b-04의 기동 순서(설치 기준서 Core→PlcDriver→MCS_IF)가 L3b-13(단독 실행 매뉴얼 Core→MCS_IF→P
+   O L2-c 진입 경로 지목 (21) 세 방향이 모두 있다. 실시간 창은 ErrorList/AlarmList/OrderList(12~14·16~18), Report는 InOut/UI/Nack/FailOver 등(06~09), 로그 파일은 01~05·10·11·15·19·21이다. 로그 종류 인지(02·03)와 증상별 진입 순서(04)도 있다. missing #5(타임아웃 알람 → L2c-13·14)와 #6(UVP vs CommError → L2c-12)이 반영된 것을 확인했다. 결함: L2c-09의 MODULE 의미가 v04('FailOver 된 Program')와 M
+   O L3-a 로그 분석·처리 (38) '판독만' 있는 상태는 아니다. 판독(01~05·16·18~23·26~29), 조인 재구성(02·12·13·15), 원인 특정(06~08·11·25·31~33)에 더해 처리·에스컬레이션 결정 항목이 12개 있다: L3a-10(DB/네트워크 점검 이관), 14(OCS 조치 vs MCS 에스컬레이션), 15(HandOverWeight·Priority 조정안), 17(PushWeight 조정 검증·Move 우회), 24(ErrorTag 보완 수행), 30(수동 개입 시점·방법), 32(Manual Order 생성 시점), 34(MCS 재
+   X L3-b Rose 이중화 조작·복귀 (14) 13항목은 Rose 운영가이드와 단독 실행 매뉴얼에 근거가 있어 평가할 수 있다: 콘솔 접속·상태(01), Group 기동·정지·강제기동(02), 수동 절체·역절체(03), Failover 후 검증(04), 복제(05), 스냅샷(06·07), 계획 작업(08), 장애 대처(09), 절체 전제(10·11), MCCSParam 트리거(12), 단독 실행(13). 복귀 항목은 두 갈래다. Failback(원래 Active로 되돌리기)은 L3b-03·08에 문서 근거가 있다. 그러나 정의에 명시된 '서버 단독 실행 후 복귀'는 L3b-14
+   X L3-c RailTool layout 업데이트·실 반영 (12) 있는 것: 차량 제원은 입력 조작이 L2a-02, 변경 영향·재계산이 L3c-01에 있다. Swept는 간섭 판정(L3c-02)과 Point/Segment Swept(L3c-05)가 있다. 오토블로킹 계산·검증은 L3c-03~08에 있다. 실 시스템 반영은 MDB 경로(Winlay/LayOut Designer → MapLoad MDB->SQL)만 L3c-09·11·12에 있다. 백업은 L3c-10(BackupPath 백업 확보, 복귀 대상 식별)에 있다. 미충족(자료 부족): ① 롤백을 실제로 수행하는 절차가 어느 자료에도 없다. 
+   O 검증자 missing 16건 반영 대조 (16) ①MCCSParam → L2b-09, L3b-12 ②MCS_IF 상위 연결(cfg 경로, Select=True, HostNetworkName 대소문자, 드라이버 IP 0.0.0.0) → L1-49, L2b-05, L2b-06 ③System>Comm Group → L1-09, L2b-11 ④AltTransfer·등록 수 산정 → L2b-31 ⑤타임아웃 알람 1:1 대응 → L2c-13, L2c-14, L2b-15. L3-a 판정 쪽은 L3a-30·36 2건뿐이라 부분 반영 ⑥UVP vs CommError, 전이 파라미터 10.1~10
+

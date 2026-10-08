@@ -1,0 +1,106 @@
+1. : 	차량이 카세트를 트렌스퍼 하는 과정에서 차량의 이동경로에 다른 차량이 있을경우 에러 발생
+	자동으로 처리를 하는 방법이 있을 것 같은데 일단 경로를 막고있는 차량에 move명령을 내리거나 시뮬레이터로 
+	차량 이동을 임의로 넣으면
+	정상 작동-> 아마도 홈 설정이나 클러스터 설정이 들어가면 차량을 자동으로 치워 줄 것 같긴한데 클러스터 추가가 안되서 테스트는 못 해봄
+	system -> parameter -> blockingparam -> pushweight 이 설정의 값을 넣으면 트렌스퍼 도중에 차량이 설정 값 보다 가까워지면
+	자동으로 앞의 차량을 밀어낸다 라고 메뉴얼에 나오지만 실행이 되지 않는 듯 하다. 
+	->(blockingHistory에 log가 없는 것을 보아 blocking의 개념은 아님 statisticsvehicle blockrate 0% 인거 보니 확실 함)
+	
+2 :	차량 등록시 컴 그룹이 같다면 차량 인식을 못함(포트번호가 같기 때문에 인식을 못 하는 것으로 추청)
+
+3 :	클러스터 포인트 인서트 불가능 이유는 아직 찾지 못함 save 누르면 등록 포인트가 초기화 됨 
+	success는 정상적으로 나옴
+
+4 :	home 설정을 하고 차량이 home으로 돌아가야 하는데 왜 돌아가지 않는 가
+	아마 차량별로 따로 홈 포인트 설정이 필요한 듯 하다 object -> vehicle 설정에 home point 설정이 있음 임의로 값을 넣으니 save 불가능
+
+5 :	cyclemove 차량 추가하고 언유스 체크 하고 무브 포인트 지정했는데 차량 움직임 없음 뭔가 다른 설정을 해줘야 하는게 있는 듯
+	-> window -> cyclelist 설정 -> resume 클릭 -> error unhandled eventname = cyclelistcommand ( 처리 되지 않은 이벤트 이름?)
+
+6 :	report -> informloghistory 부분 메시지 입력하고 인서트 누르면 등록이 실패함 이유는 모르겠음 테이블이 null을 허용하지 않아서 
+	입력 실패 메시지가 나오는데 이유는 알 수 없음
+
+7 :	layout -> check 9992~9999번 point의 segment는 존재하지 않습니다. segment를 확인하세요 
+	아마 포인트말고 레일을 세그먼트라 부르는데 이 번호가 화면에 표시되지 않으니 문제가 있다 판단 하는 듯
+	이 번호들은 가상의 레일인 것 같다 예를 들면 라인 아웃한 차량들을 모아놓는 레일 이라던지 아직은 알 수 없음
+
+8 : 	데이터 베이스 포함 모든 프로그램 제거 후 재설치 시도 -> 에뮬레이터 secs2 통신 로그 부분 차량이 본인의 위치를 알리는 
+	recv s6f11 rptid=14 ceid=270 MonitoredVehicles 알림을 보내고 있음 이유는 아직 찾아내지 못하고 있음 
+	차량을 line out 시키면 알림이 끊어지긴 하는데 해결방안은 아님
+
+
+문장 구조 
+
+<L [3] 
+1. <U4 DATAID> 
+2. <U2 CEID> 
+3. <L [1] 
+1. <L [2] 
+1. <U2 RPTID>                   * RPTID = 14 
+2. <L [7]                  
+    1. <A VehicleID>                           
+    2. <A VehicleCurrentPosition> 
+    3. <A VehicleNextPosition> 
+    4. <U4 AlarmID> 
+    5. <AAlarmText> 
+    6. <U2 VehicleCommunicationState> 
+    7. <U2 MainteState>                                       
+   > 
+   > 
+   > 
+
+
+<L [3] 
+1. <U4 DATAID> 
+2. <U2 CEID> 
+3. <L [1] 
+1. <L [2] 
+1. <U2 RPTID>                   * RPTID = 14 
+2. <L [7]                  
+    1. <A VehicleID>                           
+    2. <A VehicleCurrentPosition> 
+    3. <A VehicleNextPosition> 
+    4. <U4 AlarmID> 
+    5. <A AlarmText> 
+    6. <U2 VehicleCommunicationState> 
+    7. <U2 MainteState>                                       
+   > 
+   > 
+   > 
+
+MainteState 
+Stocker maint state 
+ -. 1=Maintenance 
+ -. 2=Not Maintenance 
+
+
+[17:19:39.989] RECV S6F11:S6F11 W [D=1] [len=90] [SB=5986]
+                    <L,3 
+                        <U4,1  '0'>
+                        <U2,1  '270'>
+                        <L,1 
+                            <L,2 
+                                <U2,1  '14'>
+                                <L,2 
+                                    <L,7 
+                                        <A,0  ''>
+                                        <A,4  '1490'>
+                                        <A,4  '1490'>
+                                        <U2,1  '0'>
+                                        <A,0  ''>
+                                        <U2,1  '1'>
+                                        <U2,1  '2'>
+                                    >
+                                    <L,7 
+                                        <A,0  ''>
+                                        <A,3  '103'>
+                                        <A,3  '103'>
+                                        <U2,1  '0'>
+                                        <A,0  ''>
+                                        <U2,1  '1'>
+                                        <U2,1  '2'>
+                                    >
+                                >
+                            >
+                        >
+                    >.

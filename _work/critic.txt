@@ -1,0 +1,90 @@
+## 검증자 지적 — 누락(missing)
+- MCCSParam FailOver 요청 체계(UseFailOverRequest, FailOverFilePath/FileName, HostDisconnectTimeout, 트리거 3조건=CPU/Memory Warning Level3·Host Disconnect) — goal_mapping이 L3(b)의 'OCS 화면 접점'으로 명시했는데 M2.4 sample_items에 항목이 없다. OCS 화면에서 이중화를 건드리는 유일한 지점인데 커리큘럼에서 사라졌다.
+- MCS_IF 상위 연결 설정 일체 — 사이트별 cfg 경로(MCS_IF\<사이트명>\<사이트명>.cfg), XCom CfgSml Manager에서 cfg/sml 등록 후 Select=True 확인, HostNetworkName 대소문자 구분, MCSIF 드라이버 IP 0.0.0.0. 발주자 L2(b)가 'MCS Interface'를 명시했는데 S6은 'config 4개 파일' 한 항목으로만 다룬다.
+- System>Comm Group 화면(CommGroupNumber/LimitTime/IpAddress/PortNumber/ProtocolType) — M2.1에서 'CommGroup 선행 원칙'이라는 괄호 언급으로만 남았다. 차량 통신 장애에서 설정값과 로그를 대조하는 1차 지점이고 조사본에서 L2로 잡혔다.
+- System>AltTransfer(중간 경유지 반송)와 OrderGroup·AltTransfer 등록 수 산정 — M2.1의 sources에 문서명만 인용되고 항목이 없다. 경유지 반송이 있는 사이트에서는 등록 누락이 곧 반송 불가다.
+- 타임아웃 알람과 파라미터의 1:1 대응 묶음 — LongStay/LongStayInWorking, LoadingFail(All Port Loading Fail), UnAllocatedOrderTimeout(Unlocated Order is exist), NoWayVehicleTimeout(Noway Timeout), TransferCommandRecvTimeout(TransferCommand is not received), JCPHeartBeat. M5.5 item2에 Noway 한 건만 예시로 남았다. L2(c)의 '알람→화면 고정 경로'와 L3(a)의 판정 기준이 동시에 얇아졌다.
+- 'Unknown Vehicle Position과 CommError의 구분'(기동 시점부터 위치를 못 받은 차량 vs 알던 차량이 끊긴 것) — 알람 이름만으로 원인을 가르는 명확한 판정 기준인데 최종안에 없다. Core WARMINGUP→RUNNING 전이 파라미터 4종(SystemRunTimeoutSec/VehiclePercent/AutoRunTimeoutSec)도 함께 빠졌다.
+- S9 계열 이상 메시지(S9F1 Unrecognized Device ID / F3 Stream / F5 Function / F7 Illegal Data / F9 Transaction Timer time-out)와 HSMS 타임아웃 T3/T5/T6/T7/T8 — 상위 통신이 끊겼을 때 '스펙 불일치인가 타임아웃인가'를 가르는 유일한 근거다. M8.4는 S6F11/S5F2/HCACK/ResultCode까지만 다룬다.
+- Controller Down→Up 복구 시퀀스(EquipmentOFFline → Select.req → S1F13/14 → S1F17/18 → 다운 전 Queuing 명령 3건 재보고 → RESUME) — Rose Failover 직후 '명령이 살아남았는지'를 검증하는 유일한 문서 근거인데 L3(b)와 L3(a) 양쪽에서 빠졌다.
+- PIO Interlock 실패의 자동 복구 체계 — ResultCode 64 + CarrierLoc으로 적재/하역 실패 구분(M8.4에 일부 있음)에서 끝나지 않고, Once Retry → AbortLocation 대체 명령 → 'All Port Loading Fail - Manual Handling' 알람으로 자동 복구가 종료되어 사람이 개입하는 경계. L3(a)의 '처리'에 해당하는 몇 안 되는 문서화된 절차인데 항목이 없다.
+- BCR NG 3유형(Failure/Duplicate/Mismatch)과 UNKNOWN CarrierID 생성 규칙(UNKNOWN+EQPNAME+YYMMDDhhmmss) — '카세트 ID가 틀렸다'는 M5.5의 현상 카드로만 존재하고 판독 항목이 없다. 유령 카세트 추적의 실무 핵심.
+- RailDesignTool의 차량 제원 입력(Length/Width/Rear·Front detection distance/Reference Point Lock)과 Swept 5종·Direction 표시, LayOut Designer의 Solid Detection — 전부 오토블로킹 계산의 입력값이자 검증 수단인데 M7.2/M7.3에 없다. Safety Margin·Progress Unit만 아는 상태로 L3(c)를 통과한다.
+- Rose 통신 전제 설정 — 보안솔루션/Windows 방화벽 포트(TCP·UDP 7330, 3000, 3001, 3002, 7320), 설치 경로·프로세스 등록, DB가 미러링 경로에 있어야 Failover가 정상 동작한다는 전제(Sp_helpfile 확인), NIC Teaming(Switch independent/Dynamic/None, 해제 시 IP 선기록). 이중화가 '왜 안 넘어가는지'의 단골 원인들이다.
+- CMD 1차 진단 명령 세트(ping / tracert / telnet IP Port / netstat -an |findstr / arp / nbtstat -A / ipconfig /all / tcping) — 타 사이트 엔지니어 교육이면 더 필요한 기본기인데 S6·S9 어디에도 없다. 조사본에 사용법·판정 기준까지 표로 있었다.
+- 로그 3종의 판독 항목 — HomeChange(HomeChanged2 A->B, ForEscape, 가상 포인트 2만번대 식별), VehicleEvent(VEHICLE_30 전방 차량감지 504건/시간을 혼잡도 지표로 읽기, 연쇄 해제 = 행렬 해소), UIException(중문 로케일 예외 → DB 연결 단절 판정). 32종 중 이 3종만 진입점에도 판독에도 안 들어갔다.
+- Ping 2채널 판독(10.1.0.NN=채널1 No.NN / 10.1.1.NN=채널2 No.1NN, 한쪽만 죽으면 통신 단절이 아니라 이중화만 깨진 상태) — M4.4의 sources 주석에만 남고 항목이 없다. PingList 12컬럼을 읽는 L1 항목만으로는 이 판정이 안 된다.
+- System>Status(Check로 DataBaseName·여유공간·설치위치 조회) — DB 여유 공간을 OCS 화면에서 보는 지점인데 빠졌다(SystemInfo HARDWARE는 M9.1에 있음).
+
+## 검증자 지적 — 근거 과장(overreach)
+- M2.3 item3의 ErrCode 대역 맵(VEHICLE 1~720 / CPSDOWN 1000~1027 / SYSTEM 3001~4574 / PING 7001~7120 / PLCCOMM 7500~7507 / STATIONALARM 8105~8130 / CPU·MEM·HDD 92001~95001) — 같은 모듈의 근거약함 주석이 'ErrTag(2,277행)와 ErrorDescription(2,403행)이 서로 다른 개정판이라 코드 대역표를 교재로 확정할 수 없다'고 스스로 적어놓고 본문 항목에는 한쪽(260103_ErrTag) 값을 확정형으로 박았다. STATIONALARM만 해도 8105~8130 vs 5000~5273로 갈린다. 조건부 표기 또는 현행본 확정 후 기재로 바꿔야 한다.
+- M8.4 item1의 CEID 번호대 분류(1~3 Control Status / 51~57 TSC / 101~111 Transfer / 151~154·251 Carrier / 201~212 Vehicle / 260·261 Port / 503·504 UnitAlarm / 270 MonitoredVehicles) — BASIC SPEC 기준이지만 RCP setup 가이드는 전혀 다른 번호대(101~ TSC State / 201~ Transfer Command / 301~ Carrier / 501~ Non-Transition / 601~ Vehicle / 701~ Unit Alarm / 801~ Unit Transfer)를 제시하고 '번호는 현장 상위 프로그램 기준으로 작성된다'고 명시한다. 두 자료가 충돌하는데 한쪽만 확정 표기했다 — 타 사이트에 그대로 배포하면 틀린 표를 가르친다.
+- M2.4 item3의 'CPUWarnLevel1~3(87/92/97%)·SecTime 180, MemoryWarnLevel1~3' — 이 숫자는 CPU_RAM_HDD 점검 매뉴얼의 현장 캡처값(RCP-DB01/02)이고, OCS Parameter 매뉴얼의 예시값은 80/85/90·100/110/120초다. 사이트별 설정값인데 교재 기준값처럼 적혀 있다. '예시(사이트별 확인)'로 표기 필요.
+- M1.1 item4(메인 화면 상단 Core/PLC/Host 연결 램프)와 M1.3 item2(OCS 주요 용어 정의) — 둘 다 MXA본에만 존재하는 근거다(조사본이 'v04본에는 용어집 장이 없다', 램프는 MXA 3.1 8번 항목이라고 명시). open_questions 1번이 v04를 기준본으로 권고하면서 S1의 핵심 항목을 MXA 전용 내용으로 채웠다. 특히 M1.1 item1의 'v04 8영역'과 item4의 'MXA 램프'가 한 모듈에서 같은 화면처럼 서술된다.
+- M8.2 item6의 'CommT PNT 편중 집계로 전파 음영 구간 특정'과 'ComThread Reply(31ms) vs 스레드(3.5초) 분리로 서버측/차량측 판정' — 원자료(로그분석 매뉴얼)에서 전자는 '자료상 추정'으로 표기된 해석이다. 추정 표기가 떨어진 채 L3 평가 항목이 됐다. 같은 성격으로 M8.3 item4의 'HO=[n] 3 이상이면 떠도는 중', M8.2 item4의 PntOccupy 수치도 1개 사이트 1시간 표본 기반이다(M8.5 item4가 환산 한계를 다루지만 개별 항목에는 반영 안 됨).
+- M7.3 item4의 'Layout>Check 경고 판정 — 9992~9999번 point 경고가 실제 결함인지 가상 레일(라인아웃 차량 보관용)인지 가름' — 근거는 RCPHMI.txt 현상7이고 원문은 '가상 레일일 가능성을 제기하면서 아직 확정하지 못했다'는 미해결 메모다. 정답이 없는 사안을 L3 평가 항목으로 세웠다. Case Bank에 '정답 없음'으로 등록한다는 계획은 있지만 Curriculum 항목으로도 남아 있어 채점이 불가능하다.
+- M4.2 item2 '정상 반송 1건의 OCS 화면상 흐름' — 자료에서 조립한 교육 설계물이고(OrderList Step 5종 + SCENARIO SPEC 정상 시퀀스 + 로그분석 4개값 생애주기), 그 자체로는 특정 문서의 기술 항목이 아니다. 기준선 모듈로서 가치는 인정되지만 source가 'p98~99'로만 달려 있어 교육생이 되짚을 수 없다. 합성 항목임을 명시하고 근거 3건을 모두 달아야 한다.
+- M9.4 item2 '감시 대상 4종'인데 열거는 3종(OCS Server iLO / UPS / AP) — 조사본은 OCS Server 1/2를 따로 세어 4종이었다. 같은 근거약함 주석이 'ErrTag의 AP 12대·HUB 6대와 SNMP 목록의 AP 8대 불일치'를 지적하면서 본문 수치는 정리하지 않았다.
+
+## 검증자 수정 지시(fixes)
+1. [필수1] goal_mapping을 모듈 단위 계상에서 **항목 ID 단위**로 재작성하고, 7개 목표 합이 136을 넘지도 모자라지도 않게 맞춰라. 현재 122 ≠ 136이며 Layout>Setting·MapLoad가 두 목표에 동시 계상된다. 목표에 귀속되지 않는 14항목(M9.4 전체 등)은 '발주자 7항목 외 보조'로 명시 구분할 것.
+2. [필수2] MapLoad의 레벨을 하나로 확정하라. level_definitions L2(a)는 'Layout>Run/MapLoad/Check'를 L2로 적고, M7.1 item4는 [L3], goal_mapping은 L2(a)와 L3(c)에 동시 계상한다. 권고 — Layout>MapLoad 조작은 L3(c)로 고정하고 L2(a) 정의문에서 MapLoad를 삭제(Run/Check/Setting만 남김).
+3. [필수3] L2 정의문의 자기모순을 고쳐라. '(a) … MAP과 통행 영역을 수정할 수 있다'와 '설정값을 바꾸지 않고 읽고 찾아가는 단계까지'가 한 문단에 공존한다. '화면 기능으로 맵·통행 영역은 수정하되, 거동을 규정하는 Parameter 값은 바꾸지 않는다'로 재서술.
+4. [필수4] 레벨 판정식에 목표별 최소 요건을 넣어라. 현 권고안(L3 70%)으로는 Rose 0항목·RailTool 0항목으로 Level 3가 나온다(비Rose·비RailTool L3가 정확히 27개 = 임계 27). 'Level 3 = L3 70% AND M9.2+M9.3 6항목 중 4 이상 AND M7.3 4항목 중 3 이상'처럼 소목표별 하한을 추가하거나, L3(b)·L3(c)를 별도 Pass/Fail Gate로 뽑아라.
+5. [필수5] open_questions 4번의 '38점대'를 **23.9점**으로 정정하고 그 전제 위에 쓰인 문장을 다시 써라. chosen_base의 'L1 변별력 문제를 완화했다'는 주장도 성립하지 않는다(L1 전수 보유 = 약 24/100). 함께 'Operator … 48점 범위'를 51점으로 수정.
+6. [필수6] L3(a)의 '처리' 공백을 교재 구조에 반영하라. 둘 중 하나 — (ㄱ) level_definitions L3(a)를 '원인 특정과 에스컬레이션 판단까지'로 범위를 좁혀 선언과 항목을 일치시키고 조치는 별도 산출물로 분리, 또는 (ㄴ) 'PntOccupy 점유 고착 해제 / PlcCommLog WaitConnect 시 재시작 대상 / 멈춘 Order 해소 순서' 3항목을 현장 인터뷰 산출물 전제로 신설하고 Gap Tracker에서 '없으면 평가 불가'로 묶어라. 현재처럼 선언만 두면 L3 인증이 공허해진다.
+7. [필수7] 중복 항목을 정리해 총항목을 재산출하라. Layout>Setting(M1.2 item3 ↔ M7.1 item1, 둘 다 L1)과 LogParam↔Report 보존기간(M2.4 item2 ↔ M5.1 item4, 둘 다 L2)은 같은 내용이다. CycleMove도 M3.2 item3(L1)과 M4.1 item4(L2)가 같은 슬라이드를 근거로 중복된다 — Clean Mode 조작(L1)과 CycleMove 경로 구성(L2)으로 내용을 갈라라. 정리 후 136 → 134 전후로 level_totals·Assessment weight·Curriculum 행수를 전부 다시 맞춰야 한다.
+8. [필수8] Prohibited-Ops Gate의 5개 기준 각각에 대응 항목을 만들거나 기준을 줄여라. '안전 파라미터 해제'(NoOrderMovingVehicleTimeoutSec+TxCancelWhenLoseWay, ObstacleSensorDetectDistance+ObstacleSensorErrorEvent, TxReleaseInterlock+InterlockStopErrorCode)와 'Max Penalty'(UnuseByStationPenaltyMSec Max 시 경로 소실 → Noway Timeout)는 M2.4에 [L3] 1~2항목으로 신설하는 쪽을 권한다 — 조사본에 '충돌 위험', 'Max 수치만큼 설정 시 경로를 찾지 못함'이라는 명시 근거가 있다.
+9. [필수9] L3(c)의 도구 체인을 하나로 확정하기 전까지 M7.3을 '조건부 모듈'로 표시하라. MDB→MapLoad(Winlay 경로)와 JSON Export(RDT 경로)를 한 목표 안에 섞어둔 현재 서술은 어느 사이트에서도 그대로 적용되지 않는다. open_questions 2번을 '교육 설계 선행 조건'으로 격상하고, 확정 전에는 M7.3을 배점에서 빼거나 Gap Tracker의 '평가 불가' 상태로 명시.
+10. [권고10] L1 정의를 만족시키려면 Report·PlayBack의 '조회 조작' 1~2항목을 L1로 복원하라. 제안 — M5.3에 [L1] 'Report 공통 조회 조작(조건 입력→SEARCH→SAVE)과 조회 가능 기간 확인' 1항목, M8.1에 [L1] 'PlayBack>Run 조작(배속 1~16·시간단위 1~30분·불러오기)' 1항목. '어느 화면이 어느 질문에 답하는가'(L2c)와 '화면을 열고 조회하는 조작'(L1)을 분리해야 '레이아웃에 있는 내용을 다 다룰 수 있느냐'가 측정된다.
+11. [권고11] 레벨 재검토 3건 — ①M6.2 item4 '기동 상태 전이 4단계에서 어디서 멈췄는지 짚기'는 조사본에서 L2(c)였는데 근거 없이 L3로 올라갔다(어디서 멈췄는지 짚는 것 = 진입점 지목). ②M2.2 '[L3] EntranceLimit 자동 체크 역판독'은 화면 체크박스 상태를 읽는 것이므로 본안의 L2 정의('설정값을 바꾸지 않고 읽는다')에 더 맞는다. ③M5.2 '[L2] CommErrHistory로 반복 통신 불량 집계'는 조사본 L3였고 '집계해서 구간을 특정'하는 행위라 L3 쪽에 가깝다. 세 건 모두 '로그 종류를 아는 것(L2) vs 판독하는 것(L3)' 경계의 일관성 문제이므로 한 기준으로 재배정하고 level_reason에 근거를 남겨라.
+12. [권고12] 사이트/버전 의존 항목에 플래그를 달아라. M1.1 item4(Core/PLC/Host 연결 램프)와 M1.3 item2(용어집)는 MXA본에만 있는 근거인데 기준본을 v04로 권고한 S1의 핵심 항목에 들어 있다. M6.3을 '선행 모듈'로 두고 그 판정 결과에 따라 S1~S5 항목이 켜/꺼지는 구조로 명시하면 '없는 화면을 가르치는 사고'를 막는다는 M6.3의 설계 의도가 실제로 작동한다.
+
+## 미해결 결정사항(open_questions — 발주자 판단 대기)
+- Q: 교육 대상 사이트와 OCS 버전을 어디로 확정하는가 — v04(한국어 원판) / 중문통합본 / MXA본(RCP 표기) 중?
+  왜: 세 버전은 화면 구성이 다르다. 중문통합본에는 Report>FailOverHistory·Statistics>Quality·Window>TerminalMsg·Layout>Check 4개 장이 없고, MXA본에는 v04에 없는 AutoParkArea·PlcTagmonitor·Move History·Layout MapLoad가 있는 대신 Cluster·Vehicle IO Tag·Statistics 상세·HSMSHistory가 없으며 Parameter 그룹도 15종(v04는 16종)이다. 확정 전에는 S2·S5·S6·S7의 항목 수가 ±5 변동하고, 최악의 경우 존재하지 않는 화면을 가르치게 된다. 이건 자료를 더 읽어서 알 수 없고 대상 사이트가 정해져야 답이 나온다.
+  추천: v04를 기준본으로 확정하고, MXA본 고유 화면 4종은 Config 시트의 Site/Version 값에 따라 켜지는 '옵션 모듈'로 분리 운영. 교육 2주 전 대상 사이트에서 10개 메뉴 탭을 실제로 펼친 캡처 1세트를 받아 존재 여부를 실측하는 것을 전제 조건으로 둔다.
+- Q: 맵 도구를 무엇으로 확정하고, L3(c) RailTool 교육의 권한 범위를 어디까지 허용하는가 — Winlay / LayOut Designer / RailDesignTool 2 중 현 사이트 도구는? 교육생이 실 운영 DB에 MapLoad를 수행해 보게 할 것인가?
+  왜: 자료에 맵 도구가 세 이름으로 나오고(Winlay=MDB 작성·AutoBlock 생성 주체, LayOut Designer=Point/Segment/Navigator/Reflector 작도, RailDesignTool 2=JSON Export) OCS 반영 경로도 Layout>MapLoad와 Core>System>MabLoad로 표기가 갈린다. 세 도구가 대체 관계인지 병행인지 자료로는 판별 불가다. 또 MapLoad는 실패 시 전 라인에 영향을 주므로 교육생에게 실행까지 시킬지는 발주자의 리스크 판단이다.
+  추천: RailDesignTool 2를 기준 도구로 가정하되 M7.2/M7.3을 교육 전 1회 현장 검증 대상으로 표시. 권한은 '도구 내 수정·Export는 전원 실습, MapLoad 실 반영은 테스트 서버에서만'으로 선을 긋고, 운영 DB 반영은 Senior Track에서 입회자 동반 1회 수행으로 제한할 것을 권한다.
+- Q: 교육 대상자를 Role Track으로 나눌 것인가, 전원 L3까지 끌고 갈 것인가 — 나눈다면 트랙별 목표 레벨은?
+  왜: L3가 38항목(28%)이고 대부분 실제 로그 샘플과 실습 환경을 요구한다. Rose 절체와 MapLoad는 라인을 세울 수 있는 조작이어서 전원에게 실습시키는 것이 적절하지 않을 수 있다. 반대로 전원을 L1에 묶으면 타 사이트에 로그 분석 역량이 남지 않는다. 교육 공수·평가 공수·권한 부여가 모두 여기서 갈리는데 자료로는 알 수 없다.
+  추천: 3트랙 권고 — Operator(목표 L1, S1~S5 중심, 48점 범위), Engineer(목표 L2, 전 섹션 L1+L2 = 98항목), Senior(목표 L3, 136항목 전부 + Rose·MapLoad 실행 권한). Engineer Profiles 시트에 Role Track 열을 신설해 사람마다 목표 레벨을 명시하고, 완료율은 목표 레벨 범위 기준으로 계산한다.
+- Q: 합격선과 레벨 구간을 어디로 정하는가 — LCS의 <50% Trainee / 51~65% L1 / 66~90% L2 / 91%+ L3을 그대로 쓸 것인가?
+  왜: OCS는 배점이 S8(19점)·S5(13점)·S2(12점)에 몰려 있어 L1만 보유한 인원의 이론적 최고점이 38점대다. LCS 구간을 그대로 쓰면 L1을 완벽히 숙지한 신입이 'Trainee'로 떨어진다. 반대로 구간을 낮추면 L3 미보유자가 L2로 인증된다. 이건 평가 철학의 문제이고 발주자만 답할 수 있다.
+  추천: 구간을 레벨별 이수율 기반으로 바꿀 것을 권한다 — Level 1 = L1 35항목 중 90% 이상, Level 2 = L1 90% + L2 63항목 중 80% 이상, Level 3 = L2 80% + L3 38항목 중 70% 이상 + Prohibited-Ops Gate 및 L3 Practical Gate 통과. 섹션 100점 총점은 '참고 지표'로 남기고 레벨 판정의 1차 기준에서 빼는 편이 OCS 배점 편중에 맞다.
+- Q: 실습 환경을 어디까지 제공받을 수 있는가 — ①XCom Simulator + Simulation.exe 기반 교육용 OCS 1세트 구축 가능 여부 ②실제 로그 샘플(Comm/PntOccupy/Order/SECS)의 타 사이트 반출 승인 ③Rose 절체 실습이 가능한 시간대
+  왜: L3 38항목 중 로그 판독 17항목은 실제 로그 없이는 교육도 평가도 불가하다. 자료에 있는 로그는 Micron AATT Taichung(차량 44대·PLC 8대) 1시간 표본인데 이것을 타 사이트 교육 자료로 쓰려면 반출 승인이 필요하다. Rose 절체와 단독 실행은 운영 중단을 수반하므로 작업 시간대 승인이 전제다. 모두 발주자/현업 결정 사항이다.
+  추천: 최소안 — ①교육용 서버 1대에 XCom Simulator + Simulation.exe로 상위·차량 없는 OCS 1세트 구축(설치 기준서 4장 절차) ②로그는 차량번호·카세트ID·IP를 마스킹한 30분 분량 Case Bank로 반출 신청 ③Rose 실습은 테스트 서버 2노드로 대체하고 운영 서버 절체는 참관만. 이 3개가 확보되지 않으면 S8·S9를 '이론+샘플 판독'으로 격하하고 Practical Gate를 유예해야 한다.
+- Q: 이번 교육의 산출물로 '자료에 없는 문서'를 새로 만들 것인가 — ①알람별 조치문(ErrTag 2,277행의 ErrActionText가 전부 ErrText와 동일) ②원인 특정 이후 복구 절차서 ③Rose 단독 실행 후 이중화 복귀 절차서 ④정기 점검 체크시트 양식
+  왜: 이 4건은 '자료를 더 읽으면 알 수 있는 것'이 아니라 아예 존재하지 않는 문서다. ②③이 없으면 L3(a)의 '처리' 절반과 L3(b)의 복귀 절차를 교육할 수 없다. 이걸 이번 교육 범위 안에서 만들 것인지, 별도 과제로 떼어낼 것인지는 공수와 책임 소재가 걸린 발주자 결정이다.
+  추천: ③Rose 원복 절차서는 교육 전 필수 산출물로 못박을 것을 권한다(현장 사고 위험이 가장 큼, 현업 엔지니어 인터뷰 2시간 + 테스트 서버 검증 1회면 작성 가능). ①②④는 교육의 '부산물'로 설계 — 교육생이 L3 실습 중 작성하게 하고 Case Bank/Gap Tracker에 축적해 교육 종료 시 초판을 산출물로 제출하는 방식이 공수 대비 효과가 크다.
+- Q: 타 사이트 배포 시 민감 정보 마스킹 범위를 어디까지 가져가는가 — 장비 접속 ID/PW(RestAPI·Clean Vehicle 자료에 평문 존재), 서버·AP IP 대역, AP 배치, 사이트 호스트명(RCP-DB01, AGV03/AGV04, STOTA20100)
+  왜: 조사 과정에서 자료에 ID/PW가 평문으로 들어 있고 IP 대역·호스트명이 그대로 노출된 것을 확인했다. 타 사이트 다른 사람들을 위한 교육 자료이므로 어디까지 지우고 어디까지 남길지가 보안 정책 문제다. 동시에 전부 지우면 '현장에서 어떤 값이 들어가는지' 감각을 못 가르친다. 보안 담당과 발주자만 선을 그을 수 있다.
+  추천: ID/PW는 전면 삭제하고 '현장 담당자 확인' 절차로 대체, IP는 대역 규칙만 남기고 실주소는 x.x.0.NN 형태로 마스킹(10.1.0.NN/10.1.1.NN 2채널 규칙처럼 교육에 필요한 구조는 보존), 호스트명은 역할명(AP서버/DB서버/Active/Standby)으로 치환. 실측 로그 샘플은 Case Bank에서 한 번 마스킹한 사본만 쓰고 원본은 배포본에 포함하지 않는다.
+- Q: 교육 기간과 집체/OJT 비율을 어떻게 잡는가 — 136항목·35모듈을 며칠에 담고, 로그 실습(S8 24항목)에 몇 일을 배정하는가?
+  왜: 모듈 35개를 1일 5모듈로 돌리면 7일이지만, S8의 L3 17항목과 S7 M7.3·S9 M9.3은 1항목당 실습 시간이 모듈 하나만큼 든다. 또 Role Track을 도입하면 Operator는 S1~S5(5일), Senior는 전체(10일 이상)로 기간이 갈린다. 일정 없이 모듈을 쪼개면 교재 분량만 정해지고 운영이 안 된다. 발주자의 인력 운영 일정 결정 사항이다.
+  추천: 3단계 분할 권고 — 1차 5일(S1~S5, 전원, L1 완성 + L2 진입점), 2차 3일(S6~S7, Engineer 이상, 구조와 맵), 3차 5일(S8~S9, Senior, 로그 실습과 이중화). 각 차수 종료 시 해당 섹션만 평가하고 레벨을 누적 인증한다. 1차와 2차 사이에 현장 OJT 2주를 끼워 L1 조작을 실환경에서 굳히는 것을 전제로 둔다.
+
+## 자료 갭(data_gaps)
+- 원인 특정 이후의 복구(조치) 절차 전반 — 로그분석 자료는 '원인 특정'까지만 간다. PntOccupy 점유 고착을 어떻게 해제하는가, PlcCommLog가 WaitConnect일 때 무엇을 재시작하는가, 멈춘 Order를 어떤 순서로 푸는가가 어느 문서에도 없다. L3(a)의 '처리' 절반(S8 M8.2~M8.4)이 비어 있어 현장 엔지니어 인터뷰로 새로 작성해야 한다.
+- Rose 단독 실행 후 이중화 복귀(원복) 절차 — 단독 실행으로 내려가는 길만 11슬라이드로 있고, NIC IP 원복 → Rose 서비스 기동 → Group Bring In 역순이 전혀 없다. S9 M9.3의 절반이 공백이며 현장 사고 위험이 가장 크다.
+- RailDesignTool이 Export한 JSON을 OCS 실 시스템에 반영하는 절차와 JSON 스키마 — 어느 서버·어느 경로에 두는지, Core가 언제 읽는지, 재기동이 필요한지, 이중화 양 노드에 각각 넣어야 하는지가 전 자료에 없다. L3(c)의 후반부(S7 M7.3)가 비어 있다. 탐색기 캡처에 보이는 'MapData' 폴더의 정체도 미설명.
+- 32종 로그의 실제 저장 경로·폴더 구조·파일명 규칙·로테이션 정책 — RcpLogPath 예시(D:/Program/Log)와 D:/XComLog만 확인되고 로그 이름 ↔ 실제 파일 위치 매핑표가 없다. Core-Event / Core-TaskMgr도 '기록되는지 확인'만 지시되어 있다. S8 M8.1 실습 설계의 선행 조건.
+- 수 GB 로그 실무 취급법 — grep/PowerShell 검색 절차, 시간 범위 추출, 여러 로그 병합 타임라인 작성법이 Select-String -NotMatch '_SNMP' 한 줄뿐이다. S8 L3 실습 17항목이 전부 이 기술을 전제한다.
+- 화면별 권한 매핑표 — Guest<User<Operator<Engineer<Manager 5단계가 있다고만 하고 어느 화면이 어느 권한부터 보이는지의 표가 없다. Role Track과 계정 권한을 연동하려면 현장 실측이 필요하다(Safety ID 미로그인 시 Save 버튼이 안 보인다는 단서 1건만 확인).
+- 파라미터 기본값·권장 범위·상하한 표와 변경 적용 시점(즉시 vs 프로세스 재시작) 일괄 규칙 — 사용예시에 '80', '600', '5000' 같은 값만 산발적으로 있어 '이 값은 이 범위에서만 만져라'를 가르칠 근거가 없다. 변경 이력 추적 화면/로그도 없다(14.8 UseVehicleScreenName의 'UI를 끄고 다시 킨다' 1건만).
+- PLC 설비 알람의 한글 원인·조치 설명 — ErrTag SYSTEM 1,574행과 STATIONALARM 26행에 설명이 전무하다. ErrorDescription.xlsx의 Description은 441행(대부분 VEHICLE)에만 있고, CPS Erec_UnderVoltage·FailOver_MC_Short 같은 비트명은 전기 지식 없이 해석 불가. S8 M8.4의 설비 알람 역조회가 '번호 찾기'까지만 가능.
+- ErrTag 현행본 확정 — 260103_ErrTag_L30.xlsx(2,277행/21 ErrType)와 ErrorDescription.xlsx(2,403행/19 ErrType)가 서로 다른 개정판이고 STATIONALARM(8105~8130 vs 5000~5273)·PING(120 vs 112)·SYSTEM(1,574 vs 1,500) 대역이 불일치한다. 어느 쪽이 운영 반영본인지 자료로 판별 불가. 확정 전까지 코드 대역표를 교재로 확정할 수 없다(S2 M2.3).
+- 실화면 캡처 전 세트 — 매뉴얼과 setup 가이드(캡처 118장)가 '□ 버튼 누르면 Delete/Clear/Insert 조작화면이 나타남' 식으로 아이콘 이미지에 의존해 서술하는 곳이 많아 텍스트만으로 버튼을 특정할 수 없다. S1~S5의 L1 교재는 실화면 캡처를 새로 떠 아이콘-기능 매핑표를 만들어야 한다.
+- 대상 사이트 네트워크 구성도와 AP 배치도(위치별 채널 할당표) — CommT의 PNT 편중으로 음영 구간을 특정해도 '그 구간 담당 AP가 몇 번이고 채널이 몇인지' 찾을 표가 없다. 네트워크 자료도 2019 BOE(서브넷 255.255.254.0)와 2026 Micron(255.255.252.0)이 혼재. AP Troubleshooting Export 파일을 어떻게 읽는지도 비어 있다.
+- EQ Group / EQ Tag(SNMP·REST 감시) 화면의 입력 필드 구성 — 전부 스크린샷 이미지이고 사용자 매뉴얼 v04에 해당 절이 없는 신규 기능이라 실습 교안을 새로 만들어야 한다. ErrTag의 AP 12대·HUB 6대와 SNMP 목록의 AP 8대 불일치도 확인 필요.
+- Clean Mode의 동작 의미 — 조작 순서(Object>Vehicle Clean On/Off, CycleMove Unuse Pause/TotalCycleMove)만 있고 Clean Mode를 켰을 때 오더 할당·경로·타 차량 간섭이 어떻게 달라지는지 설명이 전무하다(S3 M3.2).
+- 정상 기준값 13항목의 사이트 환산 — 표본이 Micron AATT Taichung(차량 44대·PLC 8대) 1시간이라 타 사이트 차량 대수·레이아웃 규모에 맞춘 환산식이 없다. S8 M8.5의 이상 판정 기준이 반쪽이 된다.
+- Winlay 조작 절차 — AutoBlock 생성 주체이자 MDB 작성 도구로 반복 언급되는데 사용법 문서가 없다. RailDesignTool(LayOut Designer)과 대체 관계인지 병행인지도 불명이라 S7에 Winlay 항목을 세우지 못했다.
+- Secom 프로그램의 실체 — 로그분석 매뉴얼은 로그 생성 4주체에 Secom을 넣는데 setup 가이드·설치 기준서는 Core/MCS_IF/PlcDriver/RCPGT 4개만 말한다(document.xml 전문 검색 0건). MCS_IF와의 역할 분담 확인 전까지 S6 M6.1을 문서 근거가 있는 5요소로만 구성했다.
+- PIO(E84) 핸드셰이크 타이밍 차트와 Timeout 설정 위치 — Interlock Time Error·PIO Timeout이 계속 언급되는데 신호 타이밍 정의가 어느 문서에도 없다. 165CH와 E84 경로 다이어그램도 이미지라 미확인. S8 M8.4의 E84 알람 판독(ErrEvent 500~720)이 명명 규칙 암기 수준에 머문다.
+- 로그 ON/OFF·수집 범위를 바꾸는 파라미터 매핑표 — 어떤 파라미터가 32종 로그 중 어느 것을 켜는지의 대응표가 없다(LogTrafficData/LogRecvData/LogDebuggingData/WriteCommPacket 4개만 확인).
+- 정기 점검 주기와 체크시트 양식 — CPU/RAM/HDD와 DB 12항목을 '주기적으로'라고만 하고 일/주/월 주기와 기록 양식이 없다. S9 M9.1을 평가에 연동하려면 이번 교육에서 새로 만들어야 하는 산출물.
+- Rose 로그의 실제 경로·파일명과 Failover 판정 기준값 — 콘솔에 Log 확인 영역이 있다는 것만 있고 Heartbeat 타임아웃·복제 지연 임계값 숫자가 '3600s까지 3회' 하나뿐이다. 영문 매뉴얼 서비스명(MirrorService 등)과 현장 서비스명(RoseHAService 등)·중문 UI 대응표도 새로 만들어야 한다.
+- RCPHMI.txt 미해결 이슈 8건 중 7건의 최종 원인 — PushWeight 밀어내기 미동작, Cluster Point Insert 실패, Layout Check 9992~9999 경고, Line Out 후에도 S6F11 반복 등. L3 분석 훈련 케이스로는 가치가 높으나 정답이 없어 Case Bank에 '정답 없음 / 분석 과정 연습'으로 성격을 명시해야 한다.
