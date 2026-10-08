@@ -1,0 +1,448 @@
+
+
+
+                                                                                                 
+OCS 설치 기준서
+                                                                     
+
+
+
+
+
+
+
+
+
+
+
+SFA Engineering Corp.
+
+
+개요
+- 본 문서는 OCS설치 기준서입니다.
+- 본 문서는 OCS설치에 필요한 Program 및 목적과 방법에 대해 설명합니다.
+- OCS 설치 전 관련 위협에 대해 먼저 숙지 바랍니다. 
+- OCS 서버는 인가된 S/W만 설치하도록 합니다.
+- OCS 설치 전 본 문서를 숙지 바랍니다.
+
+
+
+
+OCS 설치 세부항목
+Access Database Engine 설치
+Administrator 계정 활성화
+MSSQL
+MSSQL Server2016 설치
+SSMS 설치 
+
+
+
+
+.Net Framework 설치 및IIS 설정
+
+
+방화벽 해제
+
+
+
+Network Setting
+
+
+
+RailDesignTool
+XcomDriver
+ Program Config 설정
+
+
+
+
+
+
+
+
+
+
+
+
+
+ MCS_IF System 등록
+
+
+
+
+
+
+MSSQL DataBase 구축
+
+
+RCP 구동 사전 테스트
+
+설치 항목 | Access Database Engine
+설치 목적 | Database 읽기/쓰기를 위한 응용프로그램 설치
+관련 위협 | 미 설치 시 Core 실행 및 MDB File불러오기 실패
+참     고 | 설치버전64bit 확인
+대     상 | AP, DB 서버
+판단 기준 | 정상 : 설치 완료
+비정상 : 설치 실패
+설치 방법 | AccessDatabaseEngine_X64.exe 실행
+
+설치 진행
+설치 정상완료 확인
+
+설치 항목 | 관리자 계정 생성 활성화 
+설치 목적 | 관리자 계정 생성
+관련 위협 | 프로그램 작동 시 관리자 권한 접근성 문제로 실행 오류 발생
+참     고 | 계정생성 후 기존 사용자 계정 삭제
+대     상 | AP, DB 서버
+판단 기준 | 정상 : 수행 완료
+비정상 : 액세스 거부
+설치 방법 | CMD(명령 프롬프트) 관리자 권한으로 실행
+명령어 : net user administrator /active:yes 실행
+
+사용자 -> 관리자 계정으로 변경
+설치 항목 | 3.2 -> 3.2.1 MSSQL SERVER2016 Standard
+설치 목적 | Database기반을 구성하기 위한 MSSQL 설치
+관련 위협 | Data Engine Service설치여부 체크 및 SQL Server Agent 실행 설정 확인, 
+미 설정시 SQL 실행 오류 발생
+참     고 | 서비스팩 확인
+대     상 | DB 서버
+판단 기준 | 정상 : 정상 설치여부 확인
+비정상 : 설치 실패
+설치 방법 | Setup.exe 실행
+
+
+‘Installation’ 클릭 후 첫 번째 항목 선택
+
+Perform a new Installation of SQL Server 2016’ 클릭 후 Next
+
+
+기능 요소 중 Database Engine Service 클릭 후 Next
+
+
+기본 설치 시 ‘Default Instance’, SQL 추가 설치 시 ‘Named Instance’ ID 설정
+
+
+
+
+SQL Server Agent ‘Automatic’ 설정 후 Next 
+
+
+
+SQL 로그인 암호 설정 및 현재 사용자 추가 후 Next 
+
+
+7-1) (옵션) server 이중화 구성 시 Data root directory 경로 변경 
+
+ 
+
+SQL Database Engine 설치 진행
+
+설치 완료 확인
+
+
+설치 항목 | SSMS(Sql Server Management Studio)
+설치 목적 | Database구성 및 관리를 위한SSMS 설치
+관련 위협 | SQL DB 구성 실패 
+참     고 | 
+대     상 | AP 서버
+판단 기준 | 정상 : SSMS 정상 설치 
+비정상 : 설치 실패
+설치 방법 | SSMS-Setup-ENU.exe 실행
+설치 경로 확인 후 ‘Install’ 클릭
+
+
+설치 정상완료 확인
+
+
+SSMS 정상 실행여부 확인
+
+
+설치 항목 | .Net Framework, 인터넷 정보 서비스, 웹관리도구
+설치 목적 | .Net 설치, IIS 활성화 
+관련 위협 | RCP UI 실행 실패 혹은 실행 오류
+참     고 | 
+대     상 | AP, DB서버
+판단 기준 | 정상 : IIS 관리자 실행, RCPGT 정상 실행
+비정상 : IIS 관리자 미 설치, RGTGT 실행 실패
+설치 방법 | 프로그램 및 기능 -> Windows 기능 켜기/끄기 클릭
+
+
+.New Framework 체크
+
+
+
+
+
+인터넷 정보 서비스, 웹 관리도구 체크
+
+
+Internet Explorer 실행 -> 주소 127.0.0.1 -> IIS 기능 활성화 여부 확인 
+ 
+
+IIS(인터넷 정보 서비스) 관리자 실행
+
+
+
+
+
+
+애플리케이션 추가 및 RCPGT 폴더 경로 설정
+
+
+Internet Explorer 실행 -> 127.0.0.1/rcpgt(어플리케이션 별칭)
+
+
+
+
+
+
+RCP UI 정상실행 확인
+
+* Database구축 전 실행 시 아래와 같이 경고 문구 표시(DB 구축 후 정상실행 재확인)
+
+
+
+설치 항목 | 네트워크 방화벽 해제
+설치 목적 | 데이터 및 통신 연결을 원활하게 하기 위한 방화벽 해제
+관련 위협 | UI 데이터 전송 실패
+참     고 | 
+대     상 | AP, DB 서버
+판단 기준 | 정상 : 타 서버, 노트북 Ping 정상
+비정상 : 타 서버, 노트북 Ping 불가
+설치 방법 | Windows 보안 -> 방화벽 및 네트워크 보호-> 방화벽 해제
+
+설치 항목 | Network Setting
+설치 목적 | LOCAL, HOST 통신 연결을 위한 IP세팅 
+관련 위협 | Vehicle, MCS 통신 실패
+참     고 | 네트워크 대역 영역 확인
+대     상 | AP, DB 서버
+판단 기준 | 정상 : LOCAL, HOST 랜 포트 연결 확인 체크
+비정상 : 랜 포트 미 연결
+설치 방법 | 네트워크 및 인터넷 -> 네트워크 연결 -> 속성
+
+해당 IP 영역에 맞게 설정
+
+
+* LOCAL : Vehicle 및 AP 영역 IP
+* HOST : MCS(상위 프로그램) IP
+설치 항목 | RailDesignTool
+설치 목적 | 맵 작업 및 업데이트를 위한 RailDesignTool 프로그램 설치
+관련 위협 | 맵 작업 및 업데이트 실패
+참     고 | Accessdatabaseengine_X84설치 필요
+대     상 | AP 서버
+판단 기준 | 정상 : 설치 완료 및 정상 실행
+비정상 : 설치 실패
+설치 방법 | Setup4RailDesignToolV1 실행
+
+2) 설치 및 업데이트 실행
+
+3) 설치 완료
+설치 항목 | XcomDriver
+설치 목적 | 상위 연결 및 MCS_IF 실행을 위한 XcomDriver 설치
+관련 위협 | 상위 통신 연결 실패
+참     고 | Xcom Pro설치
+대     상 | AP 서버
+판단 기준 | 정상 : 설치 완료
+비정상 : 설치 실패
+설치 방법 | XComProSetup.exe 실행
+
+XCom Pro 설치 진행
+
+HASP Driver 설치 진행
+* 설치 실패 및 블루 스크린 발생시 참조
+- https://blog.naver.com/safenetkr/221266159881
+
+설치 완료 확인
+
+설치 항목 | Program Config Setting
+설치 목적 | 프로그램 실행을 위한 DB IP및 SQL ID&P.W 적용
+관련 위협 | 프로그램 가동 및 DB 접근 실패
+참     고 | 
+대     상 | AP 서버
+판단 기준 | 정상 : 프로그램 정상 실행(CORE, MCS_IF, PLC_Driver, RCPGT)
+비정상 : 실행 실패
+설치 방법 | Core.exe.config 열기 -> DB IP, SQL ID&P.W 수정(CORE)
+
+*IP : 루프백 IP(127.0.0.1) 혹은 Local IP존재시 입력
+
+PlcDriver.exe.config 열기 -> DB IP, SQL ID&P.W 수정(PLC Driver)
+
+
+Config.asp열기 -> DB IP, SQL ID&P.W 수정(RCPGT)
+
+
+MCS_IF.exe.config열기 -> DB IP, SQL ID&P.W 수정(MCS_IF)
+ - HostNetworkName은 Host Network Card에 등록된 이름으로 설정(대소문자 구분)
+
+
+
+
+MCS_IF CFG HSMS IP 설정
+
+* CFG 경로 및 이름 -> MCS_IF 폴더 내 사이트명 (ex)MCS_IF\MICRON\MICRON.cfg)
+* IP : 루프백 IP(127.0.0.1) 혹은 Host,Virtual IP존재시 입력 
+* IP는 0.0.0.0을 넣어도 작동함
+
+설치 항목 | MCS cfg,sml 등록
+설치 목적 | MCS 상위 프로그램과 연결을 위한 System 등록
+관련 위협 | MCS_IF 실행 실패
+참     고 | XCOM Driver 설치 여부 확인
+대     상 | AP 서버
+판단 기준 | 정상 : 등록 완료
+비정상 : 등록 실패
+설치 방법 | MCS_IF 실행 -> XCom CfgSml Manager 클릭
+
+
+
+Name,Sys Type 설정 & cfg,sml 파일등록 후 Upload 클릭
+
+등록한 시스템 활성화 
+
+
+Select -> True로 변경여부 확인
+
+
+설치 항목 | DataBase 생성
+설치 목적 | RCP 시스템 구성을 위한 DB 구축
+관련 위협 | 프로그램 가동 실패
+참     고 | DBProcedure 최신 버전 확인
+대     상 | DB 서버
+판단 기준 | 정상 : DB 생성 성공
+비정상 : DB 생성 실패
+설치 방법 | DB_Procedure\CreateDataBaseAndTable -> ALLDB_CreateDataBase 실행
+
+
+
+MSSQL 로그인
+
+
+
+
+
+
+
+DB파일 경로 설정 후 쿼리 실행(F5)
+
+
+
+
+쿼리 실행 완료 후 DB 생성여부 확인
+
+
+
+DB_Procedure\CreateDataBaseAndTable -> ALLDB_CreateTable 실행 및 경로 설정
+
+
+* 폴더 경로 띄어쓰기, 특수문자 주의
+
+
+
+쿼리 실행 및 실행 여부 확인
+
+
+* 쿼리문 실행 실패 시 CreateTable 쿼리 각각 전부 실행 
+
+DB_PROCEDURE\ -> ALLDB_UpdateTableAndProcedure 실행 및 경로 설정
+
+
+쿼리 실행 및 실행 여부 확인
+
+* 쿼리문 실행 실패 시 UpdateTable, Update_Procedure 쿼리 각각 전부 실행
+DB구축 최종 확인
+
+설치 항목 | RCP 사전 테스트
+설치 목적 | RCP 시스템 정상 가동 확인을 위한 사전 테스트
+관련 위협 | RCP 시스템 가동 불가능
+참     고 | 프로그램 Config, MCS_IF System, XCOM Simulator 설정값 확인
+대     상 | AP, DB 서버
+판단 기준 | 정상 : 프로그램 정상 실행, DB 데이터 변경 및 상위 오더생성 성공
+비정상 : 오류 발견
+설치 방법 | 프로그램 실행 준비
+
+
+
+프로그램 실행(관리자권한으로 실행)
+Core.exe(CORE)
+PlcDriver.exe(PLC DRIVER)
+MCS_IF.exe(MCS_IF)
+
+XcomPro -> Simulator 실행
+
+
+
+MCS_IF 폴더 내 시물레이션 cfg,sml 복사 및 로그 경로 설정
+
+
+
+
+* D:\XComLog에서 VHC_SIMUL 폴더 사전 생성
+
+Simulator -> Create New Simulation File 클릭
+
+
+
+View -> Configuration 설정
+
+
+
+*Host, Active, Log Simul폴더 경로 설정
+
+Simulator -> Start XCom 클릭
+
+
+* MCS_IF-> XCOM SELECTED 변경 확인
+* CORE -> CORE RUNNING 변경 확인
+Simulator -> S1F17 클릭 -> Send 클릭
+
+
+
+* MCS_IF-> MCMD REMOTE 변경 확인
+* CORE -> MCMD REMOTE 변경 확인
+
+
+Simulator -> S2F41 클릭 -> Count:6, Value:RESUME 입력-> Send 클릭
+
+
+* MCS_IF-> TSC AUTO변경 확인
+* CORE -> TSC AUTO변경 확인
+
+
+맵업데이트 
+
+
+*System -> MapLoad 클릭-> MDB File Path, BackupPath 경로 설정-> (MDB->SQL) 클릭
+
+
+
+
+RCPGT 실행
+-Internet Explorer -> 127.0.0.1/rcpgt
+
+
+
+시물레이션 테스트를 위한 차량 등록, 스테이션 추가 및 오더그룹 등록
+- 차량 등록
+*CommGroup 등록 -> VehicleSetting 등록 -> 차량 Line In
+
+
+
+- 스테이션 추가 및 설정
+
+- 오더그룹 등록
+
+Simulation.exe 실행(Simulaton)
+
+
+
+Simulator -> 오더 생성
+
+
+* S2F49 클릭 -> 오더 정보 기입 -> Send 클릭
+
+
+
+RCP UI 화면에서 오더 생성 및 차량 반송 수행 여부 확인
+
+
+
+확인 후 마무리 

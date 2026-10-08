@@ -1,0 +1,1288 @@
+
+
+RRemote Control Processor
+User Manual
+
+
+
+
+
+
+
+
+
+
+
+Contents
+Contents	2
+1.	시스템 H/W 구성	8
+2.	시스템 S/W 구성	9
+1)	시스템 요구사항 및 설치파일	9
+2)	프로그램 구성도	9
+3.	화면 구성( 기본 구성 요소)	10
+1)	전체화면구성(기본화면)	10
+2)	화면 구성요소	11
+4.	로그인 / 아이디 등록	12
+1)	< 최초의 ID, 암호 등록 방법 >	12
+5.	View	13
+6.	System	14
+1)	Home	14
+6.1.1 <Home point 추가>	14
+6.1.2 <Home point Unuse>	16
+6.1.3 <Home point 삭제>	17
+2)	Unuse	25
+3)	Vehicle	27
+4)	Order Group	28
+5)	Comm Group	29
+6)	StationWeightGroup	30
+7)	AutoParkArea	31
+8)	Error Tag	32
+9)	PLC Tag	34
+10)	Parameter	36
+6.10.1  BlockingParam	37
+6.10.2  DatabaseParam	38
+6.10.3  HostParam	38
+6.10.4  LogParam	39
+6.10.5  MCCSParam	39
+6.10.6  OrderControlParam	40
+6.10.7  PIOParam	41
+6.10.8  PriorityParam	41
+6.12.9  SocketParam	41
+6.12.10 StationControlParam	42
+6.12.11  SystemParam	42
+6.12.12  TimeoutParam	43
+6.12.13  TrafficParam	44
+6.12.14  UIParam	45
+6.12.15  VehicleControlParam	45
+11)	Color	47
+12)	Status	48
+13)	SystemInfo	49
+7.	Object	50
+1)	Point	50
+2)	Segment	52
+3)	Vehicle	53
+7.3.1 < Commands >	53
+7.3.2 < Sub Vehicle Command >	54
+7.3.3 <기타 설명>	55
+4)	Station	56
+5)	Safety	58
+7.5.1 Safety	58
+7.5.3 Safety 이벤트 발생	60
+6)	CPS	61
+7)	MTL(MTU)	62
+8)	Ping Unit	63
+9)	PlcGroup	64
+10)	Graphic	64
+11)	PlcTagmonitor	65
+12)	PlcTagGroup	66
+8.	Transfer	67
+1)	Transfer Command	67
+8.1.1 Transfer (FROMTO)	67
+8.1.2 Transfer (From)	68
+8.1.3 Transfer (To)	69
+8.1.4 Transfer (MOVE)	70
+8.1.5 Transfer (HOME) (*1)	71
+1)	CycleMove Command	72
+9.	Report	74
+1)	Transfer History	74
+2)	Error History	75
+3)	InOut History	76
+4)	Inform History	77
+5)	Running History	78
+6)	Nack History	79
+7)	Move History	80
+8)	Blocking History	81
+9)	HandOver History	82
+10)	Comm History	83
+11)	CommErr History	84
+12)	Cassette History	85
+13)	Ping History	86
+14)	UI History	87
+15)	User History	88
+16)	CpuRamHistory	89
+17)	HsmsHistory	90
+18)	Safety History	91
+19)	FailOver History	92
+10.	Window	93
+1)	Order List	93
+2)	Alarm List	95
+3)	CycleList	96
+4)	CommEvent	97
+5)	PingList	99
+6)	Docking Setting	100
+11.	Layout	101
+1)	Run	102
+2)	Check	103
+3)	Setting	104
+12.	PlayBack	105
+1)	PlayBack Run	105
+2)	PlayBack Export	106
+13.	Help	107
+1)	Version	107
+2)	Define	108
+13.2.1 Point	108
+13.2.2 Segment	108
+13.2.3 AlarmLamp	108
+13.2.4 Charger	108
+13.2.5 CPS	108
+13.2.6 Door	108
+13.2.7 MTL	108
+13.2.8 PingUnit	109
+13.2.9 PLC Group	109
+13.2.10 Safety	110
+13.2.11 Station	111
+13.2.12 Vehicle	112
+14.	TroubleShooting	113
+1)	IIS 7.5 ASP Error	113
+2)	신뢰할 수 없음	114
+3)	응용프로그램 배포 오류	115
+4)	InteropServices.COMException (Exception from HRESULT: 0x800736B3)	116
+15.	용어 설명	117
+CIM	117
+DATABASE	117
+FDC	117
+FTP	117
+Graphic	117
+HOST	117
+IP	117
+I/O	118
+MCS	118
+MCCS	118
+MCP	118
+MCT	118
+MTL	118
+MTS	118
+NCP (CPS)	118
+PIO	118
+POINT	119
+PINGUNIT	119
+PLCGROUP	119
+SEGMENT	119
+STATION	119
+VEHICLE	119
+변경 이력
+
+시스템 H/W 구성
+
+
+시스템 S/W 구성
+시스템 요구사항 및 설치파일
+-  Windows계열(XP이상)
+-  RCPGT는 InternerExplorer에서 실행
+- .NetFrameWork 4.5.1이상 필요(NDP451-KB2858728-x86-x64-AllOS-ENU.exe)
+-  AccessDatabaseEngine필요
+  (AccessDatabaseEngine.exe, AccessDatabaseEngine_X64)
+프로그램 구성도
+
+RCP는 'CORE‘, ‘RCP GT’, ‘PLC Driver’, ‘MCS_IF’, ‘DataBase’ Program들로 구성된다. 
+RCP GT를 제외한 프로그램들은 사용자 Interface가 없고, 내부적으로 구동되고 있는 프로그램이므로 본 매뉴얼에서는 RCP GT에 대한 내용만을 다루고있다. 
+ 
+화면 구성( 기본 구성 요소)
+전체화면구성(기본화면)
+
+
+1. 사용자 정보 및 로그인
+2. 메뉴탭 : View, System, Object, Transfer, Report, Statics, Window, Layout, PlayBack, Help으로 구성되어 있다. 
+3. OrderList : Vehicle 차량의 명령 상태 확인
+4. 화면의 확대, 축소 조작 (마우스의 wheel scroll시 화면의 확대, 축소도 가능)
+5. Point, Segment, Vehicle, Station, CassetteID 찾기 : ex) Point번호나 segment 번호 입력 후 Enter, 해당 숫자의 위치가 크게 표시되며, 찾아가는 기능이 있다.
+6. 화면 layout : Point와 Segment, 차량 움직임 등을 알 수 있다.
+7. ErrorList : Vehicle 차량의 Error
+8. Core, PLC, Host : 연결된 상태인 경우 빨간 불(Core), 초록 불(Host)이 깜빡인다.
+
+화면 구성요소
+
+
+OHT : Over Head Transfer
+
+Station : OHS가 Cassette를 이재, 적재하는 위치
+
+Point : OHS가 정 위치(이동) 가능한 지점 
+(그림에서 Point ID : 1029, 정상일 경우 : 회색)
+
+Segment : point 와 point를 연결하는 선 
+(그림에서 segment ID : 144)
+
+Home Point : OHS가 작업 후 돌아가는 지점 (갈색)
+
+Unuse Point : OHS가 진입할 수 없는 지점 (황색)
+
+Station Point : 설비 포트에 해당하는 포인트 (초록색)
+로그인 / 아이디 등록
+Guest < User < Operator < Engineer < Manager 순으로 권한이 주어짐 
+(권한에 따라 선택할 수 있는 메뉴가 제한되어 있음)
+접속 후에 아무런 작업을 하지 않으면 LogoutTimeOver(시스템설정/TM메뉴) 시간 뒤에는 권한이 해제(자동 로그아웃) 된다
+< 최초의 ID, 암호 등록 방법 >
+
+
+
+
+
+
+
+화면의 상단 우측의 Login을 클릭
+[지금등록] 클릭
+ID, 이름, 암호,암호 확인에 개인정보를 등록한다.
+단, Single ID는 자동으로 생성됨
+[확인] 클릭
+View
+화면layout에 표시 하는 항목이다. 
+`메인 메뉴에서 View를 클릭하면 아래와 같은 화면이 나타난다. 
+
+
+
+
+개별적으로 SegArrow, SegmentNumber 등을  보고 싶다면          의 영역에서 해당 항목을 체크 하면 된다. 
+Layout, Object, Safety, Default, None, Total별로 화면에 표시하고 싶다면 해당 항목을 클릭하면 된다.
+
+System
+Home
+OHS Home 을 추가 / 삭제 / 수정할 수 있다.
+
+6.1.1 <Home point 추가>
+
+
+
+
+
+
+
+메인 화면에서 [System] 메뉴를 선택
+ 선택
+ 버튼 누르면 Delete, Clear, Insert 할 수 있는 조작화면이 나타남.
+OHS Home Point의 List 값을 추가 (예: Point 1094를 추가)
+[예] 클릭
+
+
+
+[확인] 클릭
+
+
+
+Layout 상에서 Point 1094이 갈색으로 변경되었다면 Home Point로 설정 된 것을 알 수 있다
+
+6.1.2 <Home point Unuse>
+생성한 Home point를 사용하지 않을 때 미사용 Home point로 설정할 수 있다.
+
+Unuse 할 포인트를 선택한다.
+Unuse 체크 박스를 클릭
+Save를 눌린다. 
+예를 눌린다.
+
+
+Layout상에서 Home point로 설정된 1094 point가 Unuse로 갈색 원으로 되었다면 Unuse가 설정이 된 것을 알 수 있다.
+
+6.1.3 <Home point 삭제>
+이전에 추가한 Home point 1094를 삭제 하고 싶다면 아래와 같은 절차를 따른다.
+
+
+삭제하고자 하는 포인트를 선택한다.
+[Delete] 클릭
+[예] 클릭
+
+[확인] 클릭.
+
+Layout 상에서 Point 1094이 회색으로 변경되었다면 Home Point가 해제된 것을 알 수 있다
+편집 후에도 리스트에 포인트 1094번이 Home Point로 설정되어 있다면 [REFRESH] 클릭을 하면 리스트에서 사라지는 것을 확인 할 수 있다. 
+
+
+
+
+Unuse
+	
+Point/Segment 진입 금지 설정 (All / 호기 別 설정)
+
+ 
+
+ 
+ 
+
+메인 메뉴 System에서  클릭. 
+All(전체 차량) / 특정호기를 선택. 
+Unuse point, segment를 선택한 후
+save클릭후, [예]클릭.
+[확인]클릭.
+그림과 같이 Point 1177, segment 202 회색에서 황색으로 변했으며 unuse된 것을 확인할 수 있다.
+
+Vehicle
+차량번호, 슬롯, 타입, COMMGROUPNUBER 설정
+
+
+
+메인 메뉴에서 System를 선택,  클릭
+버튼 누르면 Delete, Clear, Insert 할 수 있는 조작화면이 나타남
+VechicleNumber,
+SlotCount,
+VehicleType,
+CommGroup 지정 후 insert
+[예]클릭
+
+
+Order Group
+오더 할당    : 모든 OHT 차량은 자신이 속한 Group의 Station 물량만을 처리한다.  단, From, To Station 모두 Group에 속해 있어야 한다.
+
+대기(Home) : 모든 OHT는 오더 완료 후 자기가 속한 Group의 Home Point중
+        대기(Home) Point를 선택한다 (가까운 대기 Point 우선 선택)
+
+
+
+1) 메인 메뉴에서 System를 선택  클릭
+2)  버튼 누르면 Delete, Clear, Insert 할 수 있는 조작화면이 나타남
+3) Vehicle, Station, Home 추가함
+4) 필요시 Name 등록
+5) SAVE
+
+Comm Group
+Vehicle의 IP / Port / LimitTime 시간을 설정할 수 있다
+
+
+1) 메인 메뉴에서 System를 선택 클릭
+2)  버튼 누르면 Delete, Clear, Insert 할 수 있는 조작화면이 나타남
+3)  CommGroupNumber, LimitTime, IpAddress, PortNumber, ProtocolType를 입력한다.
+4)  Insert 클릭
+5)  SAVE 클릭
+
+StationWeightGroup
+해당 Station에 반송 명령이 들어오면 Segment 가중치를 부여 하여 해당 반송이 우회경로로 반송할 수 있도록 경로 설정
+메인메뉴 System 선택  클릭
+
+
+ 버튼 누르면 Delete, Clear, Insert 할 수 있는 조작화면이 나타남
+StationWeightGroup Number를 Insert 
+생성된 StationWeightGroup에 From, To Station 추가
+Segment 추가 후 Weight 값 할당
+Save 클릭
+
+AutoParkArea
+반송량 증감에 따른 Vehicle 대기 구간 설정
+메인메뉴 System 선택  클릭
+
+
+ 버튼 누르면 Delete, Clear, Insert 할 수 있는 조작화면이 나타남
+AutoParkAreaGroup 생성 후 Insert
+ParkArea Point 설정
+Sub Command
+- SelfFocus : 해당 Area로 이동
+- Vehicle : 선택한 Vehicle ParkArea Point로 이동
+- VehicleOut : ParkArea 선입차량 양산 투입
+Save 클릭
+Error Tag
+Error Tag 리스트를 추가/삭제 및 조회 할 수 있다
+
+1) 메인 메뉴에서 System를 선택  클릭
+2) [ERROR TAG] 탭 클릭
+3) Control를 클릭하면 ErrorTag를 편집할 수 있는 창이 열린다.
+4)  버튼 누르면 [기타]부분, [SAVE]클릭 할 수 있는 창이 나타난다.
+5) ErrCode, ErrType, ErrEvent, ErrLevel, ShowDelayTime, ErrText, ErrActionText 를 입력후
+[Insert] 클릭
+6) 여기까지는 한줄씩 넣는 방식이며, 엑셀로 편집하여 한꺼번에 Insert하는 방법이 있다.
+[DOWNLOAD TAG]클릭.
+
+7) 엑셀을 다른 이름으로 저장.
+8) 엑셀상에서 편집한다.
+9) [OPEN TAG]탭 클릭
+10) [OPEN TAG FILE]클릭하여 엑셀 파일을 로딩한다.
+
+
+
+
+PLC Tag
+PLC Driver 에서 사용하는 Tag 리스트를 추가/삭제 및 조회 할 수 있다.
+
+사용법은 Error Tag와 동일하므로 생략합니다.
+
+Parameter
+메인 메뉴에서 System를 선택  클릭
+Parameter 세팅이 끝나면 SAVE한다.
+
+6.10.1  BlockingParam
+6.10.2  DatabaseParam
+6.10.3  HostParam
+
+6.10.4  LogParam
+
+6.10.5  MCCSParam
+
+6.10.6  OrderControlParam
+
+6.10.7  PIOParam
+6.10.8  PriorityParam
+6.10.9  SocketParam
+
+6.10.10 StationControlParam
+
+6.10.11  SystemParam
+
+6.10.12  TimeoutParam
+
+6.10.13  TrafficParam
+
+6.10.14  UIParam
+6.10.15  VehicleControlParam
+Color
+메인 메뉴에서 System를 선택  클릭
+각 Object 의 색상을 변경 할 수 있다.
+
+
+
+색상 변경할 Object를 선택
+변경할 색상을 선택
+Save 버튼 클릭 적용 후 확인
+Status
+
+ Check 버튼 클릭
+ 현재 해당 PC 의 DataBase의 정보 확인
+ DatabaseName, 여유 공간, 설치위치, 현재상태 등 확인
+SystemInfo
+
+
+Active-Active System의 가동되고 있는 프로그램 상태를 표시
+
+Object
+메인 화면에서 [Object] 메뉴를 선택
+Point
+각 Point 별로 블로킹/Escape/Point Type 세팅 가능
+[Object]에서 를 선택
+ 
+각 Point의 정보들이 나온다.
+Unuse, Maint Point의 설정 여부 (System_Unuse 에서 설정)
+Normal, Pass, Stop , Equipment , SideBuffer ,MTLMaint ,MTLLifter 설정
+
+- Normal Point : 기본 Point
+- Pass Point: Vehicle이 정지하지 않고 지나치는 Point로 RCP는 Pass Point로 명령을 줄 수 없다
+- Stop Point : Vehicle 일단 정지하는 Point
+- Equipment : 설비가 위치한 Point
+- SideBuffer : 사이드버퍼가 위치한 Point
+- MTLMaint : Vehicle의 Hoist를 점검하는 Point 
+- MTLLifter : Vehicle을 점검하는 Point
+Auto Block, UserBlock, DisableBlock 설정
+- Auto Block : Winlay 상에서 차량 사이즈와 세그먼트 사이즈 등 고려하여 자동으로 
+만드는 Block Segment List
+- UserBlock : AutoBlock의 리스트에 사용자가 Block Segment 를 추가하고 싶을
+               때 사용
+- DisableBlock : AutoBlock의 리스트로부터 사용자가 Block Segment 를 
+제외하고 싶을 때 사용
+
+PointNumber : Point Number Search 가능
+
+Segment
+각 Segment 별로 블로킹/Add Weight 값 세팅 가능
+[Object]에서 를 선택
+
+
+각 Segment의 정보가 나온다.
+Segment의 사용여부 (System_Unuse 에서 설정)
+세그먼트에 대한 추가 가중치를 설정 할 때 사용한다.
+Auto Block, UserBlock, DisableBlock 설정
+- Auto Block : Winlay 상에서 차량 사이즈와 세그먼트 사이즈 등 고려하여 자동으로 만드는 Block Segment List
+- UserBlock : AutoBlock의 리스트에 사용자가 Block Segment 를 추가하고 싶을 때 사용
+- DisableBlock : AutoBlock의 리스트로 부터 사용자가 Block Segment 를 
+제외하고 싶을 때 사용
+
+SegmentNumber : SegmentNumber Search 가능
+Vehicle
+각 Vehicle 별로 현재 상태 값을 확인 가능
+[Object]에서  클릭 
+ 버튼 누르면 Commands, All Vehicle Command할 수 있는 조작화면이 나타남
+
+
+
+
+7.3.1 < Commands >
+대표적으로<Line In>, <LineOut>의 명령을 구체적으로 설명하며 나머지 Call, Push, Charge, Vechicle 의 명령 조작 또한 동일하므로 참고하자.
+
+Line In (차량 등록) 
+등록하고자 하는 차량 선택 (아직 등록되지 않은 차량 선택 )
+Command에서 를 클릭
+등록이 되면 등록 차량  이  에서 로 바뀐 것을 알 수 있다.
+
+Line Out (차량 삭제) 
+삭제하고자 하는 차량 선택
+Command에서 를 클릭
+삭제되면 등록차량 이  에서 로 바뀐 것을 알 수 있다.
+
+* SetFocus : 차량 선택 후 SetFocus 클릭 시 해당 호기를 확대하여 위치를 알려준다
+7.3.2 < Sub Vehicle Command >
+차량의 보조 명령어로서 분기진입이 정상적으로 되지 않을 시 Forcible Entry를 자주 사용한다. 
+
+7.3.3 <기타 설명>
+- Deleted (차량 삭제) : Line Out
+- Prevent Call : 자동 오더 할당 금지
+- Prevent Push : (다른 차에 의한) 밀어내기 당함을 금지
+- RFIDReading : 화물을 적재 후에 실 CSTID를 오더 CSTID 와 비교하고, 
+둘의 CSTID가 다른 경우 오더를 삭제함
+- CleanStatus : 차량이 이적재할 화물을 Normal/Clean/Dirty 중에 하나 지정함. 
+ex) Clean 으로 지정된 차량은 Clean한 화물만 이/적재 할 수 있다
+
+Station
+각 Station 별로 세팅 가능
+[Object]에서  클릭 
+
+
+Station을 선택하면 오른쪽에 각각의 정보가 나온다.
+Info
+- StationNumber : Station의 ID
+- PointNumber : Station의 이적재 Point
+- Unuse : Station 사용 여부
+- UseMute : LightCurtain 감지 무시 옵션 사용 여부
+- SlotCount : Station의 Slot 개수
+- OnlineName : MCS와 통신시 사용하는 ID
+- ScreenName : RCP UI 상에서 표시되는 ID
+Properties
+- StationType : Equipment, Stocker, Transfer 등 Staion의 Type 설정
+- Direction : Vehicle이 이적재 하는 방향 설정
+- WorkType : Station 이 투입, 배출, 투입배출 용인지 설정0
+4) Commands
+ - Set Focus : 각 Station 선택 후 SetFocus 선택 시 해당 Station의 위치를 확대 
+- All View : UI상에 표기된 모든 스테이션 표시
+5) Station Mode
+- InputMode : 카세트 Unload 가능 포트로 모드 변경
+- OutputMode : 카세트 Load 가능 포트로 모드 변경
+- InService : 반송 가능 포트로 상위 보고 및 사용유무 변경
+- OutService : 반송 불가 포트로 상위 보고 및 사용유무 변경
+
+Safety
+
+7.5.1 Safety
+Safety 을 설정을 해주기 위해서는 권한을 가진 ID로 로그인 해야 한다
+[Object]에서  클릭 
+
+
+설정할 Safety를 선택한다.
+해당 Safety의 Interlock 감지시 DownSegment 영역을 선택하여  버튼으로 Segment List에 추가.(Shift 버튼으로 중복선택 가능)
+-  버튼을 누른 후 Shift 버튼과 마우스 드레그로 영역설정이 가능하다.
+Info
+- SafetyNumber : Safey의 Number
+- DeviceType : Safety의 Type
+- Name : Safety의 이름으로 Safety 객체이름과 Safety map 번호를 입력한다.
+- Unuse : 해당 Safety의 사용 유무
+- SegmentAreaList : Safety에 설정되어있는 Segment List Safety 범위확인
+7.5.2 Interlock 종류
+
+7.5.3 Safety 이벤트 발생
+1) Safety 범위 내에 Vehicle들이 구동을 멈춘다
+
+- Interlock 감지 영역 내 Vehicle은 RCP Interlcok Stop Error 상태로 전환된다.
+
+2) Safety 범위 외의 Vehicle들을, 범위 내로 접근을 막는다
+
+- 인터락 감지 영역으로 Vehicle 진입 시 Vehicle은 NoWayToDest 상태로 전환되고 
+정지한다.
+- Order List 창 Step 탭에서 감지된 인터락 Number 와 Name을 확인 할 수 있다.
+CPS
+CPS 구룹화 가능
+CPS 범위 지정 가능
+[Object]에서  클릭
+Layout editor에서 object 등록하면 자동으로 추가 된다
+Segment 지정으로 CPS 해당 지역의 범위 확인 및 Error 발생시 차량의 진입 및 이동 명령을 막을 수 있다.
+CPS 구룹화를 하면 Failover 상태에서 정상적인 CPS동작 중이면 차량의 이동이 가능하며 Failover된 CPS의 Rail영역이 표기 된다.
+
+	MTL(MTU)
+MTL(MTU) 지정 세그먼트/ PIO 포인트 설정 가능
+[Object]에서   클릭 
+
+1)  Layout 에서 MTL(MTU) 객체를 만들면 MTL(MTU)에대한 설정을 할 수 있다
+2)  MTL(MTU) Zone 영역에 설정될 Segment List를   버튼으로 추가시킨다.
+3)	Info
+- MTL(MTU)Number : MTL(MTU) Number
+- SegList : MTL(MTU) Zone 영역에 설정된 Segment List
+- PIOPoint : 차량이 MTL(MTU)로 진입하기 전에 MTL(MTU)과 PIO 하는 Point
+- ScreenName : UI 화면에 표시되는 MTL(MTU) Name
+- OnlineNeme : MCS와 통신 시 사용하는 MTL(MTU) Name
+- OrderMode, Floor, Exist, TrackMode, Available : MTL(MTU) 상태 정보
+* 차량 배출 가능한 MTL(MTU) 상태(진입은 반대)
+OrderMode : Auto
+Floor : UP
+Exist : NoExist
+TrackMode : Track Out
+Available : Available
+- TrackOutVehicle : 배출 차량 호기
+- Unuse : MTL(MTU) 사용 유무
+- PointNumber : MTL(MTU) Point
+MTL(MTU) 차량 배출시  에서 차량호기 선택 후  버튼을 누른다.
+
+Ping Unit
+Ping 유지 되는지 확인 등록되어 있는 Object이외의 사물도 등록 가능
+ErrorTag 연계 사용으로 UI ErrorList 상에 에러 표기 가능
+
+사용법은 Object 혹은 Unit 등록 후 IP 적용
+
+PlcGroup
+Winlay editor의 Object 등록시 자동으로 생성 된다.
+PlcTag의 데이터를 읽어올 Ip, Port 등을 적용할 수 있다.
+
+Setting 방법
+PlcName : 표기 이름
+Pollingtime : 데이터 읽어오는 주기
+IP : 데이터 읽어올 주소
+TcpPort : 데이터 읽어올 포트 번호
+TcpPortRange : 통신 실패시 접속할 포트 번호
+VehicleNumber : FoolProof 적용시 비클번호 입력(예:VEH001)
+Graphic
+UI사용에 편의를 위해 문구를 넣을 수 있다
+Layout editor에서 추가 가능
+
+PlcTagmonitor
+UI상에서 PlcTag의 Value값을 실시간으로 확인할수 있도록 지원
+
+Setting 방법
+Name : Object 이름
+GraphicType : UI에 표기될 Type
+TagName : PlcTag에서 끌어올 타입
+TagNumber : 읽어올 PlcTagNumber
+TagProperty : 읽어올 PlcTagProperty
+
+
+PlcTagGroup
+PlcTag의 Value값을 Bit값으로 ON/OFF 묶어서 확인가능
+
+PlcTag에 등록되어 있는 항목을 추가 제거하여 변경 가능
+
+Transfer
+Transfer Command
+차량을 통해서 수동으로 카세트 이재, 적재, MOVE 명령을 수행한다.
+메인 메뉴에서 Transfer를 선택한 후,   클릭 
+
+
+8.1.1 Transfer (FROMTO)
+
+
+Auto 선택 또는 카세트가 없는 OHT를 선택하고 (이때 카세트를 들고 있는 OHT를 선택하면 안됨)
+- Vehicle Number로 검색 가능
+FROMTO 탭 클릭
+카세트를 OHT에 실을 Station(From)을 선택한 후
+카세트를 내릴 Station(To)을 선택
+카세트 ID를 입력 후에
+Send 클릭
+*  CStID 입력칸 옆 Copy Selected CassetteID 버튼을 클릭 하면, 차량이 현재 
+   들고 있는 카세트의 ID 가 자동으로 입력된다.
+8.1.2 Transfer (From)
+
+
+카세트를 실을 OHT를 선택하고
+- Vehicle Number로 검색 가능
+From 탭을 선택한 후
+카세트를 실을 Station(From)을 선택한 후
+수동으로 CassetteID 입력이 필요하다면 등록한 다음 
+Send 클릭
+
+8.1.3 Transfer (To)
+
+
+카세트를 내릴 OHT를 선택하고 
+- Vehicle Number로 검색 가능
+To 탭을 선택한 후
+카세트를 내릴 Station을 선택한 후
+수동으로 CassetteID 입력이 필요하다면 등록한 다음 
+Send 클릭
+
+8.1.4 Transfer (MOVE)
+
+
+MOVE 명령을 내릴 OHT를 선택하고
+- Vehicle Number로 검색 가능
+MOVE 탭을 선택한 후
+직접 수동으로 Move Point 위치 타이핑하거나
+Move Point를 선택하고
+Send 클릭
+
+8.1.5 Transfer (HOME) (*1)
+
+
+HOME 명령을 내릴 OHT를 선택하고
+- Vehicle Number로 검색 가능
+HOME 탭을 선택한 후
+HomePoint를 선택하고
+Send 클릭
+(*1) 참고
+HOME 명령의 경우 차량이 원하는 Home으로 이동되지 않는 경우가 있는데 이는 RCP 내부 로직에 의해서 가까운 Home으로 차량을 보내기 때문이다.
+
+
+CycleMove Command
+차량을 지정한 횟수만큼 지정된 포인트들로 이동시킨다.
+메인 메뉴에서 Transfer를 선택한 후,   클릭 
+
+
+ 버튼 누르면 CycleMove를 추가, 삭제 할 수 있는 조작화면이 나타남
+차량 추가
+Info
+- Name : CycleMove의 목적 
+          ex) 15K 구간 Glass Test
+- Unuse: Cycle 사용 여부
+- Pasue: Cycle Pasue 여부
+- TotalCycleMove: 전체 CycleMove 횟수
+차량 선택
+Move할 포인트들을 추가 
+(차량의 진행 방향을 고려해서 Unuse point, segment를 삭제 한다)
+
+Report
+Transfer History
+반송 관련 로그를 조회 할 수 있다
+메인메뉴에서 Report선택 후  를 클릭한다.
+
+날짜나 VehicleNumber등, 조회하고자 하는 조건을 선택한다.
+조건 선택 후, Search를 클릭하여 조회한다.
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+   
+Vehicle Number : 차량 별 혹은 전체 차량('ALL')의 실행 기록을 조회할 수 있다.
+Order Type : 오더의 종류에 따라 검색
+Cassette ID : Cassette ID 별로 검색
+From Station : Unload Station (Station → OHS) 
+To Station : Load Station (OHS → Station)
+Trigger : 오더를 내린 주체에 따라 검색
+CompleteType : All, Finish, Deleted, UserDelete 별로 검색
+
+Error History
+에러 관련 로그를 조회 할 수 있다
+메인메뉴에서 Report선택 후 를 클릭한다.
+
+ 
+날짜 및 조회하고자 하는 조건을 선택한다.
+조건 선택 후, Search를 클릭하여 조회한다.
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+
+KeepUp Time : 알람 발생부터 종료 누적시간 별 검색
+Vehicle Number : 차량 별 혹은 전체 차량('ALL')의 알람 기록을 조회할 수 있다
+Cassette ID : Cassette ID 별로 검색
+ErrorCode : ErrorCode 별로 검색
+Error CodeRange : ErrorCode의 범위로 검색
+ErrorLevel: 경알람 / 중알람 별로 검색 조건을 설정
+Station: 특정 Station ID 별로 검색
+StationRange: Station 구간 및 동일 Station별로 검색
+ex) FSTK or BSTK Stations으로 범위 한정 가능
+
+InOut History
+Vehicle의 Line In/Out 및 Call Enable/Disable 로그 조회 할 수 있다
+
+메인메뉴에서 Report 선택 후 를 클릭한다
+
+
+날짜 및 VehicleNumber를 선택한다
+조건 선택 후, Search를 클릭하여 조회한다
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+
+User : Line In/Out 및 Call Enable/Disable 사용자 ID
+TotalCount : 특정 Vehicle의 In/Out 과 Call Enable/Disable 전체 Count
+
+Inform History
+ 다른 사용자에게 필요한 전달 사항을 남기는 Log
+
+메인메뉴에서 Report선택 후 를 클릭한다.
+
+
+날짜 및 시간 선택 후, Search를 클릭하여 조회한다.
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+
+전달 할 Message 입력 후 INSERT 버튼 클릭
+날짜 및 시간 입력 후 SEARCH 버튼 클릭
+Message 확인 및 CONFIRM 체크
+
+Running History
+각 OHT별로 현재까지 운행시간과 운행 거리를 알 수 있다
+메인메뉴에서 Report선택 후 를 클릭한다.
+
+날짜 및 VehicleNumber를 선택한다.
+조건 선택 후, Search를 클릭하여 조회한다.
+조회된 DATA를 엑셀로 저정하려면 SAVE버튼 클릭
+
+ VehicleNumber : 차량 별 혹은 전체 차량('ALL')의 실행 기록을 조회할 수 있다.
+
+Nack History
+상위(MCS) 명령에 대해서 거부한 Order 와 거부한 이유를 조회 할 수 있다.
+메인메뉴에서 Report선택 후 를 클릭한다.
+
+날짜 및 Cassette ID를 입력한다.
+조건 선택 후, Search를 클릭하여 조회한다.
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+
+ CassetteID : Cassette ID 별로 Nack Log 검색
+ NackCode : NackCode 별로 Nack Log 검색
+
+
+Move History
+차량, 포인트, 세그먼트별로 차량움직임을 조회 할 수 있다.
+메인메뉴에서 Report선택 후 를 클릭한다.
+
+날짜나 VehicleNumber등, 조회하고자 하는 조건을 선택한다.
+조건 선택 후, Search를 클릭하여 조회한다.
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+
+ VehicleNumber : 차량 별 혹은 전체 차량('ALL')의 실행 기록을 조회할 수 있다
+ PointNumber : 차량이 해당 Point로 이동 이력 검색
+ SegmentNumber : 차량이 해당 Segment로 이동 이력 검색
+
+Blocking History
+차량이 블로킹 당했을 경우 History를  조회 할 수 있다.
+메인메뉴에서 Report선택 후 를 클릭한다.
+
+날짜나 VehicleNumber등, 조회하고자 하는 조건을 선택한다.
+조건 선택 후, Search를 클릭하여 조회한다.
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+
+ VehicleNumber : 차량 별 혹은 전체 차량(‘ALL’)의 실행 기록을 조회 할 수 있다.
+ PointNumber : 차량이 해당 Point에서 Blocking 당한 이력 검색
+ SegmentNumber : 차량이 해당 Segment에서 Blocking 당한 이력 검색
+ CommandID : Command ID 별로 검색
+
+HandOver History
+명령이 재할당한 경우를 검색할 수 있다.
+메인메뉴에서 Report선택 후 를 클릭한다.
+
+날짜나 VehicleNumber등, 조회하고자 하는 조건을 선택한다.
+조건 선택 후, Search를 클릭하여 조회한다.
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+
+ VehicleNumber : 차량 별 혹은 전체 차량('ALL')의 실행 기록을 조회할 수 있다
+ CommandID : Command ID 별로 검색
+ CassetteID : Cassette ID 별로 검색
+
+Comm History
+Vehicle 과 RCP 간 통신 이력을 조회 할 수 있다.
+메인메뉴에서 Report선택 후 를 클릭한다.
+
+날짜나 VehicleNumber등, 조회하고자 하는 조건을 선택한다.
+조건 선택 후, Search를 클릭하여 조회한다.
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+
+차량 별 혹은 전체 차량('ALL')의 실행 기록을 조회할 수 있다
+
+CommErr History
+차량별로 통신장애 경우를 조회 할 수 있다.
+메인메뉴에서 Report선택 후 를 클릭한다. 
+
+
+날짜나 VehicleNumber등, 조회하고자 하는 조건을 선택한다.
+조건 선택 후, Search를 클릭하여 조회한다.
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+
+ VehicleNumber : 차량 별 혹은 전체 차량('ALL')의 실행 기록을 조회할 수 있다
+ PointNumber : 해당 Point 에서 CommError 발생한 경우를 검색할 수 있다.
+ SegmentNumber :해당 Segment 에서 CommError 발생한 경우를 검색할 수 있다.
+
+
+
+Cassette History
+카세트ID별로 현재 위치, 반송완료 시간 등을 조회 할 수 있다.
+메인메뉴에서 Report선택 후 를 클릭한다. 
+
+날짜나 Cassette ID, 조회하고자 하는 조건을 선택한다.
+조건 선택 후, Search를 클릭하여 조회한다.
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+
+ CassetteID : Cassette ID 별로 검색
+ Location : Cassette가 Install/Remove 된 Station
+
+
+Ping History
+Ping Unit 의 Ping Test 의 기록을 조회 할 수 있다.
+메인메뉴에서 Report선택 후 를 클릭한다. 
+
+날짜나 IP Address, 조회하고자 하는 조건을 선택한다.
+조건 선택 후, Search를 클릭하여 조회한다.
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+
+IP Adress : 추가된 Ping Unit 의 IP Adress를 입력 한다.
+특정 IP Adress를 넣지 않고 검색 할 시 Ping Unit의 Ping Test 결과를 모두 검색
+UI History
+사용자가 UI에서 값을 변경한 경우 History를  조회 할 수 있다.
+메인메뉴에서 Report선택 후 를 클릭한다. 
+
+날짜나 MessageName, 조회하고자 하는 조건을 선택한다.
+조건 선택 후, Search를 클릭하여 조회한다.
+
+
+MessageName : Message 별로 검색 가능
+MessageName 을 넣지 않고 검색 할 시 모두 검색
+
+User History
+사용자가 로그인/로그아웃 했을 때 남는 기록을 조회 할 수 있다.
+메인메뉴에서 Report선택 후 를 클릭한다. 
+
+날짜나 User ID로 조회하고자 하는 조건을 선택한다.
+조건 선택 후, Search를 클릭하여 조회한다.
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+
+
+CpuRamHistory
+5초간격으로 CPU및 Memory의 부하율을 기록하는 로그
+메인메뉴에서 Report선택 후 를 클릭한다. 
+
+날짜 및 시간 선택
+Search를 클릭하여 조회한다
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+
+
+HsmsHistory
+상위(MCS)와 주고받은 XcomLog를 조회 할 수 있다.
+메인메뉴에서 Report선택 후 를 클릭한다. 
+
+날짜나 MessageName, 조회하고자 하는 조건을 선택한다.
+조건 선택 후, Search를 클릭하여 조회한다.
+
+
+Search Word : Command ID, Cassette ID, Vehicle Number 별로 검색
+Stream : 포괄적인 동작 방식, 비슷한 기능을 하거나 서로 관련되는 메시지 범주
+Function : STREAM내에서의 세부적인 동작 방식, 1차 전송 메시지의 Function 번호는 항상 홀수 번호이고, 이에 대한 응답인 2차 메시지의 Function은 1이 더해진 짝수 번호가 된다.
+MessageName : Message 별로 검색
+Include MonitorEvent : Monitored  Vehicle Event 만 검색
+InCludeEventReportAck : Event Report에 해당하는 응답 만 검색
+
+Safety History
+Safety의 Log 조회 할 수 있다
+
+메인메뉴에서 Report 선택 후 를 클릭한다
+
+
+
+날짜나 Safety Number 조회하고자 하는 조건을 선택한다
+조건 선택 후, Search를 클릭하여 조회한다
+검색 된 Safety 영역을 표시 할 수 있다
+조회된 DATA를 엑셀로 저장하려면 SAVE버튼 클릭
+
+ Safety Number : Object의 Safety에 등록 된 Safety Number이다.
+
+FailOver History
+FailOver가 실행된 이력을 확인 할 수 있다.
+메인메뉴에서 Report선택 후  클릭한다. 
+
+원하는 날자 및 시간 입력 
+Search 클릭 후 조회
+
+DATETIME : FailOver가 실행된 시간
+MODULE : 가동 서버
+COMMENT : FailOver 내용
+
+Window
+Order List
+Vehicle 차량의 명령 상태 확인 할 수 있다.
+메인 메뉴에서 Window를 선택한 후, 클릭 
+
+
+① Command ID : Host로부터 수신 했거나 RCP가 자체적으로 생성한 Order 구분 ID  
+                      : 자체 생성한 ID Format - "MNL" + 생성 시간
+ Vehicle ID : 실행 중인 OHT 차량번호
+③ Carrier ID  : 화물 ID
+④ Origin Type : 최초 오더 종류
+   - From : Station으로 이동 후 Unload(Station → OHT) 작업
+   - To : Station으로 이동 후 Load(OHT → Station) 작업
+   - Move : Point로 단순 이동
+   - Go Home : Home(대기 포인트)으로 이동
+   - From To : Unload / Load 작업을 순차적으로 실행 (다음 page)
+⑤ Type : 현재 오더의 종류
+⑥ Step : 오더 실행 단계.   
+   - '대기 중' : 실행 전 상태.
+   - ‘주행 중' : 목표 지점으로 이동 중인 상태.
+   - '블로킹 정지' : 다른 차량에 의해 가로 막힌 상태.
+   - '완료 중' : 이 적재 작업 중 상태.
+   - ‘경로 탐색 중’ : 목표 지점까지의 경로를 검색 중인 상태.
+⑦ Priority : 우선순위 (숫자가 높을 수록 우선적인 Order이다)
+ From/To/From To : Unload → Load Station 또는 목적지 Point
+ Status : 에러 메시지, 수동 운전 여부, 블러킹  OHT호기 등 표시.
+⑩ Trig Time : 오더가 최초에 생성된 시간.
+⑪ Duration : 오더가 경과된 시간.
+⑫ Command Button
+- 'Delete' : 선택된 Order 삭제.
+- 'Pause' : 선택된 오더가 진행 중인 경우 진행 중지. Queuing상태의 오더는 OHT할당 금지.
+- 'Resume' : 선택된 Order 중지 해제.
+- ‘Hand Over' : 선택된 Order 재할당.
+- ‘DestUpdate’ : 선택된 Order의 목적지 변경. 
+
+Alarm List
+Error 발생시 자동으로 창이 생성되며 Error가 없을 시 자동으로 창이 사라진다. 
+메인 메뉴에서 Window를 선택한 후, 클릭 
+
+
+Number : Error 발생한 Vehicle Number
+Name : Vehicle Name
+OnTime : Error 발생한 시간
+ERRCODE : RCP 상 Error Code
+Type : Error 발생 주체
+EVENT : 차량에서 RCP로 보내는 Error Code Number
+ERRTEXT : 발생한 Error 내용
+ELAPSEDTIME : 해당 Error 가 발생해서 유지된 시간
+FOCUS : FOCUS 클릭 시 해당 Error 발생 호기를 확대하여 위치를 알려준다. 
+CycleList
+메인 메뉴에서 Transfer > cycleMove에서 설정한 내용 
+즉, Cycle move point, Totalcount, currentcount를 한눈에 알 수 있다.
+
+
+
+CommEvent
+각 Vehicle 별 통신상태 및 이동 정보 확인 가능. 
+메인메뉴에서 Window를 선택 후 를 클릭 한다.
+
+
+1) Number : Vehicle Number
+2) Regtime : 시간 정보
+3) Message
+                   ① ② ③ 
+
+CurrentBarCode : 현재 Point 
+NextBarCode : 다음 Point
+RouteChangeBarcode : 경로 변경 가능한 분기 Point
+TargetBarcode : 최종 목적지
+SEG : 현재 Segment
+Mode : Auto / Manual
+Status : 현재 Vehicle 상태
+Error : Error Code Number
+Distance : Vehicle이 이동한 거리
+Speed : 차량 속도
+N : NextCmd : 다음 Command
+NP : NextBarCode : 다음 Point
+SP : SlopePauseBarcode : Slope 구간 차량 주행 완료 까지 대기하는 포인트 ( Slope 구간에는 1대의 Vehicle만 주행 가능 )
+RACK : Cassette 유무
+B : BSt : Vehicle Bit 상태 값
+M : ModuleStatus : 청소모듈관련정보
+PingList
+ 각 PingUnit 별 통신상태 및 정보 확인 가능
+ 메인 메뉴에서 Window를 선택 후 를 클릭 한다.
+
+
+
+Number : Ping Unit Number
+Name : Ping Unit 에 설정된 Name
+IP : Ping Unit 에 설정된 IP Address
+Type : Ping Unit Type
+USE : 사용 유무
+INTERVAL : Ping테스트 주기
+SENDBYTE : Ping테스트 시 전송할 byte크기
+RECVTIMEOUT : Ping테스트 응답 제한시간에 걸리는 시간
+CURERRORCOUNT : Ping 테스트 시 현재 에러 카운트
+SETERRORCOUNT : Ping 테스트 에러를 발생시키는 에러 횟수 기준값
+REPLYTIMELIMIT : 에러로 기록을 남기는 응답시간 최대치
+UPDATETIME : 갱신된 시간
+ Docking Setting
+각 서브창 별로 Docking상태나 초기 창 사이즈 여부를 설정
+메인메뉴에서 Window를 선택 후 를 클릭 한다.
+
+
+
+Layout
+Layout 탭에서 직접 Safety, Object, Graphic 등을 추가하여 바로 적용 할 수 있다.
+Layout 기능을 사용하려면 먼저 Winlay로 작성한 MDB 파일을 Core에서 불러와야 한다.
+ 
+
+Layout 탭의 MapLad를 클릭하면 다음과 같은 창이 나온다.
+‘…’버튼을 눌려서 불러올 MDB파일을 선택하고 BackupPath도 마찬가지로 지정한다.
+MDB  -> UPDATE 버튼으로 맵을 적용한다.
+
+
+Run
+메인메뉴에서 Layout선택 후 를 클릭 한다.
+
+
+좌측 정렬, 우측정렬, 상하 정렬 기능으로 Object등을 일정하게 정렬할 때 사용
+LEFT, TOP : 좌표 값 
+WIDTH, HEIGHT : 크기,  
+ANGLE : Object의 방향 
+APPLY : 적용
+UPDATE : Object 변경사항 Layout 적용,
+Delete : Object 삭제 기능으로 여러 Object ,Safety를 같은 크기 및 방향을 
+       설정할 때 주로 사용 
+Object 및 Safety, Graphic 등을 마우스 드레그를 이용하여 화면에 적용시킨다.
+Object 적용 후 마우스로 위치, 크기 조정 및 정렬한다.
+Object 의 위치변경 등 변경사항을 나타내고, 2번의 Update 버튼으로 적용한다.
+마우스 우 클릭 시 나타나는 메뉴로서, Layout, Object, Safety등을 각각 선택해서 UI에 보여 주거나, Select 기능으로 한꺼번에 여러 Object를 선택 할 수 있어 동일 한 크기를 맞추기 위해 사용할 수 있다.
+Check
+잘못 설정된 Layout을 Check해주는 기능 
+메인메뉴에서 Layout선택 후  를 클릭 한다
+
+Setting
+UI 상의 Layout 크기 설정
+메인메뉴에서 Layout선택 후  를 클릭 한다.
+
+CoordScale : 
+BaseVehicleScale : Vehicle 크기 조절
+PointScale : Point 크기조절
+PointNumberScale : Point Number 크기조절
+SegmentThickness : Segment Number 크기조절
+StationScreenNameScale : StationScreenName 크기조절
+
+PlayBack
+PlayBack Run
+Time, PlaySpeed 등을 조절하여 이전에 일어난 상황을 확인해 볼 수 있다.
+메뉴에서 PlayBack 을 선택 후 을 클릭한다.
+
+
+
+배속조절 
+플레이
+일시정지
+재연할 이전 시간 설정
+Start 버튼
+경과시간
+스크롤 바를 클릭 후 이동 시 시간을 조절 할 수 있다.
+4번 시간설정 칸에서 재연할 시간을 선택
+시간 선택 후 5번 Start 버튼을 먼저 누른 뒤 Play버튼을 눌러야 실행이 된다
+다른 시간으로 변경은 3번 일시정지 버튼을 누른 뒤 5번 Start 버튼을 누른다
+배속을 늘리고 싶다면 1번 배속 증가를 누르고, 감소는 반대로 아래 버튼을 누른다. 배속은 16배속 까지 가능 하다
+더 빠른 시간 이동을 위해선, 마우스로 스크롤 바를 클릭한 뒤 이동 하면 더 빠른 이동이 가능 하다.
+PlayBack Export
+
+PlayBack데이터를 30분단위로 파일로 저장하는 기능
+메뉴에서 PlayBack 을 선택 후 을 클릭한다.
+
+
+       
+
+Export하고 싶은 시간을 선택한다.(선택한 시간부터 30분 분량이 추출된다)
+
+Export를 누르면 메인 서버의 하드에 저장이 된다.(경로는 Parameter에서 설정)
+
+
+Help
+Version
+Core, Plc Driver, MCS_IF, DB, RCPGT의 버전 정보를 나타냄
+메인메뉴에서 Layout선택 후  를 클릭 한다
+ 
+
+ NAME : 각 프로그램의 이름
+ VERSION : 현재 각 프로그램의 버전 
+ HISTORY : Show 버튼 클릭 시 버전 별 업데이트 내역이 나타남
+
+Define
+RCP GT 화면에 객체들의 상태를 표시
+Point
+
+Segment
+
+AlarmLamp
+
+Charger
+
+CPS
+
+Door
+
+MTL
+
+PingUnit
+
+PLC Group
+
+
+Safety
+
+Station
+
+Vehicle
+
+
+TroubleShooting
+IIS 7.5 ASP Error
+
+
+
+
+신뢰할 수 없음
+
+사용자가 필요한 권한을 응용 프로그램에 부여하기를 거부했습니다.
+
+
+도구-인터넷옵션-보안-신뢰할 수 있는 사이트-추가
+
+응용프로그램 배포 오류
+
+동일한 ID를 가진 응용 프로그램이 이미 설치되어 있으므로 이 응용 프로그램을 설치할 수 없습니다. 이 응용 프로그램을 설치하려면 이 응용 프로그램의 매니페스트 버전을 수정하거나 기존 응용 프로그램을 제거하십시오.
+
+Solution#1(SDK Tool을 가진경우)
+C:\Program Files (x86)\Microsoft SDKs\Windows\mage -cc
+
+Solution#2
+rundll32 c:\windows\system32\dfshim.dll CleanOnlineAppCache
+
+
+InteropServices.COMException (Exception from HRESULT: 0x800736B3)
+
+최초에 UI프로그램이 잘못 설치 되었을 때 발생한다.
+
+ 윈도우즈탐색기 -> 도구메뉴 -> 폴더옵션 -> 보기탭 -> 숨김파일 및 폴더표시 항목 체크 -> 확인
+c:\Users\윈도우로그인계정명\AppData\Local\Apps(\2.0) 
+모든 파일을 삭제하고 다시 접속한다.
+
+용어 설명
+CIM
+Computer Integrated Manufacturing의 약어로 컴퓨터에 의한 통합적 
+생산시스템을 뜻한다. 즉 컴퓨터를 이용, 기술개발·설계·생산·판매에 
+이르기까지 하나의 통합된 체제를 구축하는 것
+
+DATABASE
+자료 기지 또는 자료틀, 보통 DB라고 약칭한다. 동시에 복수의 적용 
+업무를 지원할 수 있도록 복수 이용자의 요구에 호응해서 데이터를 
+받아들이고 저장, 공급하기 위해 일정한 구조에 따라서 편성된 
+데이터의 집합
+
+FDC
+Fault Detection & Classification의 약어로 장비를 운영함에 있어서 
+여러 문제점 및 특이 현상이 발생할 수 있고 
+이런 문제를 최소화 하기 위하여 여러 문제점을 Data 관점에서 해석하여 
+문제의 원인을 탐색하고 해당 원인이 나타날 조짐이 보일 때 미리 
+알려 주는 시스템.
+
+FTP
+File Transfer Protocol 의 약어로 인터넷을 통해 한 컴퓨터에서 다른 
+컴퓨터로 파일을 전송할 수 있도록 하는 방법과, 그런 프로그램을 모두 
+일컫는 말.
+
+Graphic
+UI FontColor 및 Background 색상 설정 기능
+
+HOST
+인터넷 네트워크에 접속되어 다른 인터넷 호스트와 통신 할 수 있는 
+컴퓨터를 말한다. 호스트는 패킷의 원천이기도 하고 목적지이기도 하다.
+호스트는 클라이언트이기도 하고 서버이기도 하다. 인터넷 네트워크에서
+호스트는 인터넷 이름과 인터넷 주소에 의해 식별된다.
+
+IP
+Internet Protocol의 약어로 인터넷상의 한 컴퓨터에서 다른 컴퓨터로 데이터를 보내는 데 사용되는 프로토콜.
+
+I/O
+Input / Output의 약어로 입출력 장치의 의미.
+
+MCS
+Material Control System의 약어로 최적경로를 선정하여 최단시간 내에 
+카세트를 목적지까지 반송하는 물류제어시스템
+
+MCCS
+Mantech Continuous Cluster Server의 약어로 Windows, Linux 환경에서 시스템 장애 및 서비스 장애 발생시 빠른 서비스 전이를 통해 연속적인 비즈니스 환경을 제공하는 고 가용성 이중화 솔루션 입니다
+MCCS 는 시스템 정전 및 어플리케이션 무응답, DISK I/O 등에 대한 실시간 감지를 제공하며, 자동화된 빠른 서비스 전이를 제공합니다
+
+MCP
+Main Control Panel의 약어로 INTERLOCK을 관장하며 PLC DRIVER와 통신.
+
+MCT
+Multi-Cell-Transfer의 약어로 이재기 통칭함
+
+MTL
+Maintenance Lifter 의 약어로 차량 유지보수를 위한 Lifter를 의미
+
+MTU
+Maintenance Unit = MTL 과 같은 의미
+
+MTS
+Maintenance Station의 약어로 차량 유지보수를 위한 Station을 의미
+
+NCP (CPS)
+비 접촉 차량 전력 공급 장치
+
+PIO
+Program Input / Output의 약어로 프로그램 내부 입출력을 의미.
+
+POINT
+OHS, OHT, AGV등 현재 위치 및 목적지를 표시 하기 위해 사용되는 Barcode
+단 MCT, PNP는 Teaching값 설정하여 정위치Sensor로 Point위치를 파악한다.
+
+PINGUNIT
+네트워크 상태를 확인하려는 대상(Target)을 설정하여 대상 네트워크의 연결상태를 
+확인하는 기능이다
+
+PLCGROUP
+ PLC정보를 받아오기 위한 Unit으로 IP, TCPPORT등을 설정하여 사용한다.
+
+SEGMENT
+Point와 Point를 잇는 연결선이며 Vehicle 방향성 및 주행 시간을 가지고 있다.
+STATION
+물류를 이재 또는 적재하는 곳으로 설비 종류에 따라 역할이 나누어진다
+
+VEHICLE
+물류 운송수단으로 OHS, OHT, AGV등을 통칭하여 Vehicle이라 한다.
