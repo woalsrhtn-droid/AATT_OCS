@@ -4,7 +4,7 @@
 
 Dear All,
 
-Please find attached the rough first draft of the training plan for MMP.
+Please find attached the rough first draft of the RCP Project Setup & Maintenance Training plan (19–30 Oct), which I will deliver as trainer.
 
 **1. RCP Project Setup & Maintenance Training (19–30 Oct)**
 
@@ -13,14 +13,12 @@ Please find attached the rough first draft of the training plan for MMP.
 - Two assessments: Day 5 (L1 practical + L2 written/oral) and Day 10 (L3 practical cases + oral). A scorecard per trainee and a summary for management will follow.
 - Pass criteria and target level per trainee are proposed in the document and are open for discussion.
 
-**2. OHT Operation & Maintenance Training (2–30 Nov)**
-
-- I have added a proposed 4-week outline (vehicle structure and safety → operation → maintenance → practical and assessment) so that the two trainings connect. Thines and Gun Ho, please adjust and fill in the details.
-
-**3. Requests to MMP before 19 Oct**
+**2. Requests to MMP before 19 Oct**
 
 - A training server or VM with OCS and the simulator, RailDesignTool on two PCs, access to a Rose test pair (or a read-only window on the live pair), and sample log sets from the site.
-- Three site-specific confirmations listed in section 4.2 of the document (MCS_IF window, MapLoad file type, AltTransfer screen).
+- Three site-specific confirmations listed in section 3.2 of the document (MCS_IF window, MapLoad file type, AltTransfer screen).
+
+For the OHT Operation & Maintenance Training in November, I will join as a trainee and support Thines and Gun Ho as needed.
 
 Any change or addition can be adjusted after your review.
 

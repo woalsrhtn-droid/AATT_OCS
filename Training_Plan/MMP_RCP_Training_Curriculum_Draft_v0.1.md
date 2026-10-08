@@ -1,30 +1,30 @@
-# MMP Training Plan — Rough First Draft v0.1
+# MMP RCP Project Setup & Maintenance Training — Plan (Rough First Draft v0.1)
 
 **Site:** MMP, Penang, Malaysia  
 **Period:** 12 Oct – 30 Nov 2026 (Jaemin, Gun Ho on site)  
-**Prepared by:** Jaemin (Trainer, Training 1)  
+**Prepared by:** Jaemin (Trainer)  
 **Date:** 9 Oct 2026  
 **Status:** Rough first draft for review. Dates, modules, and assessment criteria are open to change.
 
-This document covers:
+This document covers the RCP Project Setup & Maintenance Training (19–30 Oct) only. The OHT Operation & Maintenance Training (2–30 Nov) will be planned separately by its trainers.
 
-1. Training 1 — RCP Project Setup & Maintenance (19–30 Oct), detailed draft
-2. Training 2 — OHT Operation & Maintenance (2–30 Nov), proposed outline for the trainers (Thines, Gun Ho) to complete
-3. Assessment / evaluation plan
-4. Prerequisites and open items that need MMP confirmation
+1. Training schedule and curriculum
+2. Assessment / evaluation plan
+3. Prerequisites and open items that need MMP confirmation
 
 ---
 
-## 1. Training 1 — RCP Project Setup & Maintenance
+## 1. Training schedule and curriculum
 
 | Item | Detail |
 |---|---|
+| Training | RCP Project Setup & Maintenance Training |
 | Dates | Mon 19 Oct – Fri 30 Oct 2026 (10 working days) |
 | Hours | 09:00–17:00 (lecture AM, hands-on PM; adjustable to site shift pattern) |
 | Trainer | Jaemin |
 | Trainees | MMP CS Team (Areez, Farizal, Thines), CMO Darwin, Gun Ho |
 | Scope | RCP/OCS (OHT Control System) server: installation and setup, screen operation, system structure, map editing, log analysis, Rose MirrorHA, RailDesignTool layout update, periodic inspection and network |
-| Base material | OCS training item list v0.3 — 210 competency items in 3 levels across 7 goals (see §3.1). Each item is one assessable competency ("the trainee can …"). |
+| Base material | OCS training item list v0.3 — 210 competency items in 3 levels across 7 goals (see §1.1). Each item is one assessable competency ("the trainee can …"). |
 
 ### 1.1 Curriculum structure
 
@@ -70,46 +70,25 @@ Three competency levels. Each level has a single measuring question.
 | 7 | Tue 27 Oct | M7-II Resource / FailOver / exception; Order, Host, dispatch, route, blocking logs | M7-III Host SECS logs; PLC and equipment logs. Case studies | M7 |
 | 8 | Wed 28 Oct | M7-IV Parameter tuning and operational settings | M8 Rose MirrorHA (hands-on on test pair if available) | M7, M8 |
 | 9 | Thu 29 Oct | M9 RailDesignTool layout update (hands-on on test server) | M10 Periodic inspection and network | M9, M10 |
-| 10 | Fri 30 Oct | **Assessment 2** — L3 practical cases (log analysis, Rose operation, map update) + oral | Results review, individual feedback, wrap-up; OJT follow-up plan for November | A2 |
+| 10 | Fri 30 Oct | **Assessment 2** — L3 practical cases (log analysis, Rose operation, map update) + oral | Results review, individual feedback, wrap-up; OJT follow-up plan for November (trainer stays on site until end of Nov) | A2 |
 
 Notes
 
-- Hands-on sessions need a training server (or VM) with OCS and the simulator. See §4.
+- Hands-on sessions need a training server (or VM) with OCS and the simulator. See §3.1.
 - Days 6–8 are the heaviest. If the group is slower than expected, M10 (Day 9 PM) can be shortened or moved to OJT in November.
 - A 30-minute daily recap and Q&A is included at the start of each day.
 
 ---
 
-## 2. Training 2 — OHT Operation & Maintenance (proposed outline)
+## 2. Assessment / evaluation plan
 
-| Item | Detail |
-|---|---|
-| Dates | Mon 2 Nov – Mon 30 Nov 2026 (approx. 20 working days; please check Deepavali replacement holiday on Mon 9 Nov) |
-| Trainers | Thines, Gun Ho |
-| Trainees | MMP CS Team (all), Jaemin |
-
-The detailed curriculum is for the trainers to complete. Proposed 4-week structure, so that the two trainings connect (OCS side first, then vehicle side):
-
-| Week | Dates | Theme | Suggested subjects |
-|---|---|---|---|
-| 1 | 2–6 Nov | OHT vehicle structure and safety | Vehicle units (drive, hoist, lateral, gripper, sensors, controller/PLC), safety devices and interlocks, LOTO and work rules on the rail, OHT protocol link to OCS (STATUS, CMD) |
-| 2 | 9–13 Nov | Operation | Daily start/stop, manual operation and teaching pendant, Line In/Out and clean mode from OCS, CPS/MTL handling, vehicle error reset and recovery on the rail, clean vehicle procedure |
-| 3 | 16–20 Nov | Maintenance | PM schedule and checklist, consumables and spare parts, alignment and sensor adjustment, typical failures by unit and troubleshooting flow, vehicle log reading (vehicle-side) with OCS log cross-check |
-| 4 | 23–30 Nov | Practical and assessment | Supervised PM on a real vehicle, troubleshooting drills, written + practical assessment, wrap-up |
-
-Material candidates already available: Clean Vehicle Manual, OHT Protocol specification, SFA VHC Basic / Message / Scenario specifications.
-
----
-
-## 3. Assessment / evaluation plan
-
-### 3.1 Principle
+### 2.1 Principle
 
 - One item = one assessable competency. Each item states what the trainee "can do" and is scored pass / fail.
 - Levels are cumulative: L2 requires L1, L3 requires L2.
 - Each of the 7 goals is evaluated separately, so a trainee's result is a profile (e.g. L3 on log analysis, L2 on Rose) rather than one number.
 
-### 3.2 Format
+### 2.2 Format
 
 | Level | Method | When |
 |---|---|---|
@@ -117,7 +96,7 @@ Material candidates already available: Clean Vehicle Manual, OHT Protocol specif
 | L2 | Written test (structure, codes, parameters) + oral Q&A ("Symptom X — where do you go first?") | Day 5 PM; re-test on Day 10 if needed |
 | L3 | Practical cases: a log set to analyse and report; a Rose operation on the test pair; a map update on the test server | Day 10 AM |
 
-### 3.3 Pass criteria (proposal, to be confirmed)
+### 2.3 Pass criteria (proposal, to be confirmed)
 
 | Level | Proposed pass line |
 |---|---|
@@ -125,7 +104,7 @@ Material candidates already available: Clean Vehicle Manual, OHT Protocol specif
 | L2 | ≥ 70 % of items passed, each of L2-a / L2-b / L2-c separately |
 | L3 | ≥ 70 % of items passed, each of L3-a / L3-b / L3-c separately |
 
-### 3.4 Target level by trainee (proposal, to be confirmed)
+### 2.4 Target level by trainee (proposal, to be confirmed)
 
 | Trainee | Target |
 |---|---|
@@ -133,17 +112,17 @@ Material candidates already available: Clean Vehicle Manual, OHT Protocol specif
 | CMO Darwin | L1 + L2 (L3 optional) |
 | Gun Ho | L3 on all 7 goals |
 
-### 3.5 Output
+### 2.5 Output
 
 - Scorecard per trainee: items passed per goal, level achieved, items to re-train.
 - Summary sheet for management, shared after Day 10 and again after the November OJT period.
-- Items that cannot be assessed yet because no written procedure exists (see §4.3) are listed separately, not counted as fails.
+- Items that cannot be assessed yet because no written procedure exists (see §3.3) are listed separately, not counted as fails.
 
 ---
 
-## 4. Prerequisites and open items
+## 3. Prerequisites and open items
 
-### 4.1 Environment requested from MMP
+### 3.1 Environment requested from MMP
 
 - A training server or VM with OCS installed, plus XCom Simulator and Simulation.exe, so trainees can start OCS and run orders without MCS or real vehicles.
 - RailDesignTool installed on at least two PCs.
@@ -152,7 +131,7 @@ Material candidates already available: Clean Vehicle Manual, OHT Protocol specif
 - Read-only access to the live OCS UI for the L1 screen practice.
 - Training room with projector; network access for the trainer laptop.
 
-### 4.2 Site-specific points to confirm (affect item content)
+### 3.2 Site-specific points to confirm (affect item content)
 
 | # | Question | Items affected |
 |---|---|---|
@@ -160,7 +139,7 @@ Material candidates already available: Clean Vehicle Manual, OHT Protocol specif
 | B | In Layout > MapLoad, is the file selected an MDB or the RDT JSON export? | L3c-07, L3c-08 |
 | C | Does the MMP OCS have the System > AltTransfer screen? | L2b-31 |
 
-### 4.3 Procedures that do not exist in writing yet
+### 3.3 Procedures that do not exist in writing yet
 
 These cannot be assessed until a procedure is written. Proposed: write them during the training with the MMP team, as part of the hands-on sessions.
 
@@ -168,13 +147,13 @@ These cannot be assessed until a procedure is written. Proposed: write them duri
 - Rollback after a map update (BackupPath is documented, restore is not).
 - Actions after root cause is found in logs: releasing a stuck merge occupancy, restart target when PlcCommLog shows WaitConnect, sequence for clearing a stuck Order.
 
-### 4.4 Material language
+### 3.4 Material language
 
 Source manuals are in Korean and Chinese. Training slides and the assessment sheets will be prepared in English. Full manual translation is not planned for this round; the item list (210 items) will be translated.
 
 ---
 
-## 5. Change log
+## 4. Change log
 
 | Version | Date | Change |
 |---|---|---|
