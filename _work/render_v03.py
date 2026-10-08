@@ -14,8 +14,12 @@ SHOW = OrderedDict([('자료없음', '자료없음'), ('자료충돌', '충돌')
                     ('근거약함', '근거약'), ('추정해석', '추정')])
 
 
+def esc(s):
+    return (s or '').replace('<', '\\<').replace('*', '\\*')
+
+
 def cell(s):
-    return (s or '').replace('|', '\\|').replace('\n', ' ').strip()
+    return esc(s).replace('|', '\\|').replace('\n', ' ').strip()
 
 
 def tags(it):
@@ -67,7 +71,7 @@ L.append('### 표시')
 L.append('')
 L.append('| 표시 | 의미 | 항목 수 |')
 L.append('|---|---|---:|')
-desc = {'자료없음': '근거 자료가 없음 — 절차서를 새로 만들어야 평가 가능', '자료충돌': '두 자료가 서로 다른 값·순서를 제시', '병기': '에러코드 대역을 ErrTag_L30 / ErrorDescription 두 판으로 병기 (부록 A)',
+desc = {'자료없음': '근거 자료가 없음 — 절차서를 새로 만들어야 평가 가능', '자료충돌': '두 자료가 서로 다른 값·순서·화면 유무를 제시', '병기': '에러코드 대역을 ErrTag_L30 / ErrorDescription 두 판으로 병기 (부록 A)',
         '버전차이': '사용자 매뉴얼 판본 외의 버전 차이 — Rose 서비스명, 프로토콜 개정, 로그 형식, .NET, 장비 구성 등',
         '근거약함': '자료가 스크린샷뿐이거나 초안 수준', '추정해석': '원자료가 "추정"으로 표기했거나 1개 사이트 표본 기반'}
 for f, s in SHOW.items():
@@ -87,7 +91,7 @@ def ids_with(pred):
     return ', '.join(i['id'] for i in items if pred(i))
 
 
-L.append("| 1 | 기준 매뉴얼 | **사용자 매뉴얼 3판 모두** (v04 / 중문통합 / MXA — 사실상 동일) | 판본 차이 표시를 지움. 사용자 매뉴얼에 있는 화면(Statistics, System>Cluster, Vehicle IO Tag, AltTransfer, Window>TerminalMsg)은 현장에 있다고 보고 그대로 유지 |")
+L.append("| 1 | 기준 매뉴얼 | **사용자 매뉴얼 3판 모두** (v04 / 중문통합 / MXA — 사실상 동일) | 판본 차이 표시를 지움. 사용자 매뉴얼에 있는 화면(Statistics, System>Cluster, System>Vehicle IO Tag, Window>TerminalMsg)은 현장에 있다고 보고 그대로 유지. 사용자 매뉴얼에 없는 화면(MCS_IF, AltTransfer)은 아래 A·C로 확인 |")
 L.append("| 2 | 맵 도구 | **RailDesignTool** | LayOut Designer 절차는 뺐거나 삭제(L3c-06) |")
 L.append(f"| 3 | 에러코드 기준 | **두 판 병기** (`260103_ErrTag_L30.xlsx` / `ErrorDescription.xlsx`) | 대역 충돌만 걸려 있던 {fl['병기']}건은 `충돌` → `병기`. 대조표는 부록 A |")
 L.append(f"| 4 | 프로그램 기동 순서 | **Core만 먼저**, PlcDriver·MCS_IF 순서는 무관 | {ids_with(lambda i: i['id'] in ('L2b-04', 'L3b-12'))} 본문·채점 기준 수정 |")
@@ -98,16 +102,17 @@ L.append('## 새로 확인이 필요한 것')
 L.append('')
 L.append('| # | 질문 | 왜 생겼나 | 걸린 항목 |')
 L.append('|---|---|---|---|')
-L.append(f"| A | 현장 MCS_IF에 화면(창)이 있습니까? | MCS_IF 화면(View 탭 XcomCfgSmlFileManager, 상단 점등, MCS System Msg, MCMD 점등)은 사용자 매뉴얼에 없고 setup 가이드·설치 기준서에만 있음. MXA본은 MCS_IF를 'UI 없이 내부 구동'으로 적음 | {ids_with(lambda i: i['id'] in ('L1-50', 'L1-51'))} |")
+L.append(f"| A | 현장 MCS_IF에 화면(창)이 있습니까? | MCS_IF 화면(View 탭 XcomCfgSmlFileManager, 상단 점등, MCS System Msg, MCMD 점등)은 사용자 매뉴얼에 없고 setup 가이드·설치 기준서에만 있음. MXA본은 MCS_IF를 '사용자 Interface가 없고, 내부적으로 구동'으로 적음 | {ids_with(lambda i: i['id'] in ('L1-50', 'L1-51', 'L2b-01', 'L2b-06', 'L2b-20', 'L2c-19'))} |")
 L.append("| B | MapLoad에서 고르는 파일은 MDB입니까, RDT JSON입니까? | 매뉴얼 원문은 MDB 선택으로 적고 RDT 산출물은 JSON. 실습 전에 확인하면 되고 항목 구성에는 영향 없음 | L3c-07, L3c-08 |")
+L.append("| C | 현장에 System>AltTransfer 화면이 있습니까? | 사용자 매뉴얼 3판에는 화면 장이 없고(v04·MXA는 HandleAltTransferOrder 파라미터뿐) setup 가이드 5.10에만 있음 | L2b-31 (L1-11 주의 문구도 참조) |")
 L.append('')
 L.append('### 자료가 없어서 지금은 평가할 수 없는 것')
 L.append('')
-L.append('항목은 세워 두었지만 근거 문서가 없어 정답을 정할 수 없습니다. 교육 전에 절차서를 새로 써야 합니다.')
+L.append('근거 문서가 없어 정답을 정할 수 없는 부분입니다. 교육 전에 절차서를 새로 써야 합니다. `자료없음` 표시는 항목 전체가 평가 불가인 L3b-13에만 붙였고, 나머지는 항목은 평가하되 해당 부분만 뺍니다.')
 L.append('')
 L.append(f"- **Rose 단독 실행 후 이중화 복귀** ({ids_with(lambda i: i['old_id'] == 'L3b-14')}) — 내려가는 절차만 있고 원복 절차가 어느 자료에도 없음")
-L.append(f"- **맵 반영 후 롤백** (L3c-07, L3c-09) — BackupPath 지정까지만 있고 백업에서 되돌리는 절차가 없음")
-L.append(f"- **로그로 원인 특정 이후의 조치 일부** (L3-a) — 합류부 점유 고착 해제, PlcCommLog WaitConnect 때 재시작 대상, 멈춘 Order 해소 순서")
+L.append(f"- **맵 반영 후 롤백** (L3c-07, L3c-09) — 항목은 평가하되 롤백 부분만 제외. BackupPath 지정까지만 있고 백업에서 되돌리는 절차가 없음")
+L.append(f"- **로그로 원인 특정 이후의 조치 일부** (L3a-06, L3a-15, L3a-27) — 합류부 점유 고착 해제, PlcCommLog WaitConnect 때 재시작 대상, 멈춘 Order 해소 순서")
 L.append('')
 L.append('### v0.1에서 제가 판단해서 바꾼 것 (유지)')
 L.append('')
@@ -151,6 +156,9 @@ for t, rows in tabs.items():
     label = {'메인화면': '메인 화면 (메뉴 밖 공통 영역)', 'MCS_IF': 'MCS_IF 프로그램 화면 (OCS 메뉴 밖)'}.get(t, f'{t} 탭')
     L.append(f'### {label}')
     L.append('')
+    if t == 'MCS_IF':
+        L.append('> 현장 MCS_IF 화면 유무 확인 필요 — 위 \'새로 확인이 필요한 것\' A. 확인 전까지 두 항목은 `충돌`로 둡니다.')
+        L.append('')
     L += table(rows, COLS_L1)
     L.append('')
 
@@ -226,7 +234,7 @@ for t in order:
     diff = '같음' if same else ('ErrTag에만 있음' if not b else ('ErrorDescription에만 있음' if not a else '**다름**'))
     L.append(f"| {t} | {rng(a)} | {rng(b)} | {diff} |")
 L.append('')
-L.append('ErrorDescription에만 `Description`(원인 설명) 컬럼이 있습니다. ErrTag에만 있는 코드(SYSTEMALARM, SAFETY, PING·PLCCOMM·SYSTEM의 늘어난 번호)는 설명이 없습니다.')
+L.append('ErrorDescription에만 `Description`(원인 설명) 컬럼이 있습니다. ErrTag에만 있는 코드(SYSTEMALARM 8071~8104, STATIONALARM 8105~8130, SAFETY 9000~9003, SYSTEM 4501~4574·PING 7113~7120·PLCCOMM 7506~7507의 늘어난 번호)는 설명이 없습니다. STATIONALARM은 두 판의 대역이 겹치지 않습니다(ErrorDescription 5000~5273은 ErrTag에 없음).')
 L.append('')
 
 L.append('## 부록 B — 삭제한 항목')
@@ -243,22 +251,22 @@ open(LIST, 'w', encoding='utf-8').write('\n'.join(L))
 
 # ---------------- 상세 ----------------
 D = [f'# OCS 교육 항목 — 상세 {V}', '',
-     f'> [{LIST}]({LIST})의 항목별 교육 내용 전문, 근거 문서, 주의사항입니다. 기준 매뉴얼은 MXA본, 맵 도구는 RailDesignTool입니다.', '']
+     f'> [{LIST}]({LIST})의 항목별 교육 내용 전문, 근거 문서, 주의사항입니다. 기준 매뉴얼은 사용자 매뉴얼 3판(v04 / 중문통합 / MXA), 맵 도구는 RailDesignTool(RDT 맵은 Winlay 맵과 같은 절차로 OCS Layout>MapLoad에서 반영)입니다.', '']
 for k, (code, name, q) in B.items():
     D.append(f'## {code} {name}')
     D.append('')
     for it in byb[k]:
-        D.append(f"### {it['id']} {it['title']}")
+        D.append(f"### {it['id']} {esc(it['title'])}")
         D.append('')
         D.append(f"- **레벨**: {it['level']}  ·  **교육 방식**: {it.get('teach_mode') or '-'}" + (f"  ·  **탭**: {it['menu_tab']}" if it.get('menu_tab') else ''))
-        D.append(f"- **화면·도구**: {it['screen_or_tool']}")
-        D.append(f"- **교육 내용**: {it['content']}")
-        D.append(f"- **할 수 있어야 하는 것**: {it['objective']}")
-        D.append(f"- **근거**: {'; '.join(it.get('sources') or []) or '-'}")
+        D.append(f"- **화면·도구**: {esc(it['screen_or_tool'])}")
+        D.append(f"- **교육 내용**: {esc(it['content'])}")
+        D.append(f"- **할 수 있어야 하는 것**: {esc(it['objective'])}")
+        D.append(f"- **근거**: {esc('; '.join(it.get('sources') or [])).replace('_', chr(92) + '_') or '-'}")
         if it.get('flags'):
             D.append(f"- **표시**: {', '.join(it['flags'])}")
         if it.get('flag_note'):
-            D.append(f"- **주의**: {it['flag_note']}")
+            D.append(f"- **주의**: {esc(it['flag_note'])}")
         D.append('')
 open(DETAIL, 'w', encoding='utf-8').write('\n'.join(D))
 

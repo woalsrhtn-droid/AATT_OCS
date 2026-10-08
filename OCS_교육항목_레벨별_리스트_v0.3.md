@@ -24,7 +24,7 @@ LCS 체계가 105항목이었으니 약 2배입니다. Manual 폴더 8개 문서
 | 표시 | 의미 | 항목 수 |
 |---|---|---:|
 | `자료없음` | 근거 자료가 없음 — 절차서를 새로 만들어야 평가 가능 | 1 |
-| `충돌` | 두 자료가 서로 다른 값·순서를 제시 | 38 |
+| `충돌` | 두 자료가 서로 다른 값·순서·화면 유무를 제시 | 41 |
 | `병기` | 에러코드 대역을 ErrTag_L30 / ErrorDescription 두 판으로 병기 (부록 A) | 11 |
 | `버전` | 사용자 매뉴얼 판본 외의 버전 차이 — Rose 서비스명, 프로토콜 개정, 로그 형식, .NET, 장비 구성 등 | 10 |
 | `근거약` | 자료가 스크린샷뿐이거나 초안 수준 | 40 |
@@ -36,7 +36,7 @@ LCS 체계가 105항목이었으니 약 2배입니다. Manual 폴더 8개 문서
 
 | # | 질문 | 결정 | 반영 내용 |
 |---|---|---|---|
-| 1 | 기준 매뉴얼 | **사용자 매뉴얼 3판 모두** (v04 / 중문통합 / MXA — 사실상 동일) | 판본 차이 표시를 지움. 사용자 매뉴얼에 있는 화면(Statistics, System>Cluster, Vehicle IO Tag, AltTransfer, Window>TerminalMsg)은 현장에 있다고 보고 그대로 유지 |
+| 1 | 기준 매뉴얼 | **사용자 매뉴얼 3판 모두** (v04 / 중문통합 / MXA — 사실상 동일) | 판본 차이 표시를 지움. 사용자 매뉴얼에 있는 화면(Statistics, System>Cluster, System>Vehicle IO Tag, Window>TerminalMsg)은 현장에 있다고 보고 그대로 유지. 사용자 매뉴얼에 없는 화면(MCS_IF, AltTransfer)은 아래 A·C로 확인 |
 | 2 | 맵 도구 | **RailDesignTool** | LayOut Designer 절차는 뺐거나 삭제(L3c-06) |
 | 3 | 에러코드 기준 | **두 판 병기** (`260103_ErrTag_L30.xlsx` / `ErrorDescription.xlsx`) | 대역 충돌만 걸려 있던 11건은 `충돌` → `병기`. 대조표는 부록 A |
 | 4 | 프로그램 기동 순서 | **Core만 먼저**, PlcDriver·MCS_IF 순서는 무관 | L2b-04, L3b-12 본문·채점 기준 수정 |
@@ -47,16 +47,17 @@ LCS 체계가 105항목이었으니 약 2배입니다. Manual 폴더 8개 문서
 
 | # | 질문 | 왜 생겼나 | 걸린 항목 |
 |---|---|---|---|
-| A | 현장 MCS_IF에 화면(창)이 있습니까? | MCS_IF 화면(View 탭 XcomCfgSmlFileManager, 상단 점등, MCS System Msg, MCMD 점등)은 사용자 매뉴얼에 없고 setup 가이드·설치 기준서에만 있음. MXA본은 MCS_IF를 'UI 없이 내부 구동'으로 적음 | L1-50, L1-51 |
+| A | 현장 MCS_IF에 화면(창)이 있습니까? | MCS_IF 화면(View 탭 XcomCfgSmlFileManager, 상단 점등, MCS System Msg, MCMD 점등)은 사용자 매뉴얼에 없고 setup 가이드·설치 기준서에만 있음. MXA본은 MCS_IF를 '사용자 Interface가 없고, 내부적으로 구동'으로 적음 | L1-50, L1-51, L2b-01, L2b-06, L2b-20, L2c-19 |
 | B | MapLoad에서 고르는 파일은 MDB입니까, RDT JSON입니까? | 매뉴얼 원문은 MDB 선택으로 적고 RDT 산출물은 JSON. 실습 전에 확인하면 되고 항목 구성에는 영향 없음 | L3c-07, L3c-08 |
+| C | 현장에 System>AltTransfer 화면이 있습니까? | 사용자 매뉴얼 3판에는 화면 장이 없고(v04·MXA는 HandleAltTransferOrder 파라미터뿐) setup 가이드 5.10에만 있음 | L2b-31 (L1-11 주의 문구도 참조) |
 
 ### 자료가 없어서 지금은 평가할 수 없는 것
 
-항목은 세워 두었지만 근거 문서가 없어 정답을 정할 수 없습니다. 교육 전에 절차서를 새로 써야 합니다.
+근거 문서가 없어 정답을 정할 수 없는 부분입니다. 교육 전에 절차서를 새로 써야 합니다. `자료없음` 표시는 항목 전체가 평가 불가인 L3b-13에만 붙였고, 나머지는 항목은 평가하되 해당 부분만 뺍니다.
 
 - **Rose 단독 실행 후 이중화 복귀** (L3b-13) — 내려가는 절차만 있고 원복 절차가 어느 자료에도 없음
-- **맵 반영 후 롤백** (L3c-07, L3c-09) — BackupPath 지정까지만 있고 백업에서 되돌리는 절차가 없음
-- **로그로 원인 특정 이후의 조치 일부** (L3-a) — 합류부 점유 고착 해제, PlcCommLog WaitConnect 때 재시작 대상, 멈춘 Order 해소 순서
+- **맵 반영 후 롤백** (L3c-07, L3c-09) — 항목은 평가하되 롤백 부분만 제외. BackupPath 지정까지만 있고 백업에서 되돌리는 절차가 없음
+- **로그로 원인 특정 이후의 조치 일부** (L3a-06, L3a-15, L3a-27) — 합류부 점유 고착 해제, PlcCommLog WaitConnect 때 재시작 대상, 멈춘 Order 해소 순서
 
 ### v0.1에서 제가 판단해서 바꾼 것 (유지)
 
@@ -179,6 +180,8 @@ LCS 체계가 105항목이었으니 약 2배입니다. Manual 폴더 8개 문서
 
 ### MCS_IF 프로그램 화면 (OCS 메뉴 밖)
 
+> 현장 MCS_IF 화면 유무 확인 필요 — 위 '새로 확인이 필요한 것' A. 확인 전까지 두 항목은 `충돌`로 둡니다.
+
 | ID | 항목 | 할 수 있어야 하는 것 | 주의 |
 |---|---|---|---|
 | L1-50 | MCS_IF Cfg/SML 등록 확인 | 교육 서버에서 cfg/sml을 등록해 Select=True로 만들고 Xcom Config Info·Xcom SML File로 적용 여부를 확인할 수 있다. | `충돌` |
@@ -199,7 +202,7 @@ LCS 체계가 105항목이었으니 약 2배입니다. Manual 폴더 8개 문서
 | L2a-01 | RDT 화면·경로 구성 | RDT를 실행해 버전과 기본 데이터 경로를 확인하고, 지정된 Point·Segment ID를 Navigation 트리에서 찾아 Select and Zoom으로 화면에 띄울 수 있다. | RailDesignTool 2 — 메인 창 / Save Path Configuration / Navigation 트리 |  |
 | L2a-02 | RDT 사이트 신규 생성 | 배경 CAD 파일과 차량 제원을 지정해 RDT에 새 사이트·도면을 만들고, Finish Configuration 요약이 입력값과 맞는지 대조할 수 있다. | RailDesignTool 2 — File > New > Layout Configuration / Vehicle(s) Configuration / Finish Configuration |  |
 | L2a-03 | RDT 열기·저장·개정 | 수정 전에 Save As로 사본을 만들고, 수정 후에는 Details를 기록해 Save한 다음, Open 창의 Revision History에서 원하는 개정판을 찾아 다시 열 수 있다. | RailDesignTool 2 — File > Open / File > Save / Save As / 사이트 우클릭 > Import Json File | `근거약` `추정` |
-| L2a-04 | 세그먼트 작도 | 지정된 차량·작도 종류·템플릿으로 직선과 곡선 세그먼트를 이어 그리고, 작도를 정상적으로 끝맺을 수 있다. | RailDesignTool 2 — Edit 리본(선택 그룹), Edit > Object > Segment / LayOut Designer |  |
+| L2a-04 | 세그먼트 작도 | 지정된 차량·작도 종류·템플릿으로 직선과 곡선 세그먼트를 이어 그리고, 작도를 정상적으로 끝맺을 수 있다. | RailDesignTool 2 — Edit 리본(선택 그룹), Edit > Object > Segment |  |
 | L2a-05 | 객체 선택·편집·일괄이동 | 여러 포인트를 선택해 좌표를 일괄 정렬하고, 잘못된 편집을 Undo로 되돌리며, 조회만 할 때는 Lock을 걸어 맵을 보호할 수 있다. | RailDesignTool 2 — 디자인 작업 창 / Navigation 팝업 / 일괄 작업 창(Point Editing, Label Editing, Move the entire layout) | `추정` |
 | L2a-06 | Point·Segment 속성 | Point Attributes의 Incoming/Outgoing으로 분기·합류 지점을 판별하고, Segment Attributes에서 Start/End Point·템플릿·Length·Travel Time을 읽고 좌표·각도를 고칠 수 있다. | RailDesignTool 2 — Point Attributes / Segment Attributes(General, Segment Parts) |  |
 | L2a-07 | 템플릿·방향·궤도 표시 | 작도한 구간에 진행 방향과 차량 궤도를 표시해 템플릿의 Forward Direction과 실제 진행 방향이 일치하는지 확인할 수 있다. | RailDesignTool 2 — Segment Template Attributes / Tool > Direction / Tool > Swept / 디자인 창 우클릭 |  |
@@ -225,8 +228,8 @@ LCS 체계가 105항목이었으니 약 2배입니다. Manual 폴더 8개 문서
 | L2b-02 | RCPGT 웹 UI 구조 | RCP UI가 IIS 위 웹앱이라는 구조를 설명하고, 'UI가 안 열린다/다른 PC에서만 안 열린다' 현상에서 IIS 찾아보기로 1차 확인한 뒤 IIS 기능 누락·응용 프로그램 등록·URL/도메인·App 2.0·Config.asp DB IP 중 확인 지점과 점검 순서를 지목할 수 있다. | IIS 관리자 > Default Web Site > 응용 프로그램 추가 / 127.0.0.1/rcpgt / Config.asp |  |
 | L2b-03 | Config 파일과 폴더·DB 배치 | 프로세스별 config 파일 이름과 위치를 짚고, 'Core(또는 PlcDriver·MCS_IF)가 기동 직후 죽는다' 현상에서 해당 config의 DB IP/ID/PW 불일치를 1순위 확인 지점으로 지목할 수 있다. 서버 폴더·DB 7종의 배치도 설명할 수 있다. | Core.exe.config / PlcDriver.exe.config / MCS_IF.exe.config / Config.asp, SSMS(DB 목록), 탐색기 D:\Program | `추정` |
 | L2b-04 | 기동 순서와 Core 상태 전이 | Core를 먼저 띄우는 규칙대로 기동을 재현하고, Core가 WARMINGUP에 머무는 상황에서 10.1~10.4 중 어느 조건이 전이를 막고 있는지, Unknown Vehicle Position 알람이 왜 떴는지를 파라미터 관계로 설명할 수 있다. | Core.exe / PlcDriver.exe / MCS_IF.exe, CORE WARMINGUP·RUNNING 상태 표시, System>Parameter>SystemParam 10.1~10.4, ErrorList |  |
-| L2b-05 | MCS_IF cfg 경로·HSMS IP | 낯선 사이트에서 MCS_IF cfg 파일을 경로 규칙으로 찾아내고, 드라이버 HSMS IP(0.0.0.0/VIP)와 config의 DB 접속 IP를 구분해 각각 어떤 연결을 좌우하는지 설명할 수 있다. | MCS_IF\<사이트명>\<사이트명>.cfg, MCS_IF.exe.config |  |
-| L2b-06 | XCom CfgSml·HostNetworkName | MCS_IF가 안 올라오거나 상위 연결이 안 될 때 확인할 구성 지점 3개(XCom CfgSml Manager의 Select=True, HostNetworkName 대소문자 일치, XCOM Driver 설치)를 지목하고 각각이 왜 연결을 막는지 설명할 수 있다. | MCS_IF > XCom CfgSml Manager (Name / Sys Type / Upload / Select), MCS_IF.exe.config (HostNetworkName), 네트워크 연결(Host NIC 이름) |  |
+| L2b-05 | MCS_IF cfg 경로·HSMS IP | 낯선 사이트에서 MCS_IF cfg 파일을 경로 규칙으로 찾아내고, 드라이버 HSMS IP(0.0.0.0/VIP)와 config의 DB 접속 IP를 구분해 각각 어떤 연결을 좌우하는지 설명할 수 있다. | MCS_IF\\<사이트명>\\<사이트명>.cfg, MCS_IF.exe.config |  |
+| L2b-06 | XCom CfgSml·HostNetworkName | MCS_IF가 안 올라오거나 상위 연결이 안 될 때 확인할 구성 지점 3개(XCom CfgSml Manager의 Select=True, HostNetworkName 대소문자 일치, XCOM Driver 설치)를 지목하고 각각이 왜 연결을 막는지 설명할 수 있다. | MCS_IF > XCom CfgSml Manager (Name / Sys Type / Upload / Select), MCS_IF.exe.config (HostNetworkName), 네트워크 연결(Host NIC 이름) | `충돌` |
 | L2b-07 | 서버·네트워크 망 구성 | AP/DB 서버별 설치 대상, LOCAL/HOST/Mirror/HeartBit 랜포트 용도, Rose 3망과 LocalVIP/HostVIP의 관계를 구성도로 그리고, '차량 통신만 안 됨 / 상위만 안 됨' 현상이 어느 망·포트에 해당하는지 짚을 수 있다. | 네트워크 연결 > 속성, 서버 관리자 > 로컬 서버(NIC), RoseMirrorHA 구성도 |  |
 | L2b-08 | Rose 리소스·Group·서비스 | Rose 리소스 5종과 Virtual IP 4요소의 역할을 설명하고, 절체 단위가 Group이라는 점과 매뉴얼명↔현장 서비스명 대응을 짚으며, 운영 서비스 장애가 Failover로 이어지는 조건(3600s 내 3회)을 설명할 수 있다. | RoseMirrorHA 콘솔 Resources(Virtual IP/Data/NT Service/File Shared/Agent), services.msc | `충돌` `버전` |
 | L2b-09 | MCCSParam FailOver 요청 체계 | MCCSParam 4개 항목과 FailOver 트리거 3조건을 설명하고, '서버 자원 과부하나 상위 단절이 왜 절체로 이어졌는가'를 SystemParam 경고 Level3·HostDisconnectTimeout과 연결해 설명할 수 있다. | System > Parameter > MCCSParam (UseFailOverRequest, FailOverFilePath, FailOverFileName, HostDisconnectTimeout) | `버전` |
@@ -251,7 +254,7 @@ LCS 체계가 105항목이었으니 약 2배입니다. Manual 폴더 8개 문서
 | L2b-28 | ErrCode·ErrEvent와 알람 계통 | AlarmList의 ERRCODE와 EVENT 컬럼을 구분해 읽고, VEHICLE ErrEvent 대역으로 계통을 말하며, SYSTEM 알람에서 PlcTag 주소로 넘어가는 경로와 중/경알람 정의를 설명할 수 있다. | Window > AlarmList (ERRCODE/EVENT), Report > ErrorHistory, System > ErrorTag / PLC Tag, System > Parameter > VehicleEventParam 17.3~17.10, OrderControlParam 5.18 | `병기` `근거약` |
 | L2b-29 | Parameter 그룹 체계·기술 포맷 | 현상(예: 상위 큐 적체, 합류부 정체, PLC 끊김)을 듣고 열어야 할 Parameter 그룹을 지목하고, 파라미터 기술의 '참고' 필드에서 선행조건·0=미사용 같은 전제를 읽어낼 수 있다. | System > Parameter (Param Group / NAME / Value / SAVE), OCS Parameter 매뉴얼 | `근거약` |
 | L2b-30 | 배차·주행 거동 Parameter | Order Weight 계산식과 HandOver·합류·Home/Parking 규칙을 설명하고, PushWeight 값에 따른 밀어내기 거리 차이, EntranceLimit 체크 상태의 의미(Cluster 과차량), UseBothWay의 적용 대상을 화면 값과 연결해 설명할 수 있다. | System > Parameter (OrderControlParam 5.5~5.12, priorityParam 7.2, TimeoutParam 12.8/12.9/12.13, SocketParam 8.3, BlockingParam PushWeight, TrafficParam 13.1), System > Cluster (EntranceLimit / MaxVehicleCount / MaxVehicleReleaseCount) |  |
-| L2b-31 | AltTransfer·OrderGroup 등록 구조 | 경유지 반송 구성(Station·TransferUnit 배치)을 보고 필요한 OrderGroup·AltTransfer 등록 수를 산정하고, '특정 경로만 반송 불가' 현상에서 AltTransfer 등록 누락을 확인 지점으로 지목할 수 있다. | System > OrderGroup, System > AltTransfer | `근거약` `추정` |
+| L2b-31 | AltTransfer·OrderGroup 등록 구조 | 경유지 반송 구성(Station·TransferUnit 배치)을 보고 필요한 OrderGroup·AltTransfer 등록 수를 산정하고, '특정 경로만 반송 불가' 현상에서 AltTransfer 등록 누락을 확인 지점으로 지목할 수 있다. | System > OrderGroup, System > AltTransfer | `충돌` `근거약` `추정` |
 | L2b-32 | Station·PIO·Host 연동 규칙 | Station·Buffer·PIO·MTL 대기 규칙과 이중입고/공출고 처리 흐름, PreTransfer·PreHandOff·CarrierDestRequest 메시지 흐름을 설명하고, 각 규칙이 어느 Parameter 그룹에 있는지 지목할 수 있다. | System > Parameter (StationControlParam 9.2/9.3, TimeoutParam 12.4~12.16, PIOParam 6.6, VehicleEventParam 17.11/17.12, HostParam 2.6~2.8, OrderControlParam 5.16/5.17), Station 설정(StrParm2) |  |
 
 ### L2-c 현상별 진입 경로 (20항목)
@@ -264,7 +267,7 @@ LCS 체계가 105항목이었으니 약 2배입니다. Manual 폴더 8개 문서
 | L2c-02 | CoreForm 22종 용도 | CoreForm 로그 이름을 듣고 소속 군과 '이 로그를 여는 상황'을 말할 수 있다. 차량 문제의 1차 로그로 Comm을 지목하고, Test 로그는 운영 판단 근거에서 뺄 수 있다. | CoreForm 로그 폴더 (Comm, CommT, ..., MsgSend) | `충돌` `추정` |
 | L2c-03 | MCSIF·PLC·Secom 로그와 용량 | 상위·PLC 문제를 듣고 MCSIF_Form / PLCDRIVERFORM / Secom 중 열 로그를 지목할 수 있다. Secom 로그를 열기 전에 시각·SystemBytes를 먼저 특정하는 진입 순서를 말할 수 있다. | MCSIF_Form / PLCDRIVERFORM / Secom 로그 폴더 | `충돌` |
 | L2c-04 | 증상별 로그 진입 순서 9종 | 9개 증상 중 하나를 제시받으면 열어야 할 로그 3~4종을 순서대로 지목할 수 있다. | CoreForm / MCSIF_Form / PLCDRIVERFORM / Secom 로그 |  |
-| L2c-05 | LogParam 로그 위치·보존기간 | 조사 대상 날짜가 주어지면 LogParam에서 RcpLogPath, 기록 스위치, 해당 LogPeriod* 값을 읽어 File Log가 남아 있는 위치와 대응 Report의 조회 가능 여부를 판정할 수 있다. | System > Parameter > LogParam (RcpLogPath, LogTrafficData, LogRecvData, LogDebuggingData, LogPeriod*) |  |
+| L2c-05 | LogParam 로그 위치·보존기간 | 조사 대상 날짜가 주어지면 LogParam에서 RcpLogPath, 기록 스위치, 해당 LogPeriod\* 값을 읽어 File Log가 남아 있는 위치와 대응 Report의 조회 가능 여부를 판정할 수 있다. | System > Parameter > LogParam (RcpLogPath, LogTrafficData, LogRecvData, LogDebuggingData, LogPeriod\*) |  |
 | L2c-06 | Report 보조 이력 질문 매핑 | 운영 질문 8개를 듣고 답이 있는 Report 화면과 확인할 컬럼을 지목할 수 있다. | Report > InOutHistory / InformHistory / RunningHistory / HandOverHistory / CassetteHistory / PingHistory / UserHistory / CpuRamHistory |  |
 | L2c-07 | UIHistory로 변경자 추적 | '설정이 바뀐 뒤 문제가 생겼다'는 현상을 듣고 UIHistory에서 MessageName 검색어를 골라 변경 사용자·IP·시각을 짚어낼 수 있다. | Report > UIHistory (MessageName 검색) |  |
 | L2c-08 | MCS 명령 거부 NackHistory | MCS 명령 거부 현상에서 NackHistory를 1차 화면으로 지목하고, PostOrderAbnormal 값을 확인해 이력이 비어 있는 이유를 가를 수 있다. | Report > NackHistory / Parameter > OrderControl 5.14 PostOrderAbnormal |  |
@@ -278,8 +281,8 @@ LCS 체계가 105항목이었으니 약 2배입니다. Manual 폴더 8개 문서
 | L2c-16 | 서버 리소스 알람 진입 | 92xxx~95xxx 서버 알람을 듣고 설비가 아니라 SystemParam 임계값, CpuRamHistory, Event 로그로 가야 함을 지목할 수 있다. | System > Parameter > SystemParam / Report > CpuRamHistory / Core Event 로그 | `충돌` |
 | L2c-17 | PLCCOMM 알람→PlcGroup | PLCCOMM 알람 코드를 보고 해당 PLC(PlcGroup)를 지목하고 Object>PLC 화면과 PLC 로그 순서로 진입할 수 있다. | Window > AlarmList / Object > PLC / PlcTag·ReadWrite·PlcCommLog 로그 | `병기` |
 | L2c-18 | 알람 원인 설명 찾기 | 알람 코드를 받고 ErrorDescription.xlsx에서 Description을 찾아내며, 설명이 비어 있는 계열(SYSTEM/STATIONALARM)은 다른 자료로 넘겨야 함을 지목할 수 있다. | Window > AlarmList (ERRTEXT) / ErrorDescription.xlsx Description 컬럼 | `병기` |
-| L2c-19 | 기동 이상 단계 지목 | '자동 운전이 안 걸린다' 현상에서 4단계 상태값(XCOM SELECTED / CORE RUNNING / MCMD REMOTE / TSC AUTO) 중 멈춘 단계를 짚고, 그 단계에 맞는 로그나 화면을 지목할 수 있다. | MCS_IF / CORE 상태 표시, Core-Event·Core-TaskMgr 로그, Windows 이벤트 로그 | `근거약` |
-| L2c-20 | DB Exception 로그 진입 | DB 이상이나 업데이트 후 이상 현상에서 날짜별 Exception 폴더를 지목하고, 반출·전달(에스컬레이션) 대상을 말할 수 있다. | D:\Program\Log\Core\<날짜>\Exception (DB Exception LOG) |  |
+| L2c-19 | 기동 이상 단계 지목 | '자동 운전이 안 걸린다' 현상에서 4단계 상태값(XCOM SELECTED / CORE RUNNING / MCMD REMOTE / TSC AUTO) 중 멈춘 단계를 짚고, 그 단계에 맞는 로그나 화면을 지목할 수 있다. | MCS_IF / CORE 상태 표시, Core-Event·Core-TaskMgr 로그, Windows 이벤트 로그 | `충돌` `근거약` |
+| L2c-20 | DB Exception 로그 진입 | DB 이상이나 업데이트 후 이상 현상에서 날짜별 Exception 폴더를 지목하고, 반출·전달(에스컬레이션) 대상을 말할 수 있다. | D:\Program\Log\Core\\<날짜>\Exception (DB Exception LOG) |  |
 
 ---
 
@@ -366,9 +369,9 @@ LCS 체계가 105항목이었으니 약 2배입니다. Manual 폴더 8개 문서
 | L3c-03 | 오토블로킹 생성·Swept 검증 | Auto Blocking 창에서 Progress Unit의 의미를 말하고 값을 정해 오토블로킹 목록을 생성한 뒤, 지정된 Point/Segment의 Swept를 띄워 궤도 유형을 식별하고, 인접 궤도와의 겹침으로 블로킹 결과의 타당성을 판정할 수 있다. | RailDesignTool > 사이트 우클릭 > Auto Blocking (Progress Unit, Start Auto-Blocking List Creation, Point Swept, Segment Swept, Show All, Clear, View Logs, Export, Cancel) | `근거약` `추정` |
 | L3c-04 | 오토블로킹 계산로그 판독 | 오토블로킹 계산 로그에서 중단된 단계를 짚어내고, View Logs 결과에서 지정 세그먼트의 블로킹 대상 세그먼트를 찾아낼 수 있다. | RailDesignTool > Auto-Blocking / Export JSON File 로그 창, View Logs > 'Segment Blocking Segment' 목록 |  |
 | L3c-05 | Export JSON 산출 | 오토블로킹 계산이 완료된 맵을 Export JSON File 절차로 내보내고, 산출 파일의 경로와 생성 여부를 확인할 수 있다. | RailDesignTool > 사이트 우클릭 > Export Json File / 'Export JSON File' 창 (Json File, Search, Progress Unit, Start Auto-Blocking List Creation, Export, Cancel) | `근거약` |
-| L3c-07 | MapLoad 반영·백업 확보 | 테스트 서버에서 MDB 파일과 BackupPath를 지정해 MapLoad(MDB->SQL)를 수행하고, 반영 전 MDB 저장 날짜·파일명 확인과 반영 후 백업 폴더 생성 확인을 빠뜨리지 않으며, 복귀에 쓸 직전 MDB와 백업 위치를 지목할 수 있다. | OCS UI System -> MapLoad / Core > System 탭 > MabLoad / Layout > MapLoad (MDB File Path, BackupPath, MDB->SQL 또는 UPDATE) | `근거약` `추정` |
-| L3c-08 | MapLoad 실패 조치 | MapLoad가 실패했을 때 AccessDatabaseEngine 설치 여부·비트·Office 충돌을 점검하고, 재설치 조치를 결정·수행할 수 있다. | AccessDatabaseEngine 설치본, Core > MapLoad |  |
-| L3c-09 | 실 시스템 영향 판정 | 제시된 맵 작업 목록의 각 조작이 도구 내부에서 끝나는지 실 시스템에 영향을 주는지 판정하고, 실 반영 조작에 필요한 선행 조치를 제시할 수 있다. | RailDesignTool File > Open / Save ↔ 사이트 우클릭 > Auto Blocking, Export Json File / OCS System -> MapLoad | `추정` |
+| L3c-07 | MapLoad 반영·백업 확보 | 테스트 서버에서 Layout>MapLoad로 맵 파일과 BackupPath를 지정해 반영(UPDATE)을 수행하고, 반영 전 맵 파일 저장 날짜·파일명 확인과 반영 후 백업 폴더 생성 확인을 빠뜨리지 않으며, 복귀에 쓸 직전 맵 파일과 백업 위치를 지목할 수 있다. | OCS Layout > MapLoad (맵 파일 선택, BackupPath, UPDATE) — 다른 표기: System -> MapLoad, Core > System 탭 > MabLoad | `근거약` `추정` |
+| L3c-08 | MapLoad 실패 조치 | MapLoad가 실패했을 때 AccessDatabaseEngine 설치 여부·비트·Office 충돌을 점검하고, 재설치 조치를 결정·수행할 수 있다. | AccessDatabaseEngine 설치본, OCS Layout > MapLoad |  |
+| L3c-09 | 실 시스템 영향 판정 | 제시된 맵 작업 목록의 각 조작이 도구 내부에서 끝나는지 실 시스템에 영향을 주는지 판정하고, 실 반영 조작에 필요한 선행 조치를 제시할 수 있다. | RailDesignTool File > Open / Save ↔ 사이트 우클릭 > Auto Blocking, Export Json File / OCS Layout > MapLoad | `추정` |
 
 ---
 
@@ -436,7 +439,7 @@ LCS 체계가 105항목이었으니 약 2배입니다. Manual 폴더 8개 문서
 | JCRCOMM | 96101~96101 (1) | 96101~96101 (1) | 같음 |
 | MCSIF | 100001~100001 (1) | 100001~100001 (1) | 같음 |
 
-ErrorDescription에만 `Description`(원인 설명) 컬럼이 있습니다. ErrTag에만 있는 코드(SYSTEMALARM, SAFETY, PING·PLCCOMM·SYSTEM의 늘어난 번호)는 설명이 없습니다.
+ErrorDescription에만 `Description`(원인 설명) 컬럼이 있습니다. ErrTag에만 있는 코드(SYSTEMALARM 8071~8104, STATIONALARM 8105~8130, SAFETY 9000~9003, SYSTEM 4501~4574·PING 7113~7120·PLCCOMM 7506~7507의 늘어난 번호)는 설명이 없습니다. STATIONALARM은 두 판의 대역이 겹치지 않습니다(ErrorDescription 5000~5273은 ErrTag에 없음).
 
 ## 부록 B — 삭제한 항목
 
