@@ -8,9 +8,9 @@ Please find attached the rough first draft of the RCP Project Setup & Maintenanc
 
 **1. RCP Project Setup & Maintenance Training (19–30 Oct)**
 
-- 10 training days, 10 modules: system overview, OCS screen operation, project setup (installation), system structure and interfaces, map editing, troubleshooting entry points, log analysis, Rose MirrorHA, RailDesignTool layout update, periodic inspection and network.
-- The curriculum is built on a competency item list of 210 items in three levels (L1 screen familiarity, L2 structure and entry points, L3 hands-on resolution) across the 7 training goals. Each item is one assessable skill.
-- Two assessments: Day 5 (L1 practical + L2 written/oral) and Day 10 (L3 practical cases + oral). A scorecard per trainee and a summary for management will follow.
+- 9 training days + 1 assessment day. 9 sections: System Setup, Screen Operation, Map & Traffic Control, Vehicle Interface, Host Interface, PLC & Equipment Interface, Parameters & Operation Settings, Alarm & Troubleshooting, Redundancy & Network.
+- The curriculum is a competency item list of 91 items in three levels (L1 screen familiarity, L2 structure and entry points, L3 hands-on resolution), organised in the same Section / Module structure as the LCS Training & Competency System workbook. Each item is one assessable skill, and all items are taught within the 9 days.
+- Assessment on Day 10 (30 Oct): written + practical (screen tasks and log / Rose / map cases), scored by section with the LCS-style level bands. A scorecard per trainee and a summary for management will follow.
 - Pass criteria and target level per trainee are proposed in the document and are open for discussion.
 
 **2. Requests to MMP before 19 Oct**
